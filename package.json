@@ -23,6 +23,8 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.5.0",
+    "blacklist": "^1.1.4",
+    "object-assign": "^4.1.0",
     "bluebird": "^3.4.6",
     "body-parser": "~1.13.2",
     "bootstrap-styl": "^5.0.5",

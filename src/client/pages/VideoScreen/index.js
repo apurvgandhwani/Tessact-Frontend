@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import c from './VideoScreen.styl'
+import Player from './Player'
 
 import VideoDetails from './VideoDetails'
 
@@ -23,9 +24,9 @@ class VideoScreen extends Component {
 		return (
 			<div className={c.container}>
 				<div className='video-section'>
-					<div className='video-container'>
-						<div className='video-player'></div>
-						
+					<div >
+						{/*<div className='video-player'></div>*/}
+						<Player/>
 					</div>
 					<div className='video-title'> {name} </div>
 					<div className='process-list'>

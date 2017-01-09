@@ -7,6 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import $ from 'jquery'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import videoSrc from './CarChase.mp4';
 
 
 const styles = {
@@ -28,7 +29,7 @@ export default class Player extends Component {
     //     }.bind(this));
     // }
     componentDidMount(){
-        console.log("wow" +this.props.cards.video_url);
+        //console.log("wow" +this.props.cards.video_url);
     }
     render() {
         return (
@@ -36,8 +37,9 @@ export default class Player extends Component {
                 <div className="playerDiv">
                     <PlayerLogic
                         id="myvideo"
-                     // src="./dev/js/components/VideoPlayer/CarChase.mp4"
-                        src={this.props.cards.video_url}
+                        src={videoSrc}
+                     //   src={this.props.cards.video_url}
+                        class="video-js vjs-default-skin vjs-16-9"
                         type="video/mp4"
                         onPlay={this.handlePlay}
                     />

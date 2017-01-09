@@ -2,14 +2,14 @@ import assign from 'object-assign'
 import cx from 'classnames'
 import blacklist from 'blacklist'
 import React, {Component} from 'react'
-import {tagSelected} from '../../actions/tagSelected'
+// import {tagSelected} from '../../actions/tagSelected'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import $ from 'jquery'
 
 
 var markerJson;
-class PlayerLogic extends Component {
+export default class PlayerLogic extends Component {
     constructor() {
         super();
         this.state = {
@@ -126,22 +126,25 @@ class PlayerLogic extends Component {
             },
         }); */  //Dhoom
 
-        switch (this.props.card_Reducer.content_name) {
-            case "Fast and Furious":
-                markerJson = this.props.marker_store;
-                break;
-            case "Rustom":
-                markerJson = this.props.marker_store1;
-                break;
-            case "Dhoom 3":
-                markerJson = this.props.marker_store2;
-                break;
-            case "Raman Raghav":
-                markerJson = this.props.marker_store_cigarette;
-                break;
-            default:
-                markerJson = this.props.marker_store2;
-        }
+
+        // actual code opens
+        // switch (this.props.card_Reducer.content_name) {
+        //     case "Fast and Furious":
+        //         markerJson = this.props.marker_store;
+        //         break;
+        //     case "Rustom":
+        //         markerJson = this.props.marker_store1;
+        //         break;
+        //     case "Dhoom 3":
+        //         markerJson = this.props.marker_store2;
+        //         break;
+        //     case "Raman Raghav":
+        //         markerJson = this.props.marker_store_cigarette;
+        //         break;
+        //     default:
+        //         markerJson = this.props.marker_store2;
+        // }
+        //actual code closes
 
         // switch (this.props.tag_brief_Reducer.id) {
         //     case 1:
@@ -338,7 +341,8 @@ class PlayerLogic extends Component {
 
         player.markers({
             markerStyle: {},
-            markers: markerJson,
+            // markers: markerJson,  //temp commented
+            markers:[],
             onMarkerReached: function () {
                 // player.pause();
             },
@@ -353,10 +357,13 @@ class PlayerLogic extends Component {
     //     console.log(index);
     //
     // }
-    jumpToSpecificMarker() {
-        var index = this.props.tags.ind;
-        this.state.player.markers.jumpToSpecificMarker(index);
-    }
+
+    //actual code opens
+    // jumpToSpecificMarker() {
+    //     var index = this.props.tags.ind;
+    //     this.state.player.markers.jumpToSpecificMarker(index);
+    // }
+    //actual code closes
 
     // prev() {
     //     this.state.player.markers.prev();
@@ -375,13 +382,13 @@ class PlayerLogic extends Component {
         assign(props, {
             ref: 'video',
             controls: true,
-            width: "960", height: "600"
+            width: "1135", height: "660"
         });
 
-        if (this.props.tags.flag) {
-            this.jumpToSpecificMarker();
-            console.log("card clicked was" + this.props.card_Reducer.card_id);
-        }
+        // if (this.props.tags.flag) {
+        //     this.jumpToSpecificMarker();
+        //     console.log("card clicked was" + this.props.card_Reducer.card_id);
+        // }
 
         return (
             <div>
@@ -394,16 +401,16 @@ class PlayerLogic extends Component {
 
     }
 }
-const mapStateToProps = (state) => {
-    return {
-        tags: state.tagReducer,
-        marker_store:state.markerStore,
-        marker_store1:state.markerStore1,
-        marker_store2:state.markerStore2,
-        card_Reducer: state.cardReducer,
-        tag_brief_Reducer:state.tagBriefReducer,
-        marker_store_cigarette:state.markerStoreCigarette
-    };
-};
+// const mapStateToProps = (state) => {
+//     return {
+//         tags: state.tagReducer,
+//         marker_store:state.markerStore,
+//         marker_store1:state.markerStore1,
+//         marker_store2:state.markerStore2,
+//         card_Reducer: state.cardReducer,
+//         tag_brief_Reducer:state.tagBriefReducer,
+//         marker_store_cigarette:state.markerStoreCigarette
+//     };
+// };
 
-export default connect(mapStateToProps)(PlayerLogic);
+//export default connect(mapStateToProps)(PlayerLogic);
