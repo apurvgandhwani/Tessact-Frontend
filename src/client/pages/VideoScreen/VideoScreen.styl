@@ -1,0 +1,91 @@
+:local(.container)
+	display flex
+	flex 1
+	
+	.video-section
+		margin 24px
+		flex 1
+	.details-section
+		margin 24px
+		width 33vw
+		flex-shrink 0
+		display flex
+		flex-direction column
+		// border-left 1px rgba(#000, 0.12) solid
+		
+	.video-container
+		width 100%
+		background-color #000
+		ratio-box(16/8)
+	.video-title
+		font-size 2.4em
+		margin-top 4vh
+		margin-bottom 4vh
+		
+	.video-section .process-list
+		display flex
+		width 100%
+		
+		.process-item
+			flex 1
+			background-color #D7D7D7
+			padding 18px 30px
+			font-size 1em
+			text-align center
+			border-radius 8px
+			margin 0 4px
+			cursor pointer
+			&:hover
+				background-color darken(@background-color, 10%)
+				
+
+:local(.container)
+	.video-details-container
+		flex 1
+		display flex
+		flex-direction column
+	
+	.comments-section, .tabbed-section
+		min-height 100px
+		background-color #fff
+		border 1px rgba(#000, 0.12) solid
+		box-shadow 0 4px 24px 0 rgba(#000, 0.12)
+	.comments-section
+		height 180px
+	
+	.flex-vertical
+		display flex
+		flex-direction column
+		height 100%
+	
+	.flex-fill
+		flex 1
+	
+	.tabbed-section
+		flex 1
+		margin-bottom 20px
+		display flex
+		flex-direction column
+		.tab-content
+			flex 1
+		
+	.table-footer, .comments-footer
+		clearfix()
+		text-align right
+		padding 10px
+		border-top 1px rgba(#000, 0.2) solid
+		
+	#comments-input
+		flex 1
+		border none
+		padding 20px
+		outline none
+		
+			
+	.flags-table 
+		.red-box
+			width 16px
+			height 16px
+			margin 3px 5px
+			background-color red
+			

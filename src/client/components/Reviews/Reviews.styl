@@ -1,0 +1,127 @@
+:local(.container)
+	display block
+	width 100%
+	
+.control-container
+	display flex
+	align-items center
+	
+	.control-label
+		width 120px
+	.control
+		flex 1
+	
+	& + .control-container
+		margin-top 30px
+		
+		
+
+.Select-menu-outer
+	z-index  9999 !important
+
+:local(.container)
+	
+	.ui-progress-bar
+		width 100%
+		height 10px
+		border 1px #fb802a solid
+		.ui-bar
+			height 100%
+			background-color #fb802a
+
+	.review-search
+		width 100%
+		display flex
+		align-items center
+		height 80px
+		padding 0 24px
+		font-family montserrat !important
+		border-bottom 1px rgba(#000, 0.2) solid
+		
+		.search-label
+			font-weight bold
+			
+		.search-box
+			flex 1
+			display flex
+			align-items center
+			margin-left 24px
+			.search-input
+				outline none
+				width 300px
+				flex 1
+				padding 0 24px
+				height 36px
+				border 1px rgba(#000, 0.4) solid
+				background-color #fff
+				border-right none
+		
+		
+:local(.container)
+	.td-filename, .th-filename
+		width 240px
+		
+	.td-filename
+		cursor pointer
+		&:hover
+			.detail-name
+				text-decoration underline
+		
+	.td-status
+		font-weight bold
+		&.td-green
+			color #0e9544
+		&.td-orange
+			color #fd8012
+		&.td-yellow
+			color #fdc312
+		
+	.table-header
+		font-family montserrat
+		
+	.item-file-details
+		display flex
+		align-items center
+		margin 8px 0
+		width auto
+		.file-image
+			height 80px
+			flex-shrink 0
+			width 60px
+			background-color rgba(#000, 0.12)
+		.details
+			margin-left 8px
+			.detail-name
+				font-family museo700
+				font-size 18px
+				margin 0
+				
+
+:local(.container)
+	.assign-dialog
+		fixed top left right bottom
+		z-index 400
+		display flex
+		flex-direction column
+		justify-content center
+		align-items center
+		background-color rgba(#000, 0.12)
+		
+	.assign-dialog-inner
+		width 50vw
+		max-width 500px
+		min-width 350px
+		background-color #fff
+		border 1px rgba(#000, 0.12) solid
+		box-shadow 0 4px 50px 4px rgba(#000, 0.2)
+		animation fadeInUp 0.4s
+	.dia-title
+		padding 24px
+	.dia-body
+		flex 1
+		padding 24px
+	.dia-footer
+		clearfix()
+		padding 12px
+		text-align right
+		

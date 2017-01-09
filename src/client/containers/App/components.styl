@@ -1,0 +1,70 @@
+label
+	font-weight 200
+.form label
+	font-weight bold
+
+.ui-switchbox
+	ui-switchbox()
+
+
+.ui-button, .ui-button-outline
+	border-radius 2px
+	margin-right 8px
+
+.ui-button
+	color #fff
+	background-color brand_bright_red
+	border-color brand_bright_red
+	&:hover, &:active, &:active:focus
+		background-color brand_bright_red
+		color #fff
+		border-color brand_bright_red
+
+.ui-button-outline
+	border-color brand_bright_red
+	color brand_bright_red
+	&:hover, &:active, &:active:focus
+		background-color #fff
+		color brand_bright_red
+		border-color brand_bright_red
+
+.ui-button, .ui-button-outline
+	cursor pointer
+	opacity 0.72
+	transition all 0.1s
+	&:hover, &:active
+		opacity 1
+	&:hover, &:active, &:focus, &:focus:active
+		outline none
+
+		
+
+.rangeslider
+	margin 40px 0 20px 0
+	position relative
+	height 10px
+	background-color #eee
+	rounded()
+	
+	.rangeslider__fill
+		height 100%
+		position absolute
+		background-color brand_red
+		rounded()
+		
+	.rangeslider__handle
+		cursor pointer
+		height 36px
+		width 15px
+		margin-top -13px
+		rounded()
+		border 2px #fff solid
+		box-shadow 0 0 4px 1px rgba(#000, 0.3)
+		display inline-block
+		position absolute
+		background-color brand_red
+		transition all .1s ease
+		transform-origin center center
+		
+		&:hover, &:active
+			transform scale(1.2)

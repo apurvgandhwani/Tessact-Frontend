@@ -1,0 +1,28 @@
+{
+	"folders":
+	[
+		{
+			"name": "Tessact",
+			"path": ".",
+			"folder_exclude_patterns": [".git", "node_modules"],
+			"file_exclude_patterns": ["build/server-bundle.js", "build/public/main-bundle.js", "build/public/vendors-bundle.js"]
+		}
+	],
+	"settings": {
+		"tab_size": 4,	
+		"auto_indent": true,
+		"font_options": "subpixel_antialias",
+		"highlight_line": true,
+		"highlight_modified_tabs": true,
+		"indent_guide_options": [ "draw_normal", "draw_active" ],
+		"line_padding_bottom": 3,
+		"line_padding_top": 3,
+		"overlay_scroll_bars": "enabled",
+		"scroll_past_end": true,
+		"show_full_path": false,
+		"smart_indent": true,
+		"word_wrap": false,
+		"alignment_chars": ["=", ":", " from "]
+	},
+
+}

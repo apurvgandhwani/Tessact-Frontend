@@ -1,0 +1,30 @@
+:local(.container)
+	width 300px
+	border-right 1px rgba(#000, 0.2) solid
+	padding 40px 20px
+	display flex
+	flex-direction column
+	align-items center
+	justify-content space-around
+	
+
+	.progress-container
+		position relative
+		width 160px
+		margin 10px auto
+		text-align center
+		.progress-label
+			font-family museo300
+		.progress-perc
+			absolute top 50% left 50%
+			// background-color rgba(#000, 0.12)
+			width 50px
+			height 50px
+			margin-left -0.5*@width
+			margin-top  -0.6*@height
+			font-size 2em
+			&:after
+				absolute top 5px right -6px
+				content '%'
+				font-size 16px
+		

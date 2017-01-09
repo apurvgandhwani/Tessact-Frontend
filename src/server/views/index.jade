@@ -1,0 +1,34 @@
+extends layout
+
+
+block body_scripts
+
+	unless isBot
+		script(defer type='text/javascript').
+			(function(){
+				var lazy_list = [
+					'/public/vendor/animate.css',
+					'/public/vendor/font-awesome/css/font-awesome.css',
+				].forEach(function(url, i, list){
+					var l = document.createElement('link');
+					l.rel  = 'stylesheet';
+					l.type = 'text/css';
+					l.href = url;
+					document.head.appendChild(l);
+					if ( i+1 === list.length ){
+						console.log('Lazy added vendors')
+					}
+				})
+
+			})();
+
+		if IS_PROD
+			script(defer type='text/javascript' src='/public/vendors-bundle.js')
+		else 
+			script(defer type='text/javascript' src='/public/dll/dll.vendor.js')
+		
+		script(defer type='text/javascript' src='/public/main-bundle.js')
+
+
+block content
+	section#root!= html

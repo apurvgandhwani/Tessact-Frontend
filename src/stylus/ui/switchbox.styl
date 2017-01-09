@@ -1,0 +1,52 @@
+ui-switchbox()
+	color_active   = #e3010f
+	color_inactive = #f4f4f4
+
+	display inline-block
+	width 50px
+	height 10px
+	position relative
+	vertical-align middle
+	margin 7px 0 6px 0
+	
+	cursor pointer
+	transition all 0.2s ease
+	
+	.switch-slider
+		background-color color_inactive
+		height 100%
+		border-radius 30px
+		transition all 0.2s ease
+		border 1px transparent solid
+	
+	.switch-thumb
+		background-color color_active
+		transition all 0.2s ease
+		absolute top -4px left 0px
+		width 16px
+		height 16px
+		border-radius 50%
+		border 2px #fff solid
+		box-shadow 0 2px 5px 0 rgba(68, 68, 68, 0.5)
+		transform-origin center center
+		
+	input.switch-checkbox
+		cursor pointer
+		opacity 0
+		width 100%
+		absolute top -6px left right bottom
+		height 20px
+		margin 0
+		z-index 11
+		&:focus + .switch-slider
+			border 1px color_active solid
+		&:checked 
+			& ~ .switch-slider
+				background-color color_active
+			& ~ .switch-thumb
+				left 42px
+		
+	&:hover
+		.switch-thumb
+			transform scale(1.4)
+		
