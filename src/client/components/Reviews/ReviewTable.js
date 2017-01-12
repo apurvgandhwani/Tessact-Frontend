@@ -1,6 +1,6 @@
 import {Component, PropTypes} from 'react'
 import {findDOMNode} from 'react-dom'
-
+import {browserHistory} from 'react-router'
 import throttle from 'lodash/throttle'
 
 import {
@@ -53,13 +53,17 @@ class ReviewTable extends Component {
 		return c
 	}
 
-	showVideo = (index)=> {
-		return (e)=> {
-			console.log('showing...', index)
-			this.props.setCurrentItem(
-				this.props.items[index]
-			)	
-		}
+	// showVideo = (index)=> {
+	// 	return (e)=> {
+	// 		console.log('showing...', index)
+	// 		this.props.setCurrentItem(
+	// 			this.props.items[index]
+	// 		)
+	// 	}
+	// }
+
+	showVideo=()=>{
+        browserHistory.push('video-screen');
 	}
 
 	render(){

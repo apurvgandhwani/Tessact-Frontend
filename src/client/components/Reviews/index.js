@@ -1,6 +1,6 @@
 import Promise from 'bluebird'
 import {Component, PropTypes} from 'react'
-
+import {browserHistory} from 'react-router'
 import {connect} from 'react-redux'
 
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
@@ -60,9 +60,10 @@ class Reviews extends Component {
 		})
 	}
 
-	setCurrentItem = (item)=> {
+	setCurrentItem = ()=> {
 		this.props.setCurrentItem(item);
-		this.context.router.push('/video-screen')
+        //this.context.router.push('/video-screen')
+		console.log("see this" + this.context.router)
 	}
 
 	render(){

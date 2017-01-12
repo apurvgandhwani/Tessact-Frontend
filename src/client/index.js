@@ -5,7 +5,7 @@ import Promise from 'bluebird'
 
 import createHistory  from 'history/lib/createBrowserHistory'
 
-import Router from 'react-router/lib/Router'
+import RouterContext from 'react-router/lib/RouterContext'
 import match  from 'react-router/lib/match'
 import useRouterHistory from 'react-router/lib/useRouterHistory'
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -64,7 +64,7 @@ match({ history, routes }, (error, redirectLocation, renderProps) => {
 		<MuiThemeProvider muiTheme={muiTheme}>
 			<Root store={store}>
 				<WithStylesContext onInsertCss={styles=> styles._insertCss()}>
-					<Router {...renderProps} />
+					<RouterContext {...renderProps} />
 				</WithStylesContext>
 			</Root>
 		</MuiThemeProvider>,
