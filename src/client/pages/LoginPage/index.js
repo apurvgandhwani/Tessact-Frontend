@@ -25,8 +25,8 @@ export default class LogInComponent extends Component {
             },
         }
 
-        $.ajax(settings).done(function () {
-            alert("success");
+        $.ajax(settings).done(function (response) {
+            alert(response.auth_token);
         });
         // var payload = {
         //     "password":"Apurv",
@@ -62,11 +62,12 @@ export default class LogInComponent extends Component {
         //     .catch(function(error) {
         //     console.log('There has been a problem with your fetch operation: ' + error.message);
         // });
-         browserHistory.push("app")
+        console.log('check')
+        browserHistory.push("app")
+        //this.props.history.push('app');
         // console.log('clicked')
         // console.log(document.getElementById("password").value);
     }
-
 
 
     render(){
@@ -79,7 +80,7 @@ export default class LogInComponent extends Component {
                             <input id="password" type="password" placeholder="password"/>
                             <p className="message">Not registered? <a href="#">Request Username and Password</a></p>
                         </form>
-                        <button onClick={this.handleLoginButtonClick}>login</button>
+                        <button onClick={this.handleLoginButtonClick.bind(this)}>login</button>
                     </div>
                 </div>
                 <img className="Logo_Tessact_White" src="./dev/js/images/TESSACT_logo_white.png"/>

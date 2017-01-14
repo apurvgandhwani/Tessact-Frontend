@@ -12,17 +12,11 @@ import {Router} from "react-router";
 function getRoutes(store) {
 
     return (
-        <Router history={browserHistory}>
-            <Route path={"/"} component={LoginPage}/>
-            <Route path={"app"} component={App}>
-                <IndexRoute component={Home}/>
-                <Redirect from='*' to='/'/>
-                <Route>
-                    <Route path={"/video-screen"} component={VideoScreen}/>
-                    <Route path={"/Home"} component={Home}/>
-                </Route>
-            </Route>
-        </Router>
+        <Route path='/' component={App}>
+            <IndexRoute component={Home}/>
+            <Route path='/video-screen' component={VideoScreen}/>
+            <Redirect from='*' to='/'/>
+        </Route>
     )
 }
 

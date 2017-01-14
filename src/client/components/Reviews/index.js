@@ -60,11 +60,10 @@ class Reviews extends Component {
 		})
 	}
 
-	setCurrentItem = ()=> {
-		this.props.setCurrentItem(item);
-        //this.context.router.push('/video-screen')
-		console.log("see this" + this.context.router)
-	}
+    setCurrentItem = (item)=> {
+        this.props.setCurrentItem(item);
+        this.context.router.push('/video-screen')
+    }
 
 	render(){
 		return (

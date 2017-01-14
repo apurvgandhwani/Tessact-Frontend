@@ -62,10 +62,14 @@ class ReviewTable extends Component {
 	// 	}
 	// }
 
-	showVideo=()=>{
-        browserHistory.push('video-screen');
-	}
-
+    showVideo = (index)=> {
+        return (e)=> {
+            console.log('showing...', index)
+            this.props.setCurrentItem(
+                this.props.items[index]
+            )
+        }
+    }
 	render(){
 		return (
 			<Table

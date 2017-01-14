@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import Promise from 'bluebird'
 
 import createHistory  from 'history/lib/createBrowserHistory'
-
+import Router from 'react-router/lib/Router'
 import RouterContext from 'react-router/lib/RouterContext'
 import match  from 'react-router/lib/match'
 import useRouterHistory from 'react-router/lib/useRouterHistory'
@@ -64,7 +64,7 @@ match({ history, routes }, (error, redirectLocation, renderProps) => {
 		<MuiThemeProvider muiTheme={muiTheme}>
 			<Root store={store}>
 				<WithStylesContext onInsertCss={styles=> styles._insertCss()}>
-					<RouterContext {...renderProps} />
+					<Router {...renderProps} />
 				</WithStylesContext>
 			</Root>
 		</MuiThemeProvider>,
