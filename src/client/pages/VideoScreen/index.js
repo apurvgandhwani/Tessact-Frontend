@@ -17,6 +17,11 @@ const PROCESS_LIST = [
 ]
 
 class VideoScreen extends Component {
+
+    toHome = ()=> {
+    	console.log('clicked')
+        this.context.router.push('/')
+    }
 	render(){
 		var item = this.props.currentItem || {};
 		var name = item.file_name || 'No Item Selected';
@@ -24,19 +29,17 @@ class VideoScreen extends Component {
 		return (
 			<div className={c.container}>
 				<div className='video-section'>
-					<div >
-						{/*<div className='video-player'></div>*/}
 						<Player/>
-					</div>
 					<div className='video-title'> {name} </div>
 					<div className='process-list'>
-						{
-							PROCESS_LIST.map((x,i)=> (
-								<div 
-									className='process-item' 
-									key={i}> {x} </div>
-							))
-						}
+                        {
+                            PROCESS_LIST.map((x,i)=> (
+								<div
+									className='process-item'
+									key={i}
+									onClick={this.toHome.bind(this)}> {x} </div>
+                            ))
+                        }
 					</div>
 				</div>
 				<div className='details-section'>

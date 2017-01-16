@@ -20,5 +20,4 @@ function getRoutes(store) {
     )
 }
 
-
 export default getRoutes;

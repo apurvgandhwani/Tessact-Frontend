@@ -22,7 +22,7 @@ class ReviewTable extends Component {
 	componentDidMount = ()=> {
 		this._fixTableHeight = throttle(()=> {
 			this.fixTableHeight()
-		}, 1000)
+		}, 1000);
 		$(window).on('resize', this._fixTableHeight);
 		this.fixTableHeight()
 	}

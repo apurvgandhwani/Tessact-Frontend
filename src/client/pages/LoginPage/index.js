@@ -78,9 +78,10 @@ export default class LogInComponent extends Component {
                         <form className="login-form">
                             <input id="username" type="username" placeholder="username"/>
                             <input id="password" type="password" placeholder="password"/>
+                            <button onClick={this.handleLoginButtonClick.bind(this)}>login</button>
                             <p className="message">Not registered? <a href="#">Request Username and Password</a></p>
                         </form>
-                        <button onClick={this.handleLoginButtonClick.bind(this)}>login</button>
+
                     </div>
                 </div>
                 <img className="Logo_Tessact_White" src="./dev/js/images/TESSACT_logo_white.png"/>

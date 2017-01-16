@@ -14,7 +14,7 @@
     "../../node_modules/react/node_modules/fbjs/lib/invariant.js": 11,
     "../../node_modules/react/node_modules/fbjs/lib/warning.js": 12,
     "../../node_modules/react/lib/reactProdInvariant.js": 13,
-    "../../node_modules/react/node_modules/object-assign/index.js": 14,
+    "../../node_modules/object-assign/index.js": 14,
     "../../node_modules/react-dom/index.js": 15,
     "../../node_modules/react/lib/ReactDOMComponentTree.js": 16,
     "../../node_modules/material-ui/SvgIcon/index.js": 17,
