@@ -1,41 +1,42 @@
 extends layout
 
 block head_scripts
-	script(src='https://vjs.zencdn.net/5.3.0/video.js')
-	link(href="https://vjs.zencdn.net/5.3.0/video-js.css" rel="stylesheet")
-	script(src='https://vjs.zencdn.net/ie8/1.1.0/videojs-ie8.min.js')
-	scripts(src='https://code.jquery.com/jquery-2.0.3.min.js')
-	scripts(src='dev/js/components/VideoPlayer/markers.js')
+    script(src='https://vjs.zencdn.net/5.3.0/video.js')
+    link(href="https://vjs.zencdn.net/5.3.0/video-js.css" rel="stylesheet")
+    script(src='https://vjs.zencdn.net/ie8/1.1.0/videojs-ie8.min.js')
+    scripts(src='https://code.jquery.com/jquery-2.0.3.min.js')
+    scripts(src='dev/js/components/VideoPlayer/markers.js')
+
 
 
 block body_scripts
 
-	unless isBot
-		script(defer type='text/javascript').
-			(function(){
-				var lazy_list = [
-					'/public/vendor/animate.css',
-					'/public/vendor/font-awesome/css/font-awesome.css',
-				].forEach(function(url, i, list){
-					var l = document.createElement('link');
-					l.rel  = 'stylesheet';
-					l.type = 'text/css';
-					l.href = url;
-					document.head.appendChild(l);
-					if ( i+1 === list.length ){
-						console.log('Lazy added vendors')
-					}
-				})
+    unless isBot
+        script(defer type='text/javascript').
+            (function () {
+                var lazy_list = [
+                    '/public/vendor/animate.css',
+                    '/public/vendor/font-awesome/css/font-awesome.css',
+                ].forEach(function (url, i, list) {
+                    var l = document.createElement('link');
+                    l.rel = 'stylesheet';
+                    l.type = 'text/css';
+                    l.href = url;
+                    document.head.appendChild(l);
+                    if (i + 1 === list.length) {
+                        console.log('Lazy added vendors')
+                    }
+                })
 
-			})();
+            })();
 
-		if IS_PROD
-			script(defer type='text/javascript' src='/public/vendors-bundle.js')
-		else 
-			script(defer type='text/javascript' src='/public/dll/dll.vendor.js')
-		
-		script(defer type='text/javascript' src='/public/main-bundle.js')
+        if IS_PROD
+            script(defer type='text/javascript' src='/public/vendors-bundle.js')
+        else
+            script(defer type='text/javascript' src='/public/dll/dll.vendor.js')
+
+        script(defer type='text/javascript' src='/public/main-bundle.js')
 
 
 block content
-	section#root!= html
+    section#root!= html

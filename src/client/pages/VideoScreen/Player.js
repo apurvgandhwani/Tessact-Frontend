@@ -379,7 +379,7 @@ export default class Player extends Component {
 
         return (
             <div className="video-wrapper">
-                <video controls>
+                <video id="example_video_1" controls="true" className="video-js vjs-default-skin">
                     <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"/>
                 </video>
             </div>)

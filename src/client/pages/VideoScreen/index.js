@@ -18,9 +18,9 @@ const PROCESS_LIST = [
 
 class VideoScreen extends Component {
 
-    toHome = ()=> {
+    toHome(){
     	console.log('clicked')
-        this.context.router.push('/')
+
     }
 	render(){
 		var item = this.props.currentItem || {};
@@ -28,8 +28,11 @@ class VideoScreen extends Component {
 
 		return (
 			<div className={c.container}>
+				<div className='details-section'>
+					<VideoDetails/>
+				</div>
 				<div className='video-section'>
-						<Player/>
+					<Player/>
 					<div className='video-title'> {name} </div>
 					<div className='process-list'>
                         {
@@ -41,10 +44,9 @@ class VideoScreen extends Component {
                             ))
                         }
 					</div>
+
 				</div>
-				<div className='details-section'>
-					<VideoDetails/>
-				</div>
+
 			</div>
 		)
 	}

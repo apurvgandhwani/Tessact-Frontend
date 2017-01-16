@@ -42,7 +42,12 @@ class VideoDetails extends Component {
 		this.context.router.push('/')
 	}
 
-	render(){
+    handleClick = ()=> {
+        console.log("clicked")
+    }
+
+
+    render(){
 		var {className} = this.props;
 		var cx = `${className || ''} video-details-container`
 
@@ -54,7 +59,7 @@ class VideoDetails extends Component {
 						onChange={this.switchTabs}>
 						{
 							TABS_LIST.map((x,i)=> (
-								<Tab label={x} value={i} key={i} style={ this.state.tabIndex !== i ? inactiveStyle : {} }/>
+								<Tab label={x} value={i} key={i} style={ this.state.tabIndex !== i ? inactiveStyle : {} } onClick={this.handleClick}/>
 							))
 						}
 					</Tabs>
