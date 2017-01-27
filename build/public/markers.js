@@ -98,9 +98,9 @@
 
             //console.log("Hey"+player.markers.key);
             //var markerLength = (marker.stopTime - marker.time)*1.84414951246;
-            // var markerLength = (marker.stopTime - marker.time) * 3.68829902492; //Fast
+            var markerLength = (marker.stopTime - marker.time) * 3.68829902492; //Fast
             //var markerLength = (marker.stopTime - marker.time)*3.74098901099;  //RUstom
-            var markerLength = (marker.stopTime - marker.time)*10.0793;  //RamanRaghav
+           // var markerLength = (marker.frame_in - marker.frame_out)*10.0793;  //RamanRaghav
             //console.log("marker length is " + markerLength);
 
             //var markerLength = (marker.endTime - marker.time)*1.859777898;  //Dhoom

@@ -32,16 +32,16 @@ const style = {
 class ReviewSearch extends Component {
 	state = {
 		processOptions: [
-			{value: 1, label: 'Process 1'},
-			{value: 2, label: 'Process 2'},
-			{value: 3, label: 'Process 3'},
-			{value: 4, label: 'Process 4'}
+			{value: 1, label: 'Compliance'},
+			{value: 2, label: 'Actions'},
+			{value: 3, label: 'Emotions'},
+			{value: 4, label: 'Actors'}
 		],
 		assignOptions: [
-			{value: 1, label: 'User 1'},
-			{value: 2, label: 'User 2'},
-			{value: 3, label: 'User 3'},
-			{value: 4, label: 'User 4'},
+			{value: 1, label: 'Aswin'},
+			{value: 2, label: 'Apurv'},
+			{value: 3, label: 'Rohit'},
+			{value: 4, label: 'Aditya'},
 		]
 	}
 

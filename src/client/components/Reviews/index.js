@@ -77,6 +77,7 @@ class Reviews extends Component {
 					items={this.props.list}
 					selectedRows={this.props.selectedRows}
 					onRowSelection={this.onRowSelection}
+					authToken={this.props.auth_token}
 					setCurrentItem={this.setCurrentItem}/>
 			</div>
 		)
@@ -85,7 +86,8 @@ class Reviews extends Component {
 
 const mapStateToProps = (state)=> ({
 	list: state.Data.list,
-	selectedRows: state.Data.selectedRows
+	selectedRows: state.Data.selectedRows,
+	auth_token: state.Data.auth_token
 })
 
 const mapDispatchToProps = (dispatch)=> ({
@@ -94,7 +96,10 @@ const mapDispatchToProps = (dispatch)=> ({
 	},
 	setCurrentItem(item){
 		return dispatch(actions.setCurrentItem(item))
-	}
+	},
+    setAuthToken(item){
+        return dispatch(actions.setCurrentItem(item))
+    }
 })
 
 

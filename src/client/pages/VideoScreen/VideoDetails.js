@@ -8,11 +8,11 @@ import FlatButton from 'material-ui/FlatButton'
 
 
 const FLAGS_LIST = [
-	{time_in: '00:00:03:07', time_out: '00:00:03:07' , type: 'Smoking', category: 'Compliance'},
-	{time_in: '00:00:03:07', time_out: '00:00:03:07' , type: 'Smoking', category: 'Compliance'},
-	{time_in: '00:00:03:07', time_out: '00:00:03:07' , type: 'Smoking', category: 'Compliance'},
-	{time_in: '00:00:03:07', time_out: '00:00:03:07' , type: 'Smoking', category: 'Compliance'},
-	{time_in: '00:00:03:07', time_out: '00:00:03:07' , type: 'Smoking', category: 'Compliance'}
+	{time_in: '00:00:03:07', time_out: '00:00:03:07' , type: 'car', category: 'Objects'},
+	{time_in: '00:00:03:07', time_out: '00:00:03:07' , type: 'car', category: 'Objects'},
+	{time_in: '00:00:03:07', time_out: '00:00:03:07' , type: 'car', category: 'Objects'},
+	{time_in: '00:00:03:07', time_out: '00:00:03:07' , type: 'car', category: 'Objects'},
+	{time_in: '00:00:03:07', time_out: '00:00:03:07' , type: 'car', category: 'Objects'}
 ]
 
 const TABS_LIST = [

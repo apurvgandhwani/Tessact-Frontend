@@ -96,6 +96,7 @@
     "whatwg-fetch": "^2.0.1"
   },
   "devDependencies": {
-    "valuelink": "^1.3.12"
+    "valuelink": "^1.3.12",
+    "video-js": "^0.7.0"
   }
 }

@@ -2,6 +2,9 @@ import {Component, PropTypes} from 'react'
 import {findDOMNode} from 'react-dom'
 import {browserHistory} from 'react-router'
 import throttle from 'lodash/throttle'
+import $ from 'jquery'
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
 import {
 	Table, TableBody, TableHeader, 
@@ -12,7 +15,8 @@ import {
 class ReviewTable extends Component {
 	static propTypes = {
 		items: PropTypes.array.isRequired,
-		selectedRows: PropTypes.array.isRequired
+		selectedRows: PropTypes.array.isRequired,
+		authToken: PropTypes.string.isRequired
 	};
 
 	static contextTypes = {
@@ -27,8 +31,68 @@ class ReviewTable extends Component {
 		this.fixTableHeight()
 	}
 
+    componentWillMount = ()=> {
+        var that = this;
+
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://trigger.eastus.cloudapp.azure.com//api/v1/workgroups/",
+            "method": "GET",
+            "headers": {
+                Authorization: "Token " + that.props.token_Reducer.token
+            },
+            success: function( response, textStatus, jQxhr ){
+                var settings_second = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url":  response.results[0].url + "tagging_jobs/",
+                    "method": "GET",
+                    "headers": {
+                        Authorization: "Token " + that.props.token_Reducer.token
+                    },
+                    success: function( data, textStatus, jQxhr ){
+                    	console.log(response.results.url)
+                    },
+                }
+                $.ajax(settings_second).done((response) => {
+                    //alert("yo");
+                    console.log('check');
+                });
+            },
+        }
+
+        var listSettings = {
+
+            "async": true,
+            "crossDomain": true,
+            "url": "https://trigger-backend.appspot.com/api/v1/workgroups/279ba660-90e9-4507-aa74-3407f7f9405a/tagging_jobs",
+            "method": "GET",
+            "headers": {
+                Authorization: that.props.token_Reducer.token
+            },
+            success: function( data, textStatus, jQxhr ){
+               // alert("success");
+            },
+        }
+
+        $.ajax(settings).done((response) => {
+            //alert("yo");
+            console.log('check');
+        });
+
+        // $.ajax(listSettings).done((response) => {
+        //     alert("yo");
+        //     console.log('check');
+        //     // this.context.router.push('/app')
+        // });
+        //
+    }
+
 	componentWillUnmount = ()=> {
 		$(window).off('resize', this._fixTableHeight)
+
+
 	}
 
 	fixTableHeight = ()=> {
@@ -130,4 +194,16 @@ class ReviewTable extends Component {
 	}
 }
 
-export default ReviewTable
+
+const mapStateToProps = (state) => {
+    return {
+        token_Reducer: state.tokenReducer,
+
+    };
+};
+//
+// function matchDispatchToProps(dispatch) {
+//     return bindActionCreators({tagSelected: tagSelected}, dispatch);
+// }
+
+export default connect(mapStateToProps)(ReviewTable);
