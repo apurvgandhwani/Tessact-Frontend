@@ -5,7 +5,8 @@ import throttle from 'lodash/throttle'
 import $ from 'jquery'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-
+import {videoFileSelectedAction} from '../../store/VideoFileSelectedAction'
+import {MediaFilesChangeAction} from '../../store/MediaFilesChangeAction'
 import {
 	Table, TableBody, TableHeader, 
 	TableHeaderColumn, TableRow, TableRowColumn
@@ -23,6 +24,9 @@ class ReviewTable extends Component {
 		router: PropTypes.object.isRequired
 	}
 
+    state = {
+        MediaFiles: []
+    };
 	componentDidMount = ()=> {
 		this._fixTableHeight = throttle(()=> {
 			this.fixTableHeight()
@@ -52,12 +56,15 @@ class ReviewTable extends Component {
                         Authorization: "Token " + that.props.token_Reducer.token
                     },
                     success: function( data, textStatus, jQxhr ){
-                    	console.log(response.results.url)
+                        //that.setState({MediaFiles: data})
+						that.props.MediaFilesChangeAction(data, response.results[0].url + "tagging_jobs/")
+                        //console.log(that.state.MediaFiles)
                     },
                 }
                 $.ajax(settings_second).done((response) => {
                     //alert("yo");
-                    console.log('check');
+
+
                 });
             },
         }
@@ -73,6 +80,7 @@ class ReviewTable extends Component {
             },
             success: function( data, textStatus, jQxhr ){
                // alert("success");
+
             },
         }
 
@@ -126,16 +134,17 @@ class ReviewTable extends Component {
 	// 	}
 	// }
 
-    showVideo = (index)=> {
+    showVideo = (url)=> {
         return (e)=> {
-            console.log('showing...', index)
+            //console.log('showing...', index)
+			this.props.videoFileSelectedAction(url)
             this.props.setCurrentItem(
-                this.props.items[index]
+                url
             )
         }
     }
-	render(){
-		return (
+    render(){
+        return (
 			<Table
 				height='600px'
 				ref={(el)=> this.table_el = el }
@@ -160,50 +169,52 @@ class ReviewTable extends Component {
 				<TableBody
 					showRowHover={true}
 					deselectOnClickaway={false}>
-					{
-						this.props.items.map((item,i)=> (
-							<TableRow 
+                    {
+                        this.props.media_file_store.MediaFiles.map((item,i)=> (
+							<TableRow
 								key={i}
 								className={`table-item-${i}`}
 								selected={this.props.selectedRows.includes(i)}>
-								<TableRowColumn className='td-filename' onMouseUp={this.showVideo(i)}>
+								<TableRowColumn className='td-filename' onMouseUp={this.showVideo(item.video.file)}>
 									<div className='item-file-details'>
-										<div className='file-image' style={{backgroundImage: `url('${item.file_image}')`}}/>
+
 										<div className='details'>
-											<p className='detail-name'> {item.file_name} </p>
-											<p className='detail-type'> {item.file_type} </p>
+											<p className='detail-name'> {item.video.title} </p>
+											<p className='detail-type'> Movie </p>
 										</div>
 									</div>
 								</TableRowColumn>
-								<TableRowColumn> {item.channel} </TableRowColumn>
-								<TableRowColumn> {item.duration} </TableRowColumn>
-								<TableRowColumn> {item.upload_date} </TableRowColumn>
-								<TableRowColumn> {item.tx_date} </TableRowColumn>
+								<TableRowColumn> Zee </TableRowColumn>
+								<TableRowColumn> {item.video.duration} </TableRowColumn>
+								<TableRowColumn> {item.video.created_on} </TableRowColumn>
+								<TableRowColumn> 20/02/2017 </TableRowColumn>
 								<TableRowColumn className='process-column'>  </TableRowColumn>
-								<TableRowColumn> {item.assigned} </TableRowColumn>
+								<TableRowColumn> Apurv </TableRowColumn>
 								<TableRowColumn
-									className={this.getStatusClassName(item.status)}>
-									{item.status} 
+									className={this.getStatusClassName(item.job_status)}>
+                                    {item.job_status}
 								</TableRowColumn>
 							</TableRow>
-						))
-					}
+                        ))
+                    }
 				</TableBody>
 			</Table>
-		)
-	}
+        )
+    }
 }
 
 
 const mapStateToProps = (state) => {
     return {
         token_Reducer: state.tokenReducer,
+		media_file_store:state.MediaFileStore
+
 
     };
 };
 //
-// function matchDispatchToProps(dispatch) {
-//     return bindActionCreators({tagSelected: tagSelected}, dispatch);
-// }
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({videoFileSelectedAction: videoFileSelectedAction, MediaFilesChangeAction:MediaFilesChangeAction}, dispatch);
+}
 
-export default connect(mapStateToProps)(ReviewTable);
+export default connect(mapStateToProps, matchDispatchToProps)(ReviewTable);

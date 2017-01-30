@@ -3,8 +3,13 @@ import { routerReducer as router } from 'react-router-redux'
 import tokenReducer from './tokenReducer'
 import Data from './Data'
 import markerReducer from './markerReducer'
+import tagSelectedReducer from './tagSelectedReducer'
+import newMarkerReducer from  './newMarkerReducer'
+import VideoFileSelectedReducer from './VideoFileSelectedReducer'
+import MediaFileStore from './MediaFileStore'
+import tagFetchReducer from './tagFetchReducer'
 
 export default combineReducers({
   router,
-  Data, markerReducer, tokenReducer
+  Data, markerReducer, tokenReducer, tagSelectedReducer, newMarkerReducer, VideoFileSelectedReducer, MediaFileStore, tagFetchReducer
 });

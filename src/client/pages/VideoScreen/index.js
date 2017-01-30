@@ -29,7 +29,9 @@ class VideoScreen extends Component {
 		return (
 			<div className={c.container}>
 				<div className='details-section'>
-					<VideoDetails/>
+					<VideoDetails>
+						{this.props.children}
+					</VideoDetails>
 				</div>
 				<div className='video-section'>
 					<Player/>

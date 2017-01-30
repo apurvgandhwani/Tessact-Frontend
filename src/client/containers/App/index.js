@@ -11,7 +11,7 @@ import {actions} from 'store/Data'
 
 class App extends Component {
 	componentDidMount = ()=> {
-		this.props.fetchList();
+		//this.props.fetchList();
 	}
 	render(){
 		return (

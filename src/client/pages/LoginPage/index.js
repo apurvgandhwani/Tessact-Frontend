@@ -14,6 +14,7 @@ class LogInComponent extends Component {
     static contextTypes = {
         router: PropTypes.object.isRequired
     }
+
     handleLoginButtonClick() {
         var that = this;
         let token;

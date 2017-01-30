@@ -3,13 +3,15 @@ import cx from 'classnames'
 import blacklist from 'blacklist'
 import React, {Component} from 'react'
     // import {tagSelected} from '../../actions/tagSelected'
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import $ from 'jquery'
 import videoSrc from './CarChase.mp4';
-
+import {bindActionCreators} from 'redux';
+import {newMarkerTimeAction} from '../../store/newMarkerTimeAction'
+import {tagFetchedAction} from '../../store/tagFetchedAction'
 
     var markerJson;
+    var values;
     class Player extends Component {
         constructor() {
             super();
@@ -32,6 +34,7 @@ import videoSrc from './CarChase.mp4';
                 },
                 success:( response, textStatus, jQxhr )=> {
                     that.setState({tags: response})
+                    that.props.tagFetchedAction(response);
                     console.log(that.state.tags)
                 }
             }
@@ -44,12 +47,17 @@ import videoSrc from './CarChase.mp4';
         }
         componentDidMount() {
             var self = this;
-            var options ={hidden:false};
+            var options ={hidden:true};
             var player = videojs(this.refs.video, this.props.options).ready(function () {
                 self.player = this;
                 self.player.on('play', self.handlePlay);
             });
-            //player.rangeslider(options);
+            player.rangeslider(options);
+            player.on("sliderchange",()=> {
+                values = player.getValueSlider();
+                console.log(values)
+                this.props.newMarkerTimeAction(values)
+            });
 
             // $.get('URL-TO-FETCH-DATA-FROM', function(result) {
             //     if (this.isMounted()) {
@@ -74,7 +82,22 @@ import videoSrc from './CarChase.mp4';
 
         }
 
+        jumpToSpecificMarker() {
+            var index = this.props.tag_selected_reducer.ind;
+            this.state.player.markers.jumpToSpecificMarker(index);
+        }
 
+        hideSlider() {
+            this.state.player.hideSlider();
+        }
+        showSlider(){
+            this.state.player.showSlider();
+        }
+        getTimeValue() {
+            //console.log(this.state.player.getValueSlider());
+
+
+        }
         handlePlay() {
             console.log("handle play ")
 
@@ -91,14 +114,22 @@ import videoSrc from './CarChase.mp4';
                     height:"600"
                 });
 
+                if (this.props.tag_selected_reducer.flag) {
+                    this.jumpToSpecificMarker();
+                }
+
+                if (this.props.new_marker_reducer.flag) {
+                    this.showSlider();
+                }
+
                 return (
                     <div>
-                        <video ref='video' {... props}>
-                            <source src={videoSrc} type="video/mp4"/>
+                        <video ref='video' {... props} data-setup='{ "inactivityTimeout": 0 }'>
+                            <source src={this.props. video_file_selected_reducer.url} type="video/mp4"/>
                         </video>
 
                         {/*<button onClick={this.jumpToSpecificMarker.bind(this)}>next</button>*/}
-                        {/*<button onClick={this.prev.bind(this)}>prev</button>*/}
+                            {/*<button onClick={this.hideSlider.bind(this)}>prev</button>*/}
                     </div>)
 
 
@@ -108,10 +139,18 @@ import videoSrc from './CarChase.mp4';
         return {
             // tags: state.tagReducer,
             marker_store:state.markerReducer,
-            token_Reducer: state.tokenReducer            // card_Reducer: state.cardReducer,
+            token_Reducer: state.tokenReducer,
+            tag_selected_reducer: state.tagSelectedReducer,
+            new_marker_reducer: state.newMarkerReducer,
+            video_file_selected_reducer:state.VideoFileSelectedReducer,
+            // card_Reducer: state.cardReducer,
             // tag_brief_Reducer:state.tagBriefReducer,
             // marker_store_cigarette:state.markerStoreCigarette
         };
     };
 
-    export default connect(mapStateToProps)(Player);
+
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({newMarkerTimeAction: newMarkerTimeAction, tagFetchedAction:tagFetchedAction}, dispatch);
+}
+    export default connect(mapStateToProps, matchDispatchToProps)(Player);

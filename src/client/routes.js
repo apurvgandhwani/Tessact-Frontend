@@ -8,7 +8,8 @@ import App from './containers/App'
 import LoginPage from './pages/LoginPage'
 import Home from './pages/Home'
 import VideoScreen from './pages/VideoScreen'
-
+import TagList from './pages/VideoScreen/tagList'
+import AddTags from './pages/VideoScreen/addTags'
 
 function getRoutes(store) {
 
@@ -17,8 +18,10 @@ function getRoutes(store) {
             <Route path="/" component={LoginPage}/>
             <Route path='app' component={App}>
                 <IndexRoute component={Home}/>
-                <Route>
-                    <Route path='/video-screen' component={VideoScreen}/>
+                <Route path='/video-screen' component={VideoScreen}>
+                    <IndexRoute component={TagList}/>
+                    <Route path='/add' component={AddTags}/>
+                    <Route path='/TagList' component={TagList}/>
                     <Redirect from='*' to='/'/>
                 </Route>
             </Route>

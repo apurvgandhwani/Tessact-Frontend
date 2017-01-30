@@ -1,11 +1,14 @@
 import {Component} from 'react'
 
 import FlatButton from 'material-ui/FlatButton'
-
+import $ from 'jquery'
 import SearchIcon from 'material-ui/svg-icons/action/search'
 import Dialog from 'material-ui/Dialog'
 import Select from 'react-select'
-
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {videoFileSelectedAction} from '../../store/VideoFileSelectedAction'
+import {MediaFilesChangeAction} from '../../store/MediaFilesChangeAction'
 import 'react-select/dist/react-select.css'
 
 const style = {
@@ -58,6 +61,29 @@ class ReviewSearch extends Component {
 	updateAssigned = (a,b)=> {
 		console.log('Updating Assigned: ', a, b)
 	}
+
+	handleOnChange(){
+		var that = this;
+        var settings_second = {
+            "async": true,
+            "crossDomain": true,
+            "url":  that.props.media_file_store.workGroupURL + "?search=" + document.getElementById("search_text").value,
+            "method": "GET",
+            "headers": {
+                Authorization: "Token " + that.props.token_Reducer.token
+            },
+            success: function( data, textStatus, jQxhr ){
+                //that.setState({MediaFiles: data})
+                that.props.MediaFilesChangeAction(data, that.props.media_file_store.workGroupURL)
+                //console.log(that.state.MediaFiles)
+            },
+        }
+        $.ajax(settings_second).done((response) => {
+            //alert("yo");
+
+
+        });
+	}
 	
 	render(){
 		const selectedUser = 1;
@@ -69,10 +95,12 @@ class ReviewSearch extends Component {
 			<div className='review-search'>
 				<div className='search-label'> Media Files </div>
 				<div className='search-box'>
-					<input 
+					<input
+						id="search_text"
 						type='text'
 						className='search-input'
-						placeholder='Search'/>
+						placeholder='search'
+					    onChange={this.handleOnChange.bind(this)}/>
 					<div className='search-icon'>
 						<FlatButton 
 							style={style.searchButton}
@@ -139,4 +167,18 @@ class ReviewSearch extends Component {
 	}
 }
 
-export default ReviewSearch
+
+const mapStateToProps = (state) => {
+    return {
+        token_Reducer: state.tokenReducer,
+        media_file_store:state.MediaFileStore
+
+
+    };
+};
+//
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({videoFileSelectedAction: videoFileSelectedAction, MediaFilesChangeAction:MediaFilesChangeAction}, dispatch);
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(ReviewSearch);

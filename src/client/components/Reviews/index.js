@@ -74,7 +74,7 @@ class Reviews extends Component {
 					selectedRows={this.props.selectedRows}
 					onSubmitProcess={this.onSubmitProcess}/>
 				<ReviewTable 
-					items={this.props.list}
+					//items={this.props.list}
 					selectedRows={this.props.selectedRows}
 					onRowSelection={this.onRowSelection}
 					authToken={this.props.auth_token}
@@ -85,7 +85,7 @@ class Reviews extends Component {
 }
 
 const mapStateToProps = (state)=> ({
-	list: state.Data.list,
+	//list: state.Data.list,
 	selectedRows: state.Data.selectedRows,
 	auth_token: state.Data.auth_token
 })

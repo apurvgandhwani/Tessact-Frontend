@@ -3,7 +3,9 @@ import {Component, PropTypes} from 'react'
 import {Tabs, Tab} from 'material-ui/Tabs'
 import Table from 'react-bootstrap/lib/Table'
 import SwipeableViews from 'react-swipeable-views'
-
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {tagSelectedAction} from '../../store/tagSelectedAction'
 import FlatButton from 'material-ui/FlatButton'
 
 
@@ -42,8 +44,8 @@ class VideoDetails extends Component {
 		this.context.router.push('/')
 	}
 
-    handleClick = ()=> {
-        console.log("clicked")
+    handleRowClick = (row)=> {
+        this.props.tagSelectedAction(row)
     }
 
 
@@ -69,47 +71,13 @@ class VideoDetails extends Component {
 							onChangeIndex={this.switchTabs}
 							containerStyle={{width: '100%', height: '100%'}}
 							style={{width: '100%', height: '100%'}}>
-							<div className='flex-vertical'>
-								<Table className='flags-table' responsive hover>
-									<thead>
-										<tr>
-											<th> </th>
-											<th> Time In </th>
-											<th> Time Out </th>
-											<th> Type </th>
-											<th> Category </th>
-										</tr>
-									</thead>
-									<tbody>
-										{
-											FLAGS_LIST.map((x,i)=> (
-												<tr key={i}>
-													<td> <div className='red-box'></div> </td>
-													<td> {x.time_in} </td>
-													<td> {x.time_out} </td>
-													<td> {x.type} </td>
-													<td> {x.category} </td>
-												</tr>
-											))	
-										}
-									</tbody>
-								</Table>
-								<div className='flex-fill'/>
-								<div className='table-footer'>
-									<FlatButton 
-										onClick={this.toHome}
-										label='Back'
-										style={{
-											backgroundColor: '#D7D7D7',
-											borderRadius: 0,
-											height: '36px',
-											paddingLeft: '16px',
-											paddingRight: '16px',
-										}}/>
-								</div>
-							</div>
+							{this.props.children}
 							<div>
-								Info
+								<div>Title</div>
+								<div>Uploaded on</div>
+								<div>Duration</div>
+								<div>Dimensions</div>
+								<div>Frame-rate</div>
 							</div>
 						</SwipeableViews>
 					</div>
@@ -137,4 +105,14 @@ class VideoDetails extends Component {
 	}
 }
 
-export default VideoDetails
+const mapStateToProps = (state) => {
+    return {
+        // tags: state.tagReducer,
+        marker_store:state.markerReducer,
+    };
+};
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({tagSelectedAction: tagSelectedAction}, dispatch);
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(VideoDetails);
