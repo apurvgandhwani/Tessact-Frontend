@@ -21,7 +21,7 @@ class LogInComponent extends Component {
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://trigger.eastus.cloudapp.azure.com/auth/login/",
+            "url": "https://www.backend.trigger.tessact.com/auth/login/",
             "method": "POST",
             "credentials": 'include',
             "headers": {

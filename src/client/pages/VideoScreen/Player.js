@@ -27,7 +27,7 @@ import {tagFetchedAction} from '../../store/tagFetchedAction'
             var settings = {
                 "async": true,
                 "crossDomain": true,
-                "url": "http://trigger.eastus.cloudapp.azure.com/api/v1/videos/a6eb980c-7d3b-41c4-ac39-622e0e071722/frame_tags/",
+                "url": "https://www.backend.trigger.tessact.com/api/v1/videos/a6eb980c-7d3b-41c4-ac39-622e0e071722/frame_tags/",
                 "method": "GET",
                 "headers": {
                     Authorization: "Token " + that.props.token_Reducer.token

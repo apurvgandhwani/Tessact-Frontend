@@ -41,7 +41,7 @@ class ReviewTable extends Component {
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://trigger.eastus.cloudapp.azure.com//api/v1/workgroups/",
+            "url": "https://www.backend.trigger.tessact.com//api/v1/workgroups/",
             "method": "GET",
             "headers": {
                 Authorization: "Token " + that.props.token_Reducer.token
