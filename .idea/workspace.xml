@@ -2,54 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5f0bb8a-140f-41f6-ba69-a7fcc8135303" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/fonts/FontAwesome.otf" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/fonts/FontAwesome.otf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/fonts/fontawesome-webfont.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/fonts/fontawesome-webfont.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/fonts/fontawesome-webfont.woff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/fonts/fontawesome-webfont.woff2" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/fonts/fontawesome-webfont.woff2" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/main-bundle.js" afterPath="$PROJECT_DIR$/build/public/main-bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/.npmignore" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/.npmignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/HELP-US-OUT.txt" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/HELP-US-OUT.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/README.md" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/css/font-awesome.css" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/css/font-awesome.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/css/font-awesome.css.map" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/css/font-awesome.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/css/font-awesome.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/fonts/fontawesome-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/animated.less" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/animated.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/bordered-pulled.less" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/bordered-pulled.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/core.less" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/core.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/fixed-width.less" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/fixed-width.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/font-awesome.less" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/font-awesome.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/icons.less" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/icons.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/larger.less" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/larger.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/list.less" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/list.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/mixins.less" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/mixins.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/path.less" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/path.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/rotated-flipped.less" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/rotated-flipped.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/screen-reader.less" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/screen-reader.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/stacked.less" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/stacked.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/variables.less" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/less/variables.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/package.json" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_animated.scss" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_animated.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_bordered-pulled.scss" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_bordered-pulled.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_core.scss" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_core.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_fixed-width.scss" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_fixed-width.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_icons.scss" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_icons.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_larger.scss" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_larger.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_list.scss" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_list.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_mixins.scss" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_mixins.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_path.scss" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_path.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_rotated-flipped.scss" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_rotated-flipped.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_screen-reader.scss" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_screen-reader.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_stacked.scss" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_stacked.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_variables.scss" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/_variables.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/font-awesome.scss" afterPath="$PROJECT_DIR$/build/public/vendor/font-awesome/scss/font-awesome.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/components/Reviews/ReviewTable.js" afterPath="$PROJECT_DIR$/src/client/components/Reviews/ReviewTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/LoginPage/index.js" afterPath="$PROJECT_DIR$/src/client/pages/LoginPage/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/VideoScreen/Player.js" afterPath="$PROJECT_DIR$/src/client/pages/VideoScreen/Player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/VideoScreen/addTags.js" afterPath="$PROJECT_DIR$/src/client/pages/VideoScreen/addTags.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/client.config.js" afterPath="$PROJECT_DIR$/tools/client.config.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -83,11 +37,21 @@
       <file leaf-file-name="ReviewTable.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/components/Reviews/ReviewTable.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-144">
-              <caret line="43" column="25" lean-forward="false" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+            <state relative-caret-position="90">
+              <caret line="179" column="0" lean-forward="false" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1008">
+              <caret line="18" column="21" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -152,7 +116,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReviewSearch.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReviewSearch.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/components/Reviews/ReviewSearch.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="846">
@@ -235,9 +199,9 @@
         <option value="$PROJECT_DIR$/tools/client.config.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/client/pages/LoginPage/index.js" />
-        <option value="$PROJECT_DIR$/src/client/components/Reviews/ReviewTable.js" />
         <option value="$PROJECT_DIR$/src/client/pages/VideoScreen/addTags.js" />
         <option value="$PROJECT_DIR$/src/client/pages/VideoScreen/Player.js" />
+        <option value="$PROJECT_DIR$/src/client/components/Reviews/ReviewTable.js" />
       </list>
     </option>
   </component>
@@ -545,12 +509,12 @@
       <workItem from="1485537540297" duration="16738000" />
       <workItem from="1485796030547" duration="11775000" />
       <workItem from="1485945591060" duration="930000" />
-      <workItem from="1486021884235" duration="2768000" />
+      <workItem from="1486021884235" duration="4471000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="403641000" />
+    <option name="totallyTimeSpent" value="405344000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -566,13 +530,13 @@
     <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16703057" sideWeight="0.85801524" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16703057" sideWeight="0.85801524" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19814411" sideWeight="0.14198473" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -785,14 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="18" column="21" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/pages/Home/Reviews.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -997,20 +953,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/Reviews/ReviewSearch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="106" column="61" lean-forward="false" selection-start-line="106" selection-start-column="61" selection-end-line="106" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/Reviews/ReviewTable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-144">
-          <caret line="43" column="25" lean-forward="false" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+        <state relative-caret-position="90">
+          <caret line="179" column="0" lean-forward="false" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/Reviews/ReviewSearch.js">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="846">
-          <caret line="106" column="61" lean-forward="false" selection-start-line="106" selection-start-column="61" selection-end-line="106" selection-end-column="61" />
+        <state relative-caret-position="-1008">
+          <caret line="18" column="21" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
           <folding />
         </state>
       </provider>
