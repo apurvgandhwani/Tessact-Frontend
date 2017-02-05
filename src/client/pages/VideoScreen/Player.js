@@ -111,8 +111,8 @@ import {tagFetchedAction} from '../../store/tagFetchedAction'
                 assign(props, {
                     ref: 'video',
                     controls: true,
-                    width:"1080",
-                    height:"550"
+                    width:"980",
+                    height:"450"
                 });
 
                 if (this.props.tag_selected_reducer.flag) {

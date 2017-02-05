@@ -41,7 +41,7 @@ class LogInComponent extends Component {
             token = response.auth_token
             //that.props.setAuthToken(token);
             console.log(token);
-            window.localStorage.token = token;
+            window.localStorage.token_auth = token;
             this.context.router.push('/app')
         });
 
