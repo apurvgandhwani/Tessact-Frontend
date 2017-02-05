@@ -1,4 +1,4 @@
-import { Component, PropTypes } from 'react'
+	import { Component, PropTypes } from 'react'
 import { Provider } from 'react-redux'
 
 const styles = {

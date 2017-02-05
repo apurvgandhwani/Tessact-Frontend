@@ -13,7 +13,7 @@ class Header extends Component {
 		return (
 			<header className={c.container}>
 				<div className='logo'>
-					<Link to='/'>
+					<Link to='/app'>
 						<img className='img-logo' src='/public/img/logo.png'/>
 					</Link>
 				</div>

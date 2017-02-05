@@ -92,6 +92,7 @@ import {tagFetchedAction} from '../../store/tagFetchedAction'
         }
         showSlider(){
             this.state.player.showSlider();
+            this.state.player.pause();
         }
         getTimeValue() {
             //console.log(this.state.player.getValueSlider());
@@ -110,8 +111,8 @@ import {tagFetchedAction} from '../../store/tagFetchedAction'
                 assign(props, {
                     ref: 'video',
                     controls: true,
-                    width:"1200",
-                    height:"600"
+                    width:"1080",
+                    height:"550"
                 });
 
                 if (this.props.tag_selected_reducer.flag) {

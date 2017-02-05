@@ -1,4 +1,4 @@
-import {Component} from 'react'
+import {Component,PropTypes} from 'react'
 import {connect} from 'react-redux'
 import Helmet from 'react-helmet'
 import Header from 'components/Header'
@@ -10,6 +10,10 @@ import styles from './App.styl'
 import {actions} from 'store/Data'
 
 class App extends Component {
+
+    static contextTypes = {
+        router: PropTypes.object.isRequired
+    }
 	componentDidMount = ()=> {
 		//this.props.fetchList();
 	}
@@ -28,7 +32,13 @@ class App extends Component {
 	}
 }
 
-const mapStateToProps = (state)=> ({})
+const mapStateToProps = (state)=> {
+    return {
+        // tags: state.tagReducer,
+        token_reducer: state.tokenReducer
+
+    };
+}
 const mapDispatchToProps = (dispatch)=> ({
 	fetchList(){
 		return dispatch(actions.fetchList())

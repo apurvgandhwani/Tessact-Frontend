@@ -80,8 +80,8 @@ class VideoDetails extends Component {
                                 </td>
                                 <td> {x.frame_in} </td>
                                 <td> {x.frame_out} </td>
-                                <td> {x.tagname} </td>
-                                <td> {x.category}</td>
+                                <td contentEditable="true"> {x.tagname} </td>
+                                <td contentEditable="true"> {x.category}</td>
                             </tr>
                         ))
                     }

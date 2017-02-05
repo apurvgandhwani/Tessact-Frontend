@@ -143,6 +143,25 @@ class ReviewTable extends Component {
             )
         }
     }
+
+    secondsToHms =(d) =>{
+    d = Number(d);
+        var h = Math.floor(d / 3600);
+        var m = Math.floor(d % 3600 / 60);
+        var s = Math.floor(d % 3600 % 60);
+        return ((h > 0 ? h + ":" + (m < 10 ? "00" : "") : "00:") + "0"+ m + ":" + (s < 10 ? "0" : "") + s); }
+
+    jobStatus=(job_status)=>{
+		switch(job_status){
+			case "APR":
+				return "Approved"
+			case "NPR":
+				return "Not Processed"
+			default:
+				return ""
+		}
+	}
+
     render(){
         return (
 			<Table
@@ -156,7 +175,7 @@ class ReviewTable extends Component {
 					style={{fontFamily: 'montserratregular'}}
 					adjustForCheckbox={true}>
 					<TableRow>
-						<TableHeaderColumn className='th-filename'> Filename </TableHeaderColumn>
+						<TableHeaderColumn  className='th-filename'> Filename </TableHeaderColumn>
 						<TableHeaderColumn> Channel </TableHeaderColumn>
 						<TableHeaderColumn> Duration </TableHeaderColumn>
 						<TableHeaderColumn> Uploaded </TableHeaderColumn>
@@ -177,7 +196,7 @@ class ReviewTable extends Component {
 								selected={this.props.selectedRows.includes(i)}>
 								<TableRowColumn className='td-filename' onMouseUp={this.showVideo(item.video.file)}>
 									<div className='item-file-details'>
-
+										<div className='file-image' style={{backgroundImage: `url('${item.video.poster.list_thumbnail}')`}}/>
 										<div className='details'>
 											<p className='detail-name'> {item.video.title} </p>
 											<p className='detail-type'> Movie </p>
@@ -185,14 +204,14 @@ class ReviewTable extends Component {
 									</div>
 								</TableRowColumn>
 								<TableRowColumn> Zee </TableRowColumn>
-								<TableRowColumn> {item.video.duration} </TableRowColumn>
+								<TableRowColumn> {this.secondsToHms(item.video.duration)} </TableRowColumn>
 								<TableRowColumn> {item.video.created_on} </TableRowColumn>
 								<TableRowColumn> 20/02/2017 </TableRowColumn>
 								<TableRowColumn className='process-column'>  </TableRowColumn>
 								<TableRowColumn> Apurv </TableRowColumn>
 								<TableRowColumn
 									className={this.getStatusClassName(item.job_status)}>
-                                    {item.job_status}
+                                    {this.jobStatus(item.job_status)}
 								</TableRowColumn>
 							</TableRow>
                         ))

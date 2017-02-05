@@ -83,7 +83,7 @@ class AddTags extends Component {
         this.setState({global_value: value});
     };
 
-    clicked() {
+    clicked= ()=> {
         this.props.addButtonClickedAction(false);
         this.context.router.push('/TagList')
     };
@@ -136,8 +136,7 @@ class AddTags extends Component {
             );
         });
         return (
-            <div>
-                <h2 style={styles.headingline}>Add Tag</h2>
+            <div className="add-container">
                 <div className="time-from-container">
                     <h4 style={styles.fontStyle} className="timeStamp">From : </h4>
                     <TextField
@@ -151,10 +150,10 @@ class AddTags extends Component {
                     />
                 </div>
                 <div className="time-to-container">
-                    <h4 style={styles.fontStyle} className="timeStamp">To :</h4>
+                    <h4 style={styles.fontStyle} className="timeStamp1">To :</h4>
                     <TextField
                         id="time_out"
-                        className="timeStamp"
+                        className="timeStamp2"
                         underlineFocusStyle={{borderColor: '#293C8E'}}
                         floatingLabelFocusStyle={{color: '#293C8E'}}
                         style={{width: 120}}
@@ -179,10 +178,10 @@ class AddTags extends Component {
                     </div>
                 </div>
                 <div className="button-container">
-                    <RaisedButton className="addTagDone" primary={false} backgroundColor="#fe8012" label="Done"
-                                  labelColor="#FFFFFF" onClick={this.clicked}/>
+                    <RaisedButton className="addTagDone" primary={false} backgroundColor="#D3D3D3" label="Done"
+                                  labelColor="#000000" onClick={this.clicked}/>
 
-                    <RaisedButton className="appendTag" backgroundColor="#fe8012" label="Append" labelColor="#FFFFFF"
+                    <RaisedButton className="appendTag" backgroundColor="#D3D3D3" label="Append" labelColor="#000000"
                                   onClick={this.onAppendClicked}/>
                 </div>
 

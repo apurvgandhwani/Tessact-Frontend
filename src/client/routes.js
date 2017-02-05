@@ -11,12 +11,20 @@ import VideoScreen from './pages/VideoScreen'
 import TagList from './pages/VideoScreen/tagList'
 import AddTags from './pages/VideoScreen/addTags'
 
+
+function authorize(){
+    console.log('inside')
+    if(window.localStorage.token == undefined) {
+
+        browserHistory.push('/')
+    }
+}
 function getRoutes(store) {
 
     return (
-        <Router>
+        <Router history={browserHistory}>
             <Route path="/" component={LoginPage}/>
-            <Route path='app' component={App}>
+            <Route path='app' component={App}  onEnter={()=>{authorize()}}>
                 <IndexRoute component={Home}/>
                 <Route path='/video-screen' component={VideoScreen}>
                     <IndexRoute component={TagList}/>
