@@ -88,6 +88,16 @@ class AddTags extends Component {
         this.context.router.push('/TagList')
     };
 
+    secondsToHms (input, fps) {
+    var pad = function(input) {return (input < 10) ? "0" + input : input;};
+    fps = (typeof fps !== 'undefined' ?  fps : 24 );
+    return [
+        pad(Math.floor(input / 3600)),
+        pad(Math.floor(input % 3600 / 60)),
+        pad(Math.floor(input % 60)),
+        pad(Math.floor(input * fps % fps))
+    ].join(':');
+}
     onAppendClicked = () => {
         console.log("hi")
         let that = this;
@@ -136,6 +146,7 @@ class AddTags extends Component {
             );
         });
         return (
+
             <div className="add-container">
                 <div className="time-from-container">
                     <h4 style={styles.fontStyle} className="timeStamp">From : </h4>
@@ -145,7 +156,7 @@ class AddTags extends Component {
                         underlineFocusStyle={{borderColor: '#293C8E'}}
                         floatingLabelFocusStyle={{color: '#293C8E'}}
                         style={{width: 120}}
-                        value={this.props.new_marker_reducer.start}
+                        value={this.secondsToHms(this.props.new_marker_reducer.start)}
                         floatingLabelText="Start Time"
                     />
                 </div>
@@ -153,11 +164,11 @@ class AddTags extends Component {
                     <h4 style={styles.fontStyle} className="timeStamp1">To :</h4>
                     <TextField
                         id="time_out"
-                        className="timeStamp2"
+                        className="timeStamp1"
                         underlineFocusStyle={{borderColor: '#293C8E'}}
                         floatingLabelFocusStyle={{color: '#293C8E'}}
                         style={{width: 120}}
-                        value={this.props.new_marker_reducer.end}
+                        value={this.secondsToHms(this.props.new_marker_reducer.end)}
                         floatingLabelText="End Time"
                     />
                 </div>

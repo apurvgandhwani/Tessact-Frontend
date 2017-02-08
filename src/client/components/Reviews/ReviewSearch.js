@@ -34,7 +34,10 @@ const style = {
 
 class ReviewSearch extends Component {
 	state = {
-		processOptions: [
+        selectedUser : 1,
+        selectedProcess :1,
+
+    processOptions: [
 			{value: 1, label: 'Compliance'},
 			{value: 2, label: 'Actions'},
 			{value: 3, label: 'Emotions'},
@@ -55,11 +58,13 @@ class ReviewSearch extends Component {
 	}
 
 	updateProcess = (a,b)=> {
-		console.log('Updating Process: ', a, b)
+        console.log(a.label)
+        this.setState({selectedProcess: a.value})
 	}
 
 	updateAssigned = (a,b)=> {
-		console.log('Updating Assigned: ', a, b)
+		console.log(a.label)
+		this.setState({selectedUser: a.value})
 	}
 
 	handleOnChange(){
@@ -86,8 +91,6 @@ class ReviewSearch extends Component {
 	}
 	
 	render(){
-		const selectedUser = 1;
-		const selectedProcess = 1;
 
 		// console.log('is assign open: ', this.props.assignIsOpen)
 
@@ -133,7 +136,7 @@ class ReviewSearch extends Component {
 											<Select
 												name='assign-user'
 												clearable={false}
-												value={selectedUser}
+												value={this.state.selectedUser}
 												onChange={this.updateAssigned}
 												options={this.state.assignOptions}/>
 										</div>
@@ -143,9 +146,9 @@ class ReviewSearch extends Component {
 										<div className='control'>
 											<Select
 												name='assign-process'
-												multi={true}
+												//multi={true}
 												clearable={false}
-												value={selectedProcess}
+												value={this.state.selectedProcess}
 												onChange={this.updateProcess}
 												options={this.state.processOptions}/>
 										</div>

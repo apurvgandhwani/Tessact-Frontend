@@ -5,7 +5,6 @@ import React, {Component} from 'react'
     // import {tagSelected} from '../../actions/tagSelected'
 import {connect} from 'react-redux';
 import $ from 'jquery'
-import videoSrc from './CarChase.mp4';
 import {bindActionCreators} from 'redux';
 import {newMarkerTimeAction} from '../../store/newMarkerTimeAction'
 import {tagFetchedAction} from '../../store/tagFetchedAction'
@@ -111,7 +110,7 @@ import {tagFetchedAction} from '../../store/tagFetchedAction'
                 assign(props, {
                     ref: 'video',
                     controls: true,
-                    width:"940",
+                    width:"840",
                     height:"490"
                 });
 

@@ -16,6 +16,7 @@ class LogInComponent extends Component {
     }
 
     handleLoginButtonClick() {
+        event.preventDefault();
         var that = this;
         let token;
         var settings = {
@@ -41,6 +42,7 @@ class LogInComponent extends Component {
             token = response.auth_token
             //that.props.setAuthToken(token);
             console.log(token);
+            console.log("hello" + 126.4567 % 3600 % 60);
             window.localStorage.token_auth = token;
             this.context.router.push('/app')
         });
@@ -85,17 +87,28 @@ class LogInComponent extends Component {
         // console.log(document.getElementById("password").value);
 
     }
+    onKeyDown(e){
+        if(e.keyCode == 13){
+            this.handleLoginButtonClick();
+        }
+    }
 
 
     render(){
         return (
             <div className="LoginPage">
+                <img className='img-logo-colored' src='/public/img/logo_colored.png'/>
                 <div className="login-page">
                     <div className="form">
                         <form className="login-form">
-                            <input id="username" type="username" placeholder="username"/>
-                            <input id="password" type="password" placeholder="password"/>
-                            <p className="message">Not registered? <a href="#">Request Username and Password</a></p>
+                            <div className="username-container">
+                                <div className="username-text">Username</div>
+                                <input className="username" id="username" type="username"  placeholder="username" onKeyDown={this.onKeyDown.bind(this)}/>
+                            </div>
+                            <div className="password-container">
+                                <div className="password-text">Password</div>
+                                <input className="password" id="password" type="password" placeholder="password" onKeyDown={this.onKeyDown.bind(this)}/>
+                            </div>
                         </form>
                         <button onClick={this.handleLoginButtonClick.bind(this)}>login</button>
                     </div>
@@ -103,7 +116,9 @@ class LogInComponent extends Component {
             </div>
         );
     }
+
 }
+
 
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({tokenAction: tokenAction}, dispatch);

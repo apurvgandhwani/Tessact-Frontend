@@ -50,7 +50,17 @@ class VideoDetails extends Component {
     handleRowClick = (row) => {
         this.props.tagSelectedAction(row)
     }
+    handleEditRowClick = (row) => {
 
+    }
+    secondsToHms =(d) =>{
+        d = Number(d);
+        var a = d % 3600 % 60;
+        var h = Math.floor(d / 3600);
+        var m = Math.floor(d % 3600 / 60);
+        var s = Math.floor(d % 3600 % 60);
+        var f = a -s ;
+        return ((h > 0 ? h + ":" + (m < 10 ? "00" : "") : "00:") + "0"+ m + ":" + (s < 10 ? "0" : "") + s); }
 
     render() {
         var that = this;
@@ -78,13 +88,37 @@ class VideoDetails extends Component {
                                 <td>
                                     <div className='red-box'></div>
                                 </td>
-                                <td> {x.frame_in} </td>
-                                <td> {x.frame_out} </td>
+                                <td> {this.secondsToHms(x.frame_in)} </td>
+                                <td> {this.secondsToHms(x.frame_out)} </td>
                                 <td contentEditable="true"> {x.tagname} </td>
                                 <td contentEditable="true"> {x.category}</td>
                             </tr>
                         ))
                     }
+                    {/*{*/}
+                    {/*that.props.tag_fetch_reducer.tags.map((x, i) => (*/}
+                    {/*<tr key={i}>*/}
+                        {/*<td>*/}
+                            {/*<input type="text" value={x.frame_in} />*/}
+                        {/*</td>*/}
+                        {/*<td>*/}
+                            {/*<input type="text" value={x.frame_out}  />*/}
+                        {/*</td>*/}
+                        {/*<td>*/}
+                            {/*<input type="text" value={x.tagName}  />*/}
+                        {/*</td>*/}
+                        {/*<td>*/}
+                            {/*<input type="text" value={x.category}  />*/}
+                        {/*</td>*/}
+                        {/*<td>*/}
+                            {/*<button onClick={this.handleRowClick.bind(this, i)}>*/}
+                                {/*Edit*/}
+                            {/*</button>*/}
+                        {/*</td>*/}
+                    {/*</tr>*/}
+                        {/*)*/}
+                    {/*)*/}
+                    {/*}*/}
                     </tbody>
                 </Table>
                 <div className='flex-fill'/>

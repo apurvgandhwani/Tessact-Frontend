@@ -1,14 +1,21 @@
-import {Component} from 'react'
+import {Component, PropTypes} from 'react'
 
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import c from './Header.styl'
-
+import IconButton from 'material-ui/IconButton';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
 import Link from 'react-router/lib/Link'
-
-import IconButton from 'material-ui/IconButton'
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import MoreVert from 'material-ui/svg-icons/navigation/more-vert'
 
 class Header extends Component {
+    static contextTypes = {
+        router: PropTypes.object.isRequired
+    }
+	onSignOutClick(){
+        this.context.router.push('/')
+	}
 	render(){
 		return (
 			<header className={c.container}>
@@ -21,9 +28,17 @@ class Header extends Component {
 				<div className='user'>
 					Apurv Gandhwani
 				</div>
-				<IconButton>
-					<MoreVert color='#fff'/>
-				</IconButton>
+				<IconMenu
+					iconButtonElement={
+						<IconButton><MoreVertIcon /></IconButton>
+                    }
+					targetOrigin={{horizontal: 'right', vertical: 'top'}}
+					anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+				>
+					<MenuItem primaryText="Settings"/>
+					<MenuItem primaryText="Help"/>
+					<MenuItem onTouchTap={this.onSignOutClick.bind(this)} primaryText="Sign out"/>
+				</IconMenu>
 
 			</header>
 		)
