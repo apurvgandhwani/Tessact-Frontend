@@ -10,7 +10,7 @@
   },
   "engines": {
     "node": "7.4.0",
-    "npm": "3.9.3"
+    "npm": "3.9.5"
   },
   "author": "Tushar Kant <nanu.clickity@gmail.com> (http://localhost)",
   "license": "ISC",
