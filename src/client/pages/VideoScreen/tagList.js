@@ -95,30 +95,6 @@ class VideoDetails extends Component {
                             </tr>
                         ))
                     }
-                    {/*{*/}
-                    {/*that.props.tag_fetch_reducer.tags.map((x, i) => (*/}
-                    {/*<tr key={i}>*/}
-                        {/*<td>*/}
-                            {/*<input type="text" value={x.frame_in} />*/}
-                        {/*</td>*/}
-                        {/*<td>*/}
-                            {/*<input type="text" value={x.frame_out}  />*/}
-                        {/*</td>*/}
-                        {/*<td>*/}
-                            {/*<input type="text" value={x.tagName}  />*/}
-                        {/*</td>*/}
-                        {/*<td>*/}
-                            {/*<input type="text" value={x.category}  />*/}
-                        {/*</td>*/}
-                        {/*<td>*/}
-                            {/*<button onClick={this.handleRowClick.bind(this, i)}>*/}
-                                {/*Edit*/}
-                            {/*</button>*/}
-                        {/*</td>*/}
-                    {/*</tr>*/}
-                        {/*)*/}
-                    {/*)*/}
-                    {/*}*/}
                     </tbody>
                 </Table>
                 <div className='flex-fill'/>
