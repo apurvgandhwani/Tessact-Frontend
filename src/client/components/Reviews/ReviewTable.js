@@ -203,12 +203,22 @@ class ReviewTable extends Component {
 										</div>
 									</div>
 								</TableRowColumn>
-								<TableRowColumn> Zee </TableRowColumn>
-								<TableRowColumn> {this.secondsToHms(item.video.duration)} </TableRowColumn>
-								<TableRowColumn> {item.video.created_on} </TableRowColumn>
-								<TableRowColumn> 20/02/2017 </TableRowColumn>
+								<TableRowColumn>
+									<p className="file-channel">Zee</p>
+								</TableRowColumn>
+								<TableRowColumn>
+									<p className="file-duration">{this.secondsToHms(item.video.duration)} </p>
+								</TableRowColumn>
+								<TableRowColumn>
+									<p className="file-upload-date">{item.video.created_on}</p>
+								</TableRowColumn>
+								<TableRowColumn>
+									<p className="file-tx-date">20/02/2017</p>
+								</TableRowColumn>
 								<TableRowColumn className='process-column'>  </TableRowColumn>
-								<TableRowColumn> Apurv </TableRowColumn>
+								<TableRowColumn>
+									<p className="file-assignee">Apurv</p>
+								</TableRowColumn>
 								<TableRowColumn
 									className={this.getStatusClassName(item.job_status)}>
                                     {this.jobStatus(item.job_status)}
