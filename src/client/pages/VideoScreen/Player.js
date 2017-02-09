@@ -110,7 +110,7 @@ import {tagFetchedAction} from '../../store/tagFetchedAction'
                 assign(props, {
                     ref: 'video',
                     controls: true,
-                    width:"840",
+                    width:"940",
                     height:"490"
                 });
 
