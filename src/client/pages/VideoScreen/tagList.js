@@ -90,8 +90,8 @@ class VideoDetails extends Component {
                                 </td>
                                 <td> {this.secondsToHms(x.frame_in)} </td>
                                 <td> {this.secondsToHms(x.frame_out)} </td>
-                                <td contentEditable="true"> {x.tagname} </td>
-                                <td contentEditable="true"> {x.category}</td>
+                                <td> {x.tagname} </td>
+                                <td contentEditable="false"> {x.category}</td>
                             </tr>
                         ))
                     }

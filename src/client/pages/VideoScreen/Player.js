@@ -85,23 +85,26 @@ import {tagFetchedAction} from '../../store/tagFetchedAction'
             var index = this.props.tag_selected_reducer.ind;
             this.state.player.markers.jumpToSpecificMarker(index);
         }
-
-        hideSlider() {
-            this.state.player.hideSlider();
+        getTimeValue() {
+            //console.log(this.state.player.getValueSlider());
         }
+
+        handlePlay() {
+            console.log("handle play ")}
+
+
         showSlider(){
             this.state.player.showSlider();
             this.state.player.pause();
         }
-        getTimeValue() {
-            //console.log(this.state.player.getValueSlider());
 
-
+        hideSlider() {
+            this.state.player.hideSlider();
         }
-        handlePlay() {
-            console.log("handle play ")
 
-        }
+
+
+
             render()
             {
                 var props = blacklist(this.props, 'children', 'className', 'src', 'type', 'onPlay');
@@ -121,6 +124,14 @@ import {tagFetchedAction} from '../../store/tagFetchedAction'
                 if (this.props.new_marker_reducer.flag) {
                     this.showSlider();
                 }
+
+                // if (!this.props.new_marker_reducer.flag) {
+                //     this.hideSlider();
+                // }
+
+
+
+
 
                 return (
                     <div>
