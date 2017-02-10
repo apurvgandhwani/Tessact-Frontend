@@ -106,7 +106,7 @@ class LogInComponent extends Component {
                                 <input className="username" id="username" type="username"  placeholder="username" onKeyDown={this.onKeyDown.bind(this)}/>
                             </div>
                             <div className="password-container">
-                                <div className="password-text">Password</div>
+                                <p className="password-text">Password</p>
                                 <input className="password" id="password" type="password" placeholder="password" onKeyDown={this.onKeyDown.bind(this)}/>
                             </div>
                         </form>
