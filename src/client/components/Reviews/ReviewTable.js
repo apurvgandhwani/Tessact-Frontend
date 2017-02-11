@@ -134,10 +134,10 @@ class ReviewTable extends Component {
 	// 	}
 	// }
 
-    showVideo = (url)=> {
+    showVideo = (url , video_id)=> {
         return (e)=> {
             //console.log('showing...', index)
-			this.props.videoFileSelectedAction(url)
+			this.props.videoFileSelectedAction(url, video_id)
             this.props.setCurrentItem(
                 url
             )
@@ -194,7 +194,7 @@ class ReviewTable extends Component {
 								key={i}
 								className={`table-item-${i}`}
 								selected={this.props.selectedRows.includes(i)}>
-								<TableRowColumn className='td-filename' onMouseUp={this.showVideo(item.video.file)}>
+								<TableRowColumn className='td-filename' onMouseUp={this.showVideo(item.video.file, item.video.id)}>
 									<div className='item-file-details'>
 										<div className='file-image' style={{backgroundImage: `url('${item.video.poster.list_thumbnail}')`}}/>
 										<div className='details'>
@@ -213,7 +213,7 @@ class ReviewTable extends Component {
 									<p className="file-upload-date">{item.video.created_on}</p>
 								</TableRowColumn>
 								<TableRowColumn>
-									<p className="file-tx-date">20/02/2017</p>
+									<p className="file-tx-date">20-02-17</p>
 								</TableRowColumn>
 								<TableRowColumn className='process-column'>  </TableRowColumn>
 								<TableRowColumn>

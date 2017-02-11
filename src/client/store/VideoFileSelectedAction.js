@@ -1,7 +1,8 @@
 
-export const videoFileSelectedAction = (i) => {
+export const videoFileSelectedAction = (video_url, video_id) => {
     return {
         type: 'VIDEO_FILE_SELECTED',
-        payload: i
+        payload: video_url,
+        video_id: video_id
     }
 };

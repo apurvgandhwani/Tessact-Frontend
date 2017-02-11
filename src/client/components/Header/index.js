@@ -8,6 +8,7 @@ import MenuItem from 'material-ui/MenuItem';
 import Link from 'react-router/lib/Link'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import MoreVert from 'material-ui/svg-icons/navigation/more-vert'
+import {red500, greenA200, white} from 'material-ui/styles/colors';
 
 class Header extends Component {
     static contextTypes = {
@@ -30,7 +31,7 @@ class Header extends Component {
 				</div>
 				<IconMenu
 					iconButtonElement={
-						<IconButton><MoreVertIcon /></IconButton>
+						<IconButton><MoreVertIcon color={white} hoverColor={white}/></IconButton>
                     }
 					targetOrigin={{horizontal: 'right', vertical: 'top'}}
 					anchorOrigin={{horizontal: 'right', vertical: 'top'}}

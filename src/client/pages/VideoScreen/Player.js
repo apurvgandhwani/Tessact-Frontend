@@ -10,31 +10,36 @@ import {newMarkerTimeAction} from '../../store/newMarkerTimeAction'
 import {tagFetchedAction} from '../../store/tagFetchedAction'
 
     var markerJson;
-    var values;
+    var values,x;
     class Player extends Component {
         constructor() {
             super();
             this.state = {
                 player: {},
-                tags:[]
+                tags:[{category: "Compliance",
+                    stopTime: 10,
+                    text:"Car",
+                    time: 0}]
             };
         }
 
         componentWillMount(){
             var that = this;
-            let token;
+
             var settings = {
                 "async": true,
                 "crossDomain": true,
-                "url": "https://www.backend.trigger.tessact.com/api/v1/videos/a6eb980c-7d3b-41c4-ac39-622e0e071722/frame_tags/",
+                "url": "https://www.backend.trigger.tessact.com/api/v1/videos/"+ this.props. video_file_selected_reducer.id +"/frame_tags/",
                 "method": "GET",
                 "headers": {
                     Authorization: "Token " + that.props.token_Reducer.token
                 },
                 success:( response, textStatus, jQxhr )=> {
                     that.setState({tags: response})
+                    x = response;
                     that.props.tagFetchedAction(response);
                     console.log(that.state.tags)
+                    console.log(this.props.marker_store)
                 }
             }
 
@@ -71,7 +76,7 @@ import {tagFetchedAction} from '../../store/tagFetchedAction'
 
             player.markers({
                 markerStyle: {},
-                markers: this.props.marker_store,
+                markers: this.state.tags,
                 //markers:this.state.tags,
                 onMarkerReached: function () {
                     // player.pause();

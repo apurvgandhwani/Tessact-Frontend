@@ -53,23 +53,33 @@ class VideoDetails extends Component {
     handleEditRowClick = (row) => {
 
     }
-    secondsToHms =(d) =>{
-        d = Number(d);
-        var a = d % 3600 % 60;
-        var h = Math.floor(d / 3600);
-        var m = Math.floor(d % 3600 / 60);
-        var s = Math.floor(d % 3600 % 60);
-        var f = a -s ;
-        return ((h > 0 ? h + ":" + (m < 10 ? "00" : "") : "00:") + "0"+ m + ":" + (s < 10 ? "0" : "") + s); }
+    // secondsToHms =(d) =>{
+    //     d = Number(d);
+    //     var a = d % 3600 % 60;
+    //     var h = Math.floor(d / 3600);
+    //     var m = Math.floor(d % 3600 / 60);
+    //     var s = Math.floor(d % 3600 % 60);
+    //     var f = a -s ;
+    //     return ((h > 0 ? h + ":" + (m < 10 ? "00" : "") : "00:") + "0"+ m + ":" + (s < 10 ? "0" : "") + s); }
 
+    secondsToHms (input, fps) {
+        var pad = function (input) {
+            return (input < 10) ? "0" + input : input;
+        };
+        fps = (typeof fps !== 'undefined' ? fps : 24 );
+        return [
+            pad(Math.floor(input / 3600)),
+            pad(Math.floor(input % 3600 / 60)),
+            pad(Math.floor(input % 60)),
+            pad(Math.floor(input * fps % fps))
+        ].join(':');
+    }
     render() {
         var that = this;
         var {className} = this.props;
         var cx = `${className || ''} video-details-container`
 
         return (
-
-
             <div className='flex-vertical'>
                 <Table className='flags-table' responsive hover>
                     <thead>
@@ -88,8 +98,8 @@ class VideoDetails extends Component {
                                 <td>
                                     <div className='red-box'></div>
                                 </td>
-                                <td> {this.secondsToHms(x.frame_in)} </td>
-                                <td> {this.secondsToHms(x.frame_out)} </td>
+                                <td> {this.secondsToHms(x.time)} </td>
+                                <td> {this.secondsToHms(x.stopTime)} </td>
                                 <td> {x.tagname} </td>
                                 <td contentEditable="false"> {x.category}</td>
                             </tr>
@@ -120,6 +130,7 @@ const mapStateToProps = (state) => {
     return {
         // tags: state.tagReducer,
         marker_store: state.markerReducer,
+        video_file_reducer: state.VideoFileSelectedReducer,
         tag_fetch_reducer:state.tagFetchReducer
     };
 };
