@@ -115,7 +115,7 @@
             console.log(marker.text);
             //console.log("break");
 
-            switch (marker.text) {
+            switch (marker.tagname) {
                 case "car":
                     markerDiv.css(setting.markerStyle)
                         .css({"background-color": "#FF0000"});
@@ -124,13 +124,13 @@
                     markerDiv.css(setting.markerStyle)
                         .css({"background-color": "#FF0000"});
                     break;
-                case "Cigarette":
+                case "smoking":
                     markerDiv.css(setting.markerStyle)
                         .css({"background-color": "#FF0000"});
                     break;
-                case "motorcycle":
+                case "alcohol":
                     markerDiv.css(setting.markerStyle)
-                        .css({"background-color": "00FF00"});
+                        .css({"background-color": "#FFFF00"});
                     break;
                 default:
                     markerDiv.css(setting.markerStyle)

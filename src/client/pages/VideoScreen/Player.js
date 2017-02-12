@@ -44,6 +44,7 @@ var values;
                 //alert(response.auth_token);
                 //that.props.setAuthToken(token);
                 that.setState({tags: response})
+                console.log(that.state.tags)
                 //this.context.router.push('/app')
                 var self = this;
                 var options ={hidden:true};
