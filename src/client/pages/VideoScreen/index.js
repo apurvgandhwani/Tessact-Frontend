@@ -35,7 +35,7 @@ class VideoScreen extends Component {
 				</div>
 				<div className='video-section'>
 					<Player/>
-					<div className='video-title'> {name} </div>
+					<div className='video-title'> {this.props.video_file_selected_reducer.videoName} </div>
 					<div className='process-list'>
                         {
                             PROCESS_LIST.map((x,i)=> (
@@ -55,7 +55,8 @@ class VideoScreen extends Component {
 }
 
 const mapStateToProps = (state)=> ({
-	currentItem: state.Data.currentItem
+	currentItem: state.Data.currentItem,
+	video_file_selected_reducer: state.VideoFileSelectedReducer
 })
 
 export default withStyles(c)(
