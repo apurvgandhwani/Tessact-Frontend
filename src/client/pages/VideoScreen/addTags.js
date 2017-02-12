@@ -147,7 +147,7 @@ class AddTags extends Component {
         });
         return (
 
-            <div className="add-container">
+            <div className="flex-vertical">
                 <div className="time-from-container">
                     <h4 style={styles.fontStyle} className="timeStamp">From : </h4>
                     <TextField

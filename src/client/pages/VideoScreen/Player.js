@@ -35,17 +35,17 @@ import {tagFetchedAction} from '../../store/tagFetchedAction'
                     Authorization: "Token " + that.props.token_Reducer.token
                 },
                 success:( response, textStatus, jQxhr )=> {
-                    that.setState({tags: response})
+
                     x = response;
                     that.props.tagFetchedAction(response);
                     console.log(that.state.tags)
-                    console.log(this.props.marker_store)
                 }
             }
 
             $.ajax(settings).done((response) => {
                 //alert(response.auth_token);
                 //that.props.setAuthToken(token);
+                that.setState({tags: response})
                 //this.context.router.push('/app')
             });
         }
