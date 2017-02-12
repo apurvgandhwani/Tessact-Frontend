@@ -45,42 +45,43 @@ var values;
                 //that.props.setAuthToken(token);
                 that.setState({tags: response})
                 //this.context.router.push('/app')
+                var self = this;
+                var options ={hidden:true};
+                var player = videojs(this.refs.video, this.props.options).ready(function () {
+                    self.player = this;
+                    self.player.on('play', self.handlePlay);
+                });
+                player.rangeslider(options);
+                player.on("sliderchange",()=> {
+                    values = player.getValueSlider();
+                    console.log(values)
+                    this.props.newMarkerTimeAction(values)
+                });
+
+                // $.get('URL-TO-FETCH-DATA-FROM', function(result) {
+                //     if (this.isMounted()) {
+                //         this.setState({
+                //             dataVar1: result
+                //         });
+                //     }
+                // }.bind(this));
+
+                if (this.props.onPlayerInit) this.props.onPlayerInit(player);
+
+
+                player.markers({
+                    markerStyle: {},
+                    markers: this.state.tags,
+                    //markers:this.state.tags,
+                    onMarkerReached: function () {
+                        // player.pause();
+                    },
+                });
+                this.setState({player: player});
+
             });
         }
         componentDidMount() {
-            var self = this;
-            var options ={hidden:true};
-            var player = videojs(this.refs.video, this.props.options).ready(function () {
-                self.player = this;
-                self.player.on('play', self.handlePlay);
-            });
-            player.rangeslider(options);
-            player.on("sliderchange",()=> {
-                values = player.getValueSlider();
-                console.log(values)
-                this.props.newMarkerTimeAction(values)
-            });
-
-            // $.get('URL-TO-FETCH-DATA-FROM', function(result) {
-            //     if (this.isMounted()) {
-            //         this.setState({
-            //             dataVar1: result
-            //         });
-            //     }
-            // }.bind(this));
-
-            if (this.props.onPlayerInit) this.props.onPlayerInit(player);
-
-
-            player.markers({
-                markerStyle: {},
-                markers: this.state.tags,
-                //markers:this.state.tags,
-                onMarkerReached: function () {
-                    // player.pause();
-                },
-            });
-            this.setState({player: player});
 
         }
 
