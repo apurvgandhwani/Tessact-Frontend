@@ -10,6 +10,7 @@ import {newMarkerTimeAction} from '../../store/newMarkerTimeAction'
 import {tagFetchedAction} from '../../store/tagFetchedAction'
 
     var markerJson;
+var values;
     class Player extends Component {
         constructor() {
             super();
