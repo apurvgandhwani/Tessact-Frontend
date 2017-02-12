@@ -6,7 +6,7 @@ import {Router, Route, browserHistory, IndexRoute} from "react-router";
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
-import {addButtonClickedAction} from '../../store/addButtonClickedAction'
+import {doneButtonClickedAction} from '../../store/doneButtonClickedAction'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import $ from 'jquery'
@@ -84,7 +84,7 @@ class AddTags extends Component {
     };
 
     clicked= ()=> {
-        this.props.addButtonClickedAction(false);
+        this.props.doneButtonClickedAction(false);
         this.context.router.push('/TagList')
     };
 
@@ -210,7 +210,7 @@ const mapStateToProps = (state) => {
     };
 };
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({addButtonClickedAction: addButtonClickedAction}, dispatch);
+    return bindActionCreators({doneButtonClickedAction: doneButtonClickedAction}, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(AddTags);

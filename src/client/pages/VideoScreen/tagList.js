@@ -110,7 +110,7 @@ class VideoDetails extends Component {
                 <div className='flex-fill'/>
                 <div className='table-footer'>
                     <FlatButton
-                        onClick={this.toAdd}
+                        onClick={this.toAdd.bind(this)}
                         label='ADD'
                         style={{
                             backgroundColor: '#D7D7D7',

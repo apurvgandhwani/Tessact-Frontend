@@ -10,7 +10,6 @@ import {newMarkerTimeAction} from '../../store/newMarkerTimeAction'
 import {tagFetchedAction} from '../../store/tagFetchedAction'
 
     var markerJson;
-    var values,x;
     class Player extends Component {
         constructor() {
             super();
@@ -35,8 +34,6 @@ import {tagFetchedAction} from '../../store/tagFetchedAction'
                     Authorization: "Token " + that.props.token_Reducer.token
                 },
                 success:( response, textStatus, jQxhr )=> {
-
-                    x = response;
                     that.props.tagFetchedAction(response);
                     console.log(that.state.tags)
                 }
@@ -130,20 +127,15 @@ import {tagFetchedAction} from '../../store/tagFetchedAction'
                     this.showSlider();
                 }
 
-                // if (!this.props.new_marker_reducer.flag) {
-                //     this.hideSlider();
-                // }
-
-
-
-
+                if (!this.props.new_marker_reducer.flag_2) {
+                    this.hideSlider();
+                }
 
                 return (
                     <div>
                         <video ref='video' {... props} data-setup='{ "inactivityTimeout": 0 }'>
                             <source src={this.props. video_file_selected_reducer.url} type="video/mp4"/>
                         </video>
-
                         {/*<button onClick={this.jumpToSpecificMarker.bind(this)}>next</button>*/}
                             {/*<button onClick={this.hideSlider.bind(this)}>prev</button>*/}
                     </div>)

@@ -9,6 +9,12 @@ import Link from 'react-router/lib/Link'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import MoreVert from 'material-ui/svg-icons/navigation/more-vert'
 import {red500, greenA200, white} from 'material-ui/styles/colors';
+import {connect} from 'react-redux';
+import $ from 'jquery'
+import {bindActionCreators} from 'redux';
+import {newMarkerTimeAction} from '../../store/newMarkerTimeAction'
+import {tagFetchedAction} from '../../store/tagFetchedAction'
+import {tessactLogoClickedAction} from '../../store/tessactLogoClickedAction'
 
 class Header extends Component {
     static contextTypes = {
@@ -17,12 +23,15 @@ class Header extends Component {
 	onSignOutClick(){
         this.context.router.push('/')
 	}
+	logoClicked(){
+		this.props.tessactLogoClickedAction();
+	}
 	render(){
 		return (
 			<header className={c.container}>
 				<div className='logo'>
 					<Link to='/app'>
-						<img className='img-logo' src='/public/img/logo.png'/>
+						<img className='img-logo' src='/public/img/logo.png' onClick={this.logoClicked.bind(this)}/>
 					</Link>
 				</div>
 				<div className='flex-fill'/>
@@ -46,4 +55,9 @@ class Header extends Component {
 	}
 }
 
-export default withStyles(c)(Header)
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({tessactLogoClickedAction:tessactLogoClickedAction}, dispatch);
+}
+export default connect(null, matchDispatchToProps)(withStyles(c)(Header));
+
+
