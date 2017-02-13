@@ -1,5 +1,5 @@
 import {Component, PropTypes} from 'react'
-
+import $ from 'jquery'
 import {Tabs, Tab} from 'material-ui/Tabs'
 import Table from 'react-bootstrap/lib/Table'
 import SwipeableViews from 'react-swipeable-views'
@@ -30,12 +30,14 @@ const inactiveStyle = {
 
 class VideoDetails extends Component {
     state = {
-        tabIndex: 0
+        tabIndex: 0,
+        tags:[]
     };
 
     static contextTypes = {
         router: PropTypes.object.isRequired
     }
+
 
     switchTabs = (tabIndex) => {
         this.setState({tabIndex})
@@ -79,6 +81,7 @@ class VideoDetails extends Component {
         var {className} = this.props;
         var cx = `${className || ''} video-details-container`
 
+
         return (
             <div className='flex-vertical'>
                 <Table className='flags-table' responsive hover>
@@ -93,7 +96,7 @@ class VideoDetails extends Component {
                     </thead>
                     <tbody>
                     {
-                        that.props.tag_fetch_reducer.tags.map((x, i) => (
+                        this.props.tag_fetch_reducer.tags.map((x, i) => (
                             <tr key={i} onClick={this.handleRowClick.bind(this, i)}>
                                 <td>
                                     <div className='red-box'></div>
