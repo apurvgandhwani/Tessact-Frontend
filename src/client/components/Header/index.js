@@ -45,8 +45,6 @@ class Header extends Component {
 					targetOrigin={{horizontal: 'right', vertical: 'top'}}
 					anchorOrigin={{horizontal: 'right', vertical: 'top'}}
 				>
-					<MenuItem primaryText="Settings"/>
-					<MenuItem primaryText="Help"/>
 					<MenuItem onTouchTap={this.onSignOutClick.bind(this)} primaryText="Sign out"/>
 				</IconMenu>
 

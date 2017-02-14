@@ -79,7 +79,7 @@ var values;
                     },
                 });
                 this.setState({player: player});
-
+                this.state.player.markers.getVideoDuration(this.props.video_file_selected_reducer.videoDuration);
             });
         }
         componentDidMount() {
@@ -89,13 +89,16 @@ var values;
         jumpToSpecificMarker() {
             var index = this.props.tag_selected_reducer.ind;
             this.state.player.markers.jumpToSpecificMarker(index);
+
         }
         getTimeValue() {
             //console.log(this.state.player.getValueSlider());
         }
 
         handlePlay() {
-            console.log("handle play ")}
+            console.log("handle play ")
+
+        }
 
 
         showSlider(){
@@ -121,6 +124,8 @@ var values;
                     width:"940",
                     height:"490"
                 });
+
+
 
                 if (this.props.tag_selected_reducer.flag) {
                     this.jumpToSpecificMarker();

@@ -1,5 +1,6 @@
 (function ($, video, undefined) {
     //default setting
+    var duration,x;
     var defaultSetting = {
         markerStyle: {
             'border-radius': '0%',
@@ -88,6 +89,8 @@
             sortMarkersList();
         }
 
+
+
         function getPosition(marker) {
             return (setting.markerTip.time(marker) / player.duration()) * 100
         }
@@ -98,7 +101,7 @@
 
             //console.log("Hey"+player.markers.key);
             //var markerLength = (marker.stopTime - marker.time)*1.84414951246;
-            var markerLength = (marker.stopTime - marker.time) * 1.435185; //Fast
+            var markerLength = (marker.stopTime - marker.time) * x; //Fast
             //var markerLength = (marker.stopTime - marker.time) * 6.68829902492; //Fast
             //var markerLength = (marker.stopTime - marker.time)*3.74098901099;  //RUstom
            // var markerLength = (marker.frame_in - marker.frame_out)*10.0793;  //RamanRaghav
@@ -366,6 +369,7 @@
             getMarkers: function () {
                 return markersList;
             },
+
             getSpecificMarkers: function (i) {
                 return markersList[i];
             },
@@ -431,6 +435,11 @@
                 player.off("timeupdate", updateBreakOverlay);
                 delete player.markers;
             },
+            getVideoDuration: function(i) {
+            duration = i;
+            x = 775/duration;
+            console.log("time is this" + x)
+        }
         };
     }
 
