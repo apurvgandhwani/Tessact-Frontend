@@ -58,7 +58,7 @@ var values;
                     console.log(values)
                     this.props.newMarkerTimeAction(values)
                 });
-
+                console.log(player.getChild('ControlBar').getChild('ProgressControl').currentWidth());
                 // $.get('URL-TO-FETCH-DATA-FROM', function(result) {
                 //     if (this.isMounted()) {
                 //         this.setState({
@@ -83,13 +83,11 @@ var values;
             });
         }
         componentDidMount() {
-
         }
 
         jumpToSpecificMarker() {
             var index = this.props.tag_selected_reducer.ind;
             this.state.player.markers.jumpToSpecificMarker(index);
-
         }
         getTimeValue() {
             //console.log(this.state.player.getValueSlider());

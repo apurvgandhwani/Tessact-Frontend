@@ -46,9 +46,7 @@ class VideoScreen extends Component {
                             ))
                         }
 					</div>
-
 				</div>
-
 			</div>
 		)
 	}
