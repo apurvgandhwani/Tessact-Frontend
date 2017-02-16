@@ -437,7 +437,7 @@
             },
             getVideoDuration: function(i) {
             duration = i;
-            x = 775/duration;
+            x = 777.203/duration;
             console.log("time is this" + x)
         }
         };

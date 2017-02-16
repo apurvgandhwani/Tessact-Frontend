@@ -56,7 +56,7 @@ class AddTags extends Component {
             "url": "https://www.backend.trigger.tessact.com/api/v1/tags/",
             "method": "GET",
             "headers": {
-                Authorization: "Token " + that.props.token_Reducer.token
+                Authorization: "Token" + that.props.token_Reducer.token
             },
             success: (response, textStatus, jQxhr) => {
                 that.setState({tagTypeList: response})

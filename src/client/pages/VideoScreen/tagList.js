@@ -31,7 +31,7 @@ const inactiveStyle = {
 class VideoDetails extends Component {
     state = {
         tabIndex: 0,
-        tags:[]
+        tags:[],
     };
 
     static contextTypes = {
@@ -81,10 +81,17 @@ class VideoDetails extends Component {
         var {className} = this.props;
         var cx = `${className || ''} video-details-container`
 
+        var tagIndex = 0;
+        //var x = document.getElementsByTagName("tr");
+
+        //x[this.props.marker_reached_reducer.index].style.backgroundColor = "#FFF000"
+
+
+        //this.setState({tagIndex:this.props.marker_reached_reducer.index})
 
         return (
             <div className='flex-vertical'>
-                <Table className='flags-table' responsive hover>
+                <Table className='flags-table' id="flags-table" responsive hover>
                     <thead>
                     <tr>
                         <th></th>
@@ -97,14 +104,14 @@ class VideoDetails extends Component {
                     <tbody>
                     {
                         this.props.tag_fetch_reducer.tags.map((x, i) => (
-                            <tr key={i} onClick={this.handleRowClick.bind(this, i)}>
+                            <tr className={i === this.props.marker_reached_reducer.index ? 'selected' : ''} key={i} onClick={this.handleRowClick.bind(this, i)}>
                                 <td>
                                     <div className='red-box'></div>
                                 </td>
                                 <td> {this.secondsToHms(x.time)} </td>
                                 <td> {this.secondsToHms(x.stopTime)} </td>
                                 <td> {x.tagname} </td>
-                                <td contentEditable="false"> {x.category}</td>
+                                <td> {x.category}</td>
                             </tr>
                         ))
                     }
@@ -134,7 +141,8 @@ const mapStateToProps = (state) => {
         // tags: state.tagReducer,
         marker_store: state.markerReducer,
         video_file_reducer: state.VideoFileSelectedReducer,
-        tag_fetch_reducer:state.tagFetchReducer
+        tag_fetch_reducer:state.tagFetchReducer,
+        marker_reached_reducer:state.markerReachedReducer
     };
 };
 function matchDispatchToProps(dispatch) {

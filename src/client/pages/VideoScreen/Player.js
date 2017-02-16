@@ -8,9 +8,11 @@ import $ from 'jquery'
 import {bindActionCreators} from 'redux';
 import {newMarkerTimeAction} from '../../store/newMarkerTimeAction'
 import {tagFetchedAction} from '../../store/tagFetchedAction'
+import {markerReachedAction} from '../../store/markerReachedAction'
 
-    var markerJson;
+    var markerJson, player, currentTime, ind;
 var values;
+var lastNotifiedIndex = -1;
     class Player extends Component {
         constructor() {
             super();
@@ -36,7 +38,7 @@ var values;
                 },
                 success:( response, textStatus, jQxhr )=> {
                     that.props.tagFetchedAction(response);
-                    console.log(that.state.tags)
+                    //console.log(that.state.tags)
                 }
             }
 
@@ -44,32 +46,55 @@ var values;
                 //alert(response.auth_token);
                 //that.props.setAuthToken(token);
                 that.setState({tags: response})
-                console.log(that.state.tags)
+                //console.log(that.state.tags)
                 //this.context.router.push('/app')
                 var self = this;
                 var options ={hidden:true};
-                var player = videojs(this.refs.video, this.props.options).ready(function () {
+                player = videojs(this.refs.video, this.props.options).ready(function () {
                     self.player = this;
                     self.player.on('play', self.handlePlay);
                 });
                 player.rangeslider(options);
                 player.on("sliderchange",()=> {
                     values = player.getValueSlider();
-                    console.log(values)
+                    //console.log(values)
                     this.props.newMarkerTimeAction(values)
                 });
-                console.log(player.getChild('ControlBar').getChild('ProgressControl').currentWidth());
-                // $.get('URL-TO-FETCH-DATA-FROM', function(result) {
-                //     if (this.isMounted()) {
-                //         this.setState({
-                //             dataVar1: result
-                //         });
-                //     }
-                // }.bind(this));
+                player.on("timeupdate", ()=> {
+                    currentTime = player.currentTime();
+                    //console.log(currentTime)
+                });
+                // setInterval(function () {
+                //     that.state.tags.map((item, i) => {
+                //         if( item.time <= currentTime && currentTime <= item.stopTime){
+                //             if (lastNotifiedIndex != i) {
+                //                 // Yes, notify
+                //                 lastNotifiedIndex = i;
+                //                // console.log(lastNotifiedIndex)
+                //                 that.props.markerReachedAction(lastNotifiedIndex);
+                //             }
+                //             //console.log(i);
+                //         }
+                //     }) , 500
+                // })
+
+                setInterval(function() {
+                    // Find the index for which our predicate function returns true
+                    const index = that.state.tags.findIndex(item => item.time <= currentTime && currentTime <= item.stopTime);
+                    // If we found one, is it different?
+                    if (index !== -1 && lastNotifiedIndex !== index) {
+                        // Yes, notify
+                        lastNotifiedIndex = index;
+                        console.log(lastNotifiedIndex)
+                        that.props.markerReachedAction(lastNotifiedIndex);
+                    }
+                }, 500);
+
 
                 if (this.props.onPlayerInit) this.props.onPlayerInit(player);
 
 
+                console.log(player.currentTime())
                 player.markers({
                     markerStyle: {},
                     markers: this.state.tags,
@@ -80,7 +105,10 @@ var values;
                 });
                 this.setState({player: player});
                 this.state.player.markers.getVideoDuration(this.props.video_file_selected_reducer.videoDuration);
+
+
             });
+
         }
         componentDidMount() {
         }
@@ -95,7 +123,8 @@ var values;
 
         handlePlay() {
             console.log("handle play ")
-
+            console.log("hii" + player.getChild('ControlBar').getChild('ProgressControl').currentWidth())
+            console.log(player.currentTime())
         }
 
 
@@ -108,7 +137,15 @@ var values;
             this.state.player.hideSlider();
         }
 
-
+        updateTagInTable(){
+            // console.log(this.state.tags)
+            this.state.tags.map((item, i) => {
+                if( item.time <= currentTime   && currentTime <= item.stopTime){
+                    this.props.markerReachedAction(i);
+                    console.log(i);
+                }
+            })
+        }
 
 
             render()
@@ -123,7 +160,8 @@ var values;
                     height:"490"
                 });
 
-
+                //setInterval(this.updateTagInTable, 500)
+                //this.updateTagInTable();
 
                 if (this.props.tag_selected_reducer.flag) {
                     this.jumpToSpecificMarker();
@@ -165,6 +203,6 @@ var values;
 
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({newMarkerTimeAction: newMarkerTimeAction, tagFetchedAction:tagFetchedAction}, dispatch);
+    return bindActionCreators({newMarkerTimeAction: newMarkerTimeAction, tagFetchedAction:tagFetchedAction, markerReachedAction: markerReachedAction}, dispatch);
 }
     export default connect(mapStateToProps, matchDispatchToProps)(Player);

@@ -35,7 +35,7 @@ class VideoDetails extends Component {
 	static contextTypes = {
 		router: PropTypes.object.isRequired
 	}
-	
+
 	switchTabs = (tabIndex)=> {
 		this.setState({tabIndex})
 	}
@@ -87,7 +87,7 @@ class VideoDetails extends Component {
 					<div className='flex-vertical'>
 						<textarea id='comments-input' placeholder='Comments'/>
 						<div className='comments-footer'>
-							<FlatButton 
+							<FlatButton
 								label='SUBMIT'
 								onClick={this.toHome}
 								style={{

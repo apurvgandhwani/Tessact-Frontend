@@ -8,8 +8,9 @@ import newMarkerReducer from  './newMarkerReducer'
 import VideoFileSelectedReducer from './VideoFileSelectedReducer'
 import MediaFileStore from './MediaFileStore'
 import tagFetchReducer from './tagFetchReducer'
+import markerReachedReducer from './markerReachedReducer'
 
 export default combineReducers({
   router,
-  Data, markerReducer, tokenReducer, tagSelectedReducer, newMarkerReducer, VideoFileSelectedReducer, MediaFileStore, tagFetchReducer
+  Data, markerReducer, tokenReducer, tagSelectedReducer, newMarkerReducer, VideoFileSelectedReducer, MediaFileStore, tagFetchReducer, markerReachedReducer
 });
