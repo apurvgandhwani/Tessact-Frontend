@@ -148,18 +148,18 @@ class AddTags extends Component {
         return (
 
             <div className="flex-vertical">
-                <div className="time-from-container">
-                    <h4 style={styles.fontStyle} className="timeStamp">From : </h4>
-                    <TextField
-                        id="time_in"
-                        className="timeStamp"
-                        underlineFocusStyle={{borderColor: '#293C8E'}}
-                        floatingLabelFocusStyle={{color: '#293C8E'}}
-                        style={{width: 120}}
-                        value={this.secondsToHms(this.props.new_marker_reducer.start)}
-                        floatingLabelText="Start Time"
-                    />
-                </div>
+                    <div className="time-from-container">
+                        <h4 style={styles.fontStyle} className="timeStamp">From : </h4>
+                        <TextField
+                            id="time_in"
+                            className="timeStamp"
+                            underlineFocusStyle={{borderColor: '#293C8E'}}
+                            floatingLabelFocusStyle={{color: '#293C8E'}}
+                            style={{width: 120}}
+                            value={this.secondsToHms(this.props.new_marker_reducer.start)}
+                            //floatingLabelText="Start Time"
+                        />
+                    </div>
                 <div className="time-to-container">
                     <h4 style={styles.fontStyle} className="timeStamp1">To :</h4>
                     <TextField
@@ -169,7 +169,7 @@ class AddTags extends Component {
                         floatingLabelFocusStyle={{color: '#293C8E'}}
                         style={{width: 120}}
                         value={this.secondsToHms(this.props.new_marker_reducer.end)}
-                        floatingLabelText="End Time"
+                        //floatingLabelText="End Time"
                     />
                 </div>
                 <div className="selectfield-container">
