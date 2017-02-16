@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5f0bb8a-140f-41f6-ba69-a7fcc8135303" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/store/markerReachedAction.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/store/markerReachedReducer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/main-bundle.js" afterPath="$PROJECT_DIR$/build/public/main-bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/markers.js" afterPath="$PROJECT_DIR$/build/public/markers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/VideoScreen/Player.js" afterPath="$PROJECT_DIR$/src/client/pages/VideoScreen/Player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/VideoScreen/VideoDetails.js" afterPath="$PROJECT_DIR$/src/client/pages/VideoScreen/VideoDetails.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/VideoScreen/VideoScreen.styl" afterPath="$PROJECT_DIR$/src/client/pages/VideoScreen/VideoScreen.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/VideoScreen/addTags.js" afterPath="$PROJECT_DIR$/src/client/pages/VideoScreen/addTags.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/VideoScreen/tagList.js" afterPath="$PROJECT_DIR$/src/client/pages/VideoScreen/tagList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/store/rootReducer.js" afterPath="$PROJECT_DIR$/src/client/store/rootReducer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/public/markers.js" afterPath="$PROJECT_DIR$/src/public/markers.js" />
-    </list>
+    <list default="true" id="e5f0bb8a-140f-41f6-ba69-a7fcc8135303" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -874,12 +861,12 @@
       <workItem from="1487082028323" duration="11578000" />
       <workItem from="1487144278898" duration="13306000" />
       <workItem from="1487178359940" duration="693000" />
-      <workItem from="1487184584971" duration="15555000" />
+      <workItem from="1487184584971" duration="16546000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="602517000" />
+    <option name="totallyTimeSpent" value="603508000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
