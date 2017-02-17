@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e5f0bb8a-140f-41f6-ba69-a7fcc8135303" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/main-bundle.js" afterPath="$PROJECT_DIR$/build/public/main-bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/VideoScreen/Player.js" afterPath="$PROJECT_DIR$/src/client/pages/VideoScreen/Player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/VideoScreen/VideoScreen.styl" afterPath="$PROJECT_DIR$/src/client/pages/VideoScreen/VideoScreen.styl" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -875,12 +872,12 @@
       <workItem from="1487276926356" duration="3816000" />
       <workItem from="1487280793356" duration="3002000" />
       <workItem from="1487283872715" duration="7747000" />
-      <workItem from="1487311586937" duration="5988000" />
+      <workItem from="1487311586937" duration="6510000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="634349000" />
+    <option name="totallyTimeSpent" value="634871000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
