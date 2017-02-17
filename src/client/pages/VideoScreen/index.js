@@ -8,7 +8,7 @@ import Player from './Player'
 import VideoDetails from './VideoDetails'
 import {bindActionCreators} from 'redux';
 import {tessactLogoClickedAction} from '../../store/tessactLogoClickedAction'
-
+import {backArrowClickedAction} from '../../store/backArrowClickedAction'
 
 const PROCESS_LIST = [
 	'Cigarettes',
@@ -27,6 +27,7 @@ class VideoScreen extends Component {
 
     componentWillUnmount() {
     	this.props.tessactLogoClickedAction();
+    	//this.props.backArrowClickedAction();
 	}
 	render(){
 		var item = this.props.currentItem || {};
@@ -64,7 +65,7 @@ const mapStateToProps = (state)=> ({
 })
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({tessactLogoClickedAction:tessactLogoClickedAction}, dispatch);
+    return bindActionCreators({tessactLogoClickedAction:tessactLogoClickedAction, backArrowClickedAction:backArrowClickedAction}, dispatch);
 }
 
 export default withStyles(c)(

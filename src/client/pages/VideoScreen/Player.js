@@ -64,23 +64,23 @@ var lastNotifiedIndex = -1;
                     currentTime = player.currentTime();
                     //console.log(currentTime)
                 });
-                setInterval(function () {
-                    that.state.tags.map((item, i) => {
-                        if( item.time <= currentTime && currentTime <= item.stopTime){
-                            if (lastNotifiedIndex != i) {
-                                // Yes, notify
-                                lastNotifiedIndex = i;
-                               // console.log(lastNotifiedIndex)
-                                that.props.markerReachedAction(lastNotifiedIndex);
-                            }
-                            //console.log(i);
-                        }
-                    }) , 500
-                })
+                // setInterval(function () {
+                //     that.state.tags.map((item, i) => {
+                //         if( item.time <= currentTime && currentTime <= item.stopTime){
+                //             if (lastNotifiedIndex != i) {
+                //                 // Yes, notify
+                //                 lastNotifiedIndex = i;
+                //                // console.log(lastNotifiedIndex)
+                //                 that.props.markerReachedAction(lastNotifiedIndex);
+                //             }
+                //             //console.log(i);
+                //         }
+                //     }) , 500
+                // })
 
                 // setInterval(function() {
                 //     // Find the index for which our predicate function returns true
-                //     const index = that.state.tags.findIndex(item => item.time <= currentTime && currentTime <= item.stopTime);
+                //     const index = that.state.tags.findIndex(item => item.time < currentTime && currentTime < item.stopTime);
                 //     // If we found one, is it different?
                 //     //console.log(index)
                 //     //console.log(that.state.tags[index].time)
@@ -93,11 +93,12 @@ var lastNotifiedIndex = -1;
                 //     if (lastNotifiedIndex !== index) {
                 //         // Yes, notify
                 //         lastNotifiedIndex = index;
+                //         that.props.markerReachedAction(lastNotifiedIndex);
                 //     }
                 //
                 //     console.log(lastNotifiedIndex)
-                //     that.props.markerReachedAction(lastNotifiedIndex);
-                // }, 100);
+                //
+                // }, 500);
 
 
                 if (this.props.onPlayerInit) this.props.onPlayerInit(player);
@@ -178,6 +179,7 @@ var lastNotifiedIndex = -1;
 
                 if (this.props.tag_selected_reducer.flag) {
                     this.jumpToSpecificMarker();
+                    this.state.player.pause();
                 }
 
                 if (this.props.new_marker_reducer.flag) {

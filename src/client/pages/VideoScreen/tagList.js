@@ -34,10 +34,11 @@ class VideoDetails extends Component {
         tabIndex: 0,
         tags:[],
         clickedIndex:-1,
-        time_in:0,
-        time_out:0,
-        tag_type:"smoking",
-        category:"compliance"
+        buttonDisabled: true
+        // time_in:0,
+        // time_out:0,
+        // tag_type:"smoking",
+        // category:"compliance"
 
     };
 
@@ -56,21 +57,22 @@ class VideoDetails extends Component {
         this.context.router.push('/add')
     }
     toEdit = () => {
-        var tagArray = this.props.tag_fetch_reducer.tags;
-        let time_in= this.secondsToHms(tagArray[clickIndex].time)
-        console.log(time_in)
-        let time_out = this.secondsToHms(tagArray[clickIndex].stopTime)
-        let tag_type= tagArray[clickIndex].tagname
-        let category = tagArray[clickIndex].category
+        // var tagArray = this.props.tag_fetch_reducer.tags;
+        // let time_in= this.secondsToHms(tagArray[clickIndex].time)
+        // console.log(time_in)
+        // let time_out = this.secondsToHms(tagArray[clickIndex].stopTime)
+        // let tag_type= tagArray[clickIndex].tagname
+        // let category = tagArray[clickIndex].category
         //console.log(this.props.tag_fetch_reducer.tags)
         console.log(this.state.time_in)
-        this.props.editButtonClickedAction(true, time_in, time_out, tag_type, category);
+        this.props.editButtonClickedAction(true);
         this.context.router.push('/edit')
     }
 
     handleRowClick = (row) => {
 
         //this.setState({clickedIndex:row})
+        this.setState({buttonDisabled:false})
         clickIndex =row;
         console.log(clickIndex)
         this.props.tagSelectedAction(row)
@@ -147,6 +149,7 @@ class VideoDetails extends Component {
                     <FlatButton
                         onClick={this.toEdit.bind(this)}
                         label='EDIT'
+                        disabled={this.state.buttonDisabled}
                         style={{
                             backgroundColor: '#D7D7D7',
                             borderRadius: 0,

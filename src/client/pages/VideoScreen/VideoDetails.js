@@ -73,11 +73,29 @@ class VideoDetails extends Component {
 							style={{width: '100%', height: '100%'}}>
 							{this.props.children}
 							<div>
-								<div>Title</div>
-								<div>Uploaded on</div>
-								<div>Duration</div>
-								<div>Dimensions</div>
-								<div>Frame-rate</div>
+								<div className="detail-div">
+									<h4>Video Info</h4>
+								</div>
+								<div id="tile-div" className="detail-div">
+									<h4>Title</h4>
+									<h4>{this.props.video_file_selected.videoName}</h4>
+								</div>
+								<div className="detail-div">
+									<h4>Uploaded on</h4>
+									<h4>17-02-2017</h4>
+								</div>
+								<div className="detail-div">
+									<h4>Duration</h4>
+									<h4>{this.props.video_file_selected.videoDuration}</h4>
+								</div>
+								<div className="detail-div">
+									<h4>Dimensions</h4>
+									<h4>{this.props.video_file_selected.video_width + "X" + this.props.video_file_selected.video_height}</h4>
+								</div>
+								<div className="detail-div">
+									<h4>Frame-rate</h4>
+									<h4>{this.props.video_file_selected.frame_rate}</h4>
+								</div>
 							</div>
 						</SwipeableViews>
 					</div>
@@ -110,6 +128,7 @@ const mapStateToProps = (state) => {
     return {
         // tags: state.tagReducer,
         marker_store:state.markerReducer,
+		video_file_selected: state.VideoFileSelectedReducer
     };
 };
 function matchDispatchToProps(dispatch) {

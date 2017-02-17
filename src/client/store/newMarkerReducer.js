@@ -2,7 +2,8 @@ const initialState = {
     start: 0,
     end:0,
     flag:false,
-    flag_2: true
+    flag_2: true,
+    lastNotifiedIndex: -1
 };
 export default function (state = initialState , action) {
     switch (action.type) {
@@ -24,6 +25,9 @@ export default function (state = initialState , action) {
             state = {...state, flag_2:true, flag:false};
             break;
 
+        case 'BACK_ARROW_CLICKED':
+            state = {...state, lastNotifiedIndex: -1};
+            break;
 
     }
     return state;
