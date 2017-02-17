@@ -6,6 +6,8 @@ import c from './VideoScreen.styl'
 import Player from './Player'
 
 import VideoDetails from './VideoDetails'
+import {bindActionCreators} from 'redux';
+import {tessactLogoClickedAction} from '../../store/tessactLogoClickedAction'
 
 
 const PROCESS_LIST = [
@@ -22,6 +24,10 @@ class VideoScreen extends Component {
     	console.log('clicked')
 
     }
+
+    componentWillUnmount() {
+    	this.props.tessactLogoClickedAction();
+	}
 	render(){
 		var item = this.props.currentItem || {};
 		var name = item.file_name || 'No Item Selected';
@@ -57,6 +63,10 @@ const mapStateToProps = (state)=> ({
 	video_file_selected_reducer: state.VideoFileSelectedReducer
 })
 
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({tessactLogoClickedAction:tessactLogoClickedAction}, dispatch);
+}
+
 export default withStyles(c)(
-	connect(mapStateToProps)(VideoScreen)
+	connect(mapStateToProps, matchDispatchToProps)(VideoScreen)
 )

@@ -10,7 +10,7 @@ import Home from './pages/Home'
 import VideoScreen from './pages/VideoScreen'
 import TagList from './pages/VideoScreen/tagList'
 import AddTags from './pages/VideoScreen/addTags'
-
+import EditTag from './pages/VideoScreen/editTag'
 
 function authorize(){
     console.log('inside')
@@ -29,6 +29,7 @@ function getRoutes(store) {
                 <Route path='/video-screen' component={VideoScreen}>
                     <IndexRoute component={TagList}/>
                     <Route path='/add' component={AddTags}/>
+                    <Route path='/edit' component={EditTag}/>
                     <Route path='/TagList' component={TagList}/>
                     <Redirect from='*' to='/'/>
                 </Route>

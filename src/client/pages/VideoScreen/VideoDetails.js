@@ -97,6 +97,7 @@ class VideoDetails extends Component {
 									paddingLeft: '16px',
 									paddingRight: '16px',
 								}}/>
+
 						</div>
 					</div>
 				</div>

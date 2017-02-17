@@ -9,6 +9,7 @@ import {tagSelectedAction} from '../../store/tagSelectedAction'
 import FlatButton from 'material-ui/FlatButton'
 import {newMarkerTimeAction} from '../../store/newMarkerTimeAction'
 import {addButtonClickedAction} from '../../store/addButtonClickedAction'
+import {editButtonClickedAction} from '../../store/editButtonClickedAction'
 
 const FLAGS_LIST = [
     {time_in: '00:00:03:07', time_out: '00:00:03:07', type: 'car', category: 'Objects'},
@@ -27,11 +28,17 @@ const inactiveStyle = {
     backgroundColor: '#D7D7D7',
     color: '#5A5A5A'
 }
-
+var clickIndex;
 class VideoDetails extends Component {
     state = {
         tabIndex: 0,
         tags:[],
+        clickedIndex:-1,
+        time_in:0,
+        time_out:0,
+        tag_type:"smoking",
+        category:"compliance"
+
     };
 
     static contextTypes = {
@@ -48,9 +55,27 @@ class VideoDetails extends Component {
         this.props.addButtonClickedAction(true);
         this.context.router.push('/add')
     }
+    toEdit = () => {
+        var tagArray = this.props.tag_fetch_reducer.tags;
+        let time_in= this.secondsToHms(tagArray[clickIndex].time)
+        console.log(time_in)
+        let time_out = this.secondsToHms(tagArray[clickIndex].stopTime)
+        let tag_type= tagArray[clickIndex].tagname
+        let category = tagArray[clickIndex].category
+        //console.log(this.props.tag_fetch_reducer.tags)
+        console.log(this.state.time_in)
+        this.props.editButtonClickedAction(true, time_in, time_out, tag_type, category);
+        this.context.router.push('/edit')
+    }
 
     handleRowClick = (row) => {
+
+        //this.setState({clickedIndex:row})
+        clickIndex =row;
+        console.log(clickIndex)
         this.props.tagSelectedAction(row)
+
+
     }
     handleEditRowClick = (row) => {
 
@@ -120,6 +145,17 @@ class VideoDetails extends Component {
                 <div className='flex-fill'/>
                 <div className='table-footer'>
                     <FlatButton
+                        onClick={this.toEdit.bind(this)}
+                        label='EDIT'
+                        style={{
+                            backgroundColor: '#D7D7D7',
+                            borderRadius: 0,
+                            height: '36px',
+                            paddingLeft: '16px',
+                            paddingRight: '16px',
+                            marginRight:'10px'
+                        }}/>
+                    <FlatButton
                         onClick={this.toAdd.bind(this)}
                         label='ADD'
                         style={{
@@ -146,7 +182,7 @@ const mapStateToProps = (state) => {
     };
 };
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({tagSelectedAction: tagSelectedAction, newMarkerTimeAction: newMarkerTimeAction, addButtonClickedAction: addButtonClickedAction}, dispatch);
+    return bindActionCreators({tagSelectedAction: tagSelectedAction, newMarkerTimeAction: newMarkerTimeAction, addButtonClickedAction: addButtonClickedAction, editButtonClickedAction:editButtonClickedAction}, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(VideoDetails);

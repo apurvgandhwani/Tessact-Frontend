@@ -23,7 +23,7 @@ const tags = {
 
 
 var tagName
-class AddTags extends Component {
+class editTag extends Component {
 
     static contextTypes = {
         router: PropTypes.object.isRequired
@@ -68,7 +68,7 @@ class AddTags extends Component {
         this.setState({global_value: value});
     };
 
-    clicked = () => {
+    onDoneClicked = () => {
         this.props.doneButtonClickedAction(false);
         this.context.router.push('/TagList')
     };
@@ -136,10 +136,11 @@ class AddTags extends Component {
         return (
 
             <div className="flex-vertical">
-                <h3 className="add-tag-header">Add Tag</h3>
+                <h3 className="add-tag-header">Edit Tag</h3>
                 <div className="time-from-container">
                     <h4 className="timeStamp">From </h4>
                     <input
+                        defaultValue={this.props.edit_tag_reducer.time_in}
                         id="time_in"
                         type="text"
                         value={this.secondsToHms(this.props.new_marker_reducer.start)}
@@ -148,6 +149,7 @@ class AddTags extends Component {
                 <div className="time-to-container">
                     <h4 className="timeStamp1">To</h4>
                     <input
+                        defaultValue={this.props.edit_tag_reducer.time_out}
                         id="time_out"
                         type="text"
                         value={this.secondsToHms(this.props.new_marker_reducer.end)}
@@ -155,7 +157,7 @@ class AddTags extends Component {
                 </div>
                 <div className="globalTags">
                     <h4 className="global">Global Tag</h4>
-                    <select>
+                    <select defaultValue={this.props.edit_tag_reducer.category}>
                         <option>Compliance</option>
                     </select>
                 </div>
@@ -168,11 +170,8 @@ class AddTags extends Component {
                 </div>
 
                 <div className="button-container">
-                    <FlatButton style={{borderRadius: 0, marginRight: '10px'}} className="addTagDone" backgroundColor="#D3D3D3" primary={false} label="Done"
-                                  labelColor="#000000" onClick={this.clicked}/>
-
-                    <FlatButton style={{borderRadius: 0}} className="appendTag" backgroundColor="#D3D3D3" label="Append" labelColor="#000000"
-                                  onClick={this.onAppendClicked}/>
+                    <FlatButton style={{borderRadius: 0}} className="appendTag" backgroundColor="#D3D3D3" label="Done" labelColor="#000000"
+                                onClick={this.onDoneClicked}/>
                 </div>
 
             </div>
@@ -186,10 +185,13 @@ const mapStateToProps = (state) => {
     return {
         new_marker_reducer: state.newMarkerReducer,
         token_Reducer: state.tokenReducer,
+        edit_tag_reducer:state.editTagReducer
     };
 };
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({doneButtonClickedAction: doneButtonClickedAction}, dispatch);
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(AddTags);
+export default connect(mapStateToProps, matchDispatchToProps)(editTag);/**
+ * Created by root on 2/16/17.
+ */

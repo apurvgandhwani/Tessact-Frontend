@@ -12,6 +12,9 @@ export default function (state = initialState , action) {
         case 'ADD_BUTTON_CLICKED':
             state = {...state, flag:action.payload, flag_2:true};
             break;
+        case 'EDIT_BUTTON_CLICKED':
+            state = {...state, flag:action.payload, flag_2:true};
+            break;
 
         case 'DONE_BUTTON_CLICKED':
             state = {...state, flag_2:action.payload, flag:false};
@@ -20,6 +23,8 @@ export default function (state = initialState , action) {
         case 'TESSACT_LOGO_CLICKED':
             state = {...state, flag_2:true, flag:false};
             break;
+
+
     }
     return state;
 }
