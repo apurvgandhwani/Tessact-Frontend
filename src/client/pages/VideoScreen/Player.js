@@ -170,7 +170,7 @@ var lastNotifiedIndex = -1;
                 assign(props, {
                     ref: 'video',
                     controls: true,
-                    width:"940",
+                    width:"860",
                     height:"490"
                 });
 

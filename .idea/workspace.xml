@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5f0bb8a-140f-41f6-ba69-a7fcc8135303" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/store/backArrowClickedAction.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/main-bundle.js" afterPath="$PROJECT_DIR$/build/public/main-bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/components/Reviews/ReviewTable.js" afterPath="$PROJECT_DIR$/src/client/components/Reviews/ReviewTable.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/VideoScreen/Player.js" afterPath="$PROJECT_DIR$/src/client/pages/VideoScreen/Player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/VideoScreen/VideoDetails.js" afterPath="$PROJECT_DIR$/src/client/pages/VideoScreen/VideoDetails.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/VideoScreen/VideoScreen.styl" afterPath="$PROJECT_DIR$/src/client/pages/VideoScreen/VideoScreen.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/VideoScreen/index.js" afterPath="$PROJECT_DIR$/src/client/pages/VideoScreen/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/VideoScreen/tagList.js" afterPath="$PROJECT_DIR$/src/client/pages/VideoScreen/tagList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/store/VideoFileSelectedAction.js" afterPath="$PROJECT_DIR$/src/client/store/VideoFileSelectedAction.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/store/VideoFileSelectedReducer.js" afterPath="$PROJECT_DIR$/src/client/store/VideoFileSelectedReducer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/store/editButtonClickedAction.js" afterPath="$PROJECT_DIR$/src/client/store/editButtonClickedAction.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/store/newMarkerReducer.js" afterPath="$PROJECT_DIR$/src/client/store/newMarkerReducer.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,7 +26,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="VideoDetails.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="VideoDetails.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/client/pages/VideoScreen/VideoDetails.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="525">
@@ -78,18 +69,18 @@
       <file leaf-file-name="Player.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/pages/VideoScreen/Player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="181" column="46" lean-forward="false" selection-start-line="181" selection-start-column="46" selection-end-line="181" selection-end-column="46" />
+            <state relative-caret-position="505">
+              <caret line="172" column="29" lean-forward="false" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VideoScreen.styl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="VideoScreen.styl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/pages/VideoScreen/VideoScreen.styl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="141" column="7" lean-forward="false" selection-start-line="141" selection-start-column="7" selection-end-line="141" selection-end-column="7" />
+            <state relative-caret-position="144">
+              <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -214,11 +205,11 @@
         <option value="$PROJECT_DIR$/src/client/pages/VideoScreen/index.js" />
         <option value="$PROJECT_DIR$/src/client/pages/VideoScreen/tagList.js" />
         <option value="$PROJECT_DIR$/src/client/store/editButtonClickedAction.js" />
-        <option value="$PROJECT_DIR$/src/client/pages/VideoScreen/Player.js" />
         <option value="$PROJECT_DIR$/src/client/components/Reviews/ReviewTable.js" />
         <option value="$PROJECT_DIR$/src/client/store/VideoFileSelectedAction.js" />
         <option value="$PROJECT_DIR$/src/client/store/VideoFileSelectedReducer.js" />
         <option value="$PROJECT_DIR$/src/client/pages/VideoScreen/VideoDetails.js" />
+        <option value="$PROJECT_DIR$/src/client/pages/VideoScreen/Player.js" />
         <option value="$PROJECT_DIR$/src/client/pages/VideoScreen/VideoScreen.styl" />
       </list>
     </option>
@@ -884,12 +875,12 @@
       <workItem from="1487276926356" duration="3816000" />
       <workItem from="1487280793356" duration="3002000" />
       <workItem from="1487283872715" duration="7747000" />
-      <workItem from="1487311586937" duration="5120000" />
+      <workItem from="1487311586937" duration="5988000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="633481000" />
+    <option name="totallyTimeSpent" value="634349000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1257,14 +1248,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/pages/VideoScreen/Player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="181" column="46" lean-forward="false" selection-start-line="181" selection-start-column="46" selection-end-line="181" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/pages/VideoScreen/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1272,14 +1255,6 @@
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/store/VideoFileSelectedAction.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1291,10 +1266,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/pages/VideoScreen/VideoDetails.js">
+    <entry file="file://$PROJECT_DIR$/src/client/pages/VideoScreen/VideoScreen.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="102" column="22" lean-forward="false" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
+        <state relative-caret-position="144">
+          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/pages/VideoScreen/Player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="172" column="29" lean-forward="false" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/store/VideoFileSelectedAction.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -1307,10 +1298,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/pages/VideoScreen/VideoScreen.styl">
+    <entry file="file://$PROJECT_DIR$/src/client/pages/VideoScreen/VideoDetails.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="141" column="7" lean-forward="false" selection-start-line="141" selection-start-column="7" selection-end-line="141" selection-end-column="7" />
+        <state relative-caret-position="525">
+          <caret line="102" column="22" lean-forward="false" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
           <folding />
         </state>
       </provider>
