@@ -18,12 +18,15 @@ export default function (state = initialState , action) {
             break;
 
         case 'DONE_BUTTON_CLICKED':
-            state = {...state, flag_2:action.payload, flag:false};
+            state = {...state, flag_2:action.payload, flag:false, start:0, end:1};
             break;
 
         case 'TESSACT_LOGO_CLICKED':
-            state = {...state, flag_2:true, flag:false};
+            state = {...state, flag_2:true, flag:false, start:0, end:1};
             break;
+
+        case 'LOCAL_TAG_SELECTED':
+            state = {...state, start : action.startTime, end: action.endTime};
 
         case 'BACK_ARROW_CLICKED':
             state = {...state, lastNotifiedIndex: -1};

@@ -143,6 +143,7 @@ var lastNotifiedIndex = -1;
 
 
         showSlider(){
+            this.state.player.setValueSlider(this.props.new_marker_reducer.start, this.props.new_marker_reducer.end);
             this.state.player.showSlider();
             this.state.player.pause();
         }

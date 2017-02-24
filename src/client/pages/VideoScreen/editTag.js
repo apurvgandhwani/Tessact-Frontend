@@ -69,6 +69,7 @@ class editTag extends Component {
     };
 
     onDoneClicked = () => {
+        console.log(this.props.edit_tag_reducer.time_in)
         this.props.doneButtonClickedAction(false);
         this.context.router.push('/TagList')
     };
@@ -140,7 +141,6 @@ class editTag extends Component {
                 <div className="time-from-container">
                     <h4 className="timeStamp">From </h4>
                     <input
-                        defaultValue={this.props.edit_tag_reducer.time_in}
                         id="time_in"
                         type="text"
                         value={this.secondsToHms(this.props.new_marker_reducer.start)}
@@ -149,7 +149,6 @@ class editTag extends Component {
                 <div className="time-to-container">
                     <h4 className="timeStamp1">To</h4>
                     <input
-                        defaultValue={this.props.edit_tag_reducer.time_out}
                         id="time_out"
                         type="text"
                         value={this.secondsToHms(this.props.new_marker_reducer.end)}
@@ -185,7 +184,8 @@ const mapStateToProps = (state) => {
     return {
         new_marker_reducer: state.newMarkerReducer,
         token_Reducer: state.tokenReducer,
-        edit_tag_reducer:state.editTagReducer
+        edit_tag_reducer:state.editTagReducer,
+
     };
 };
 function matchDispatchToProps(dispatch) {

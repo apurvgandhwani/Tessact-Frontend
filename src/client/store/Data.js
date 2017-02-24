@@ -44,13 +44,6 @@
 		}
 	}
 
-	const SET_AUTH_TOKEN = 'SELECT_ROWS'
-	const setAuthToken = (token)=> {
-		return {
-			type: SET_AUTH_TOKEN,
-			payload: token
-		}
-	}
 
 	const SET_CURRENT_ITEM = 'SET_CURRENT_ITEM'
 	const setCurrentItem = (item)=> {
@@ -65,7 +58,7 @@
 		fetchList,
 		selectRows,
 		setCurrentItem,
-		setAuthToken
+
 	}
 
 
@@ -81,7 +74,6 @@
 				return {...state, selectedRows: [...action.ids]}
 			case SET_CURRENT_ITEM:
 				return {...state, currentItem: {...action.item}}
-
 			default:
 				return state
 		}

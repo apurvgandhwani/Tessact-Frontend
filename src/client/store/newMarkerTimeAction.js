@@ -4,6 +4,5 @@ export const newMarkerTimeAction = (time) => {
         type: 'SLIDER_ADJUSTED',
         start: time.start,
         end: time.end
-
     }
 };

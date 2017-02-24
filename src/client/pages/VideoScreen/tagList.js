@@ -10,6 +10,7 @@ import FlatButton from 'material-ui/FlatButton'
 import {newMarkerTimeAction} from '../../store/newMarkerTimeAction'
 import {addButtonClickedAction} from '../../store/addButtonClickedAction'
 import {editButtonClickedAction} from '../../store/editButtonClickedAction'
+import {actions} from '../../store/Data_new'
 
 const FLAGS_LIST = [
     {time_in: '00:00:03:07', time_out: '00:00:03:07', type: 'car', category: 'Objects'},
@@ -57,26 +58,18 @@ class VideoDetails extends Component {
         this.context.router.push('/add')
     }
     toEdit = () => {
-        // var tagArray = this.props.tag_fetch_reducer.tags;
-        // let time_in= this.secondsToHms(tagArray[clickIndex].time)
-        // console.log(time_in)
-        // let time_out = this.secondsToHms(tagArray[clickIndex].stopTime)
-        // let tag_type= tagArray[clickIndex].tagname
-        // let category = tagArray[clickIndex].category
-        //console.log(this.props.tag_fetch_reducer.tags)
         console.log(this.state.time_in)
         this.props.editButtonClickedAction(true);
         this.context.router.push('/edit')
     }
 
-    handleRowClick = (row) => {
+    handleRowClick = (row, startTime, endTime) => {
 
         //this.setState({clickedIndex:row})
         this.setState({buttonDisabled:false})
         clickIndex =row;
-        console.log(clickIndex)
-        this.props.tagSelectedAction(row)
-
+        console.log(startTime)
+        this.props.tagSelectedAction(row, startTime, endTime)
 
     }
     handleEditRowClick = (row) => {
@@ -131,9 +124,9 @@ class VideoDetails extends Component {
                     <tbody>
                     {
                         this.props.tag_fetch_reducer.tags.map((x, i) => (
-                            <tr className={i === this.props.marker_reached_reducer.index ? 'selected' : ''} key={i} onClick={this.handleRowClick.bind(this, i)}>
+                            <tr className={i === this.props.marker_reached_reducer.index ? 'selected' : ''} key={i} onClick={this.handleRowClick.bind(this, i,  x.time, x.stopTime)}>
                                 <td>
-                                    <div className='red-box'></div>
+                                    <div className={x.tagname === 'smoking'? 'red-box' : 'yellow-box'}></div>
                                 </td>
                                 <td> {this.secondsToHms(x.time)} </td>
                                 <td> {this.secondsToHms(x.stopTime)} </td>
