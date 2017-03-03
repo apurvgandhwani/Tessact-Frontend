@@ -55,6 +55,7 @@ var lastNotifiedIndex = -1;
                     self.player.on('play', self.handlePlay);
                 });
                 player.rangeslider(options);
+                player.hideControlTime();
                 player.on("sliderchange",()=> {
                     values = player.getValueSlider();
                     //console.log(values)
@@ -171,7 +172,7 @@ var lastNotifiedIndex = -1;
                 assign(props, {
                     ref: 'video',
                     controls: true,
-                    width:"860",
+                    width:"760",  //860 earlier
                     height:"490"
                 });
 
