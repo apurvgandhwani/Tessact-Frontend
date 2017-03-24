@@ -203,9 +203,9 @@ class TabTags extends Component {
 				</Table>
 				</div>
 				<div className='tags-table-actions'>
-                    <GreyButton
-							onClick={this.onDoneClick}
-							label='Edit'/>
+                    {/*<GreyButton*/}
+							{/*onClick={this.onDoneClick}*/}
+							{/*label='Edit'/>*/}
 					<GreyButton
 						onClick={this.props.onAddClick}
 						label='ADD'/>

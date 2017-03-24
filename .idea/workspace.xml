@@ -2,111 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5f0bb8a-140f-41f6-ba69-a7fcc8135303" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/ui/GreyButton/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/GroupsPage/GroupsHeader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/GroupsPage/GroupsList.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/GroupsPage/GroupsPage.styl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/GroupsPage/GroupsSidebar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/GroupsPage/MembersList.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/GroupsPage/MembersListHeader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/GroupsPage/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TabInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TabMarker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TabTags.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TestVideoButtons.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TestVideoPage.styl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TestVideoPlayer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/VideoComment.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/VideoTabs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/rangeslider.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/rangeslider.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/store/Groups.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/utils/colors.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/controllers/auth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/controllers/groups_fake.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/middlewares/acl.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/Gruntfile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/dist/youtube-video-min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/dist/youtube-video.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/.jshintrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/Readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/build.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/core.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/domains/core.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/domains/done.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/domains/es6-extensions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/domains/finally.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/domains/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/domains/node-extensions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/domains/rejection-tracking.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/domains/synchronous.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/lib/core.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/lib/done.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/lib/es6-extensions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/lib/finally.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/lib/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/lib/node-extensions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/lib/rejection-tracking.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/lib/synchronous.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/polyfill-done.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/polyfill.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/setimmediate/core.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/setimmediate/done.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/setimmediate/es6-extensions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/setimmediate/finally.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/setimmediate/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/setimmediate/node-extensions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/setimmediate/rejection-tracking.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/setimmediate/synchronous.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/src/core.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/src/done.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/src/es6-extensions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/src/finally.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/src/node-extensions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/src/rejection-tracking.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/promise/src/synchronous.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/underscore/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/underscore/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/underscore/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/underscore/underscore-min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/underscore/underscore-min.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/node_modules/underscore/underscore.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/src/base-video.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/src/youtube-video.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/video-js/tests/youtube-video-tests.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/main-bundle.js" afterPath="$PROJECT_DIR$/build/public/main-bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/markers.js" afterPath="$PROJECT_DIR$/build/public/markers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/server-bundle.js" afterPath="$PROJECT_DIR$/build/server-bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/views/index.jade" afterPath="$PROJECT_DIR$/build/views/index.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/video.js/package.json" afterPath="$PROJECT_DIR$/node_modules/video.js/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/components/Reviews/ReviewSearch.js" afterPath="$PROJECT_DIR$/src/client/components/Reviews/ReviewSearch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/components/Reviews/index.js" afterPath="$PROJECT_DIR$/src/client/components/Reviews/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/index.js" afterPath="$PROJECT_DIR$/src/client/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/LoginPage/login.css" afterPath="$PROJECT_DIR$/src/client/pages/LoginPage/login.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/VideoScreen/Player.js" afterPath="$PROJECT_DIR$/src/client/pages/VideoScreen/Player.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/VideoScreen/VideoScreen.styl" afterPath="$PROJECT_DIR$/src/client/pages/VideoScreen/VideoScreen.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/routes.js" afterPath="$PROJECT_DIR$/src/client/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/store/index.js" afterPath="$PROJECT_DIR$/src/client/store/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/store/rootReducer.js" afterPath="$PROJECT_DIR$/src/client/store/rootReducer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/public/markers.js" afterPath="$PROJECT_DIR$/src/public/markers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/app.js" afterPath="$PROJECT_DIR$/src/server/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/config.js" afterPath="$PROJECT_DIR$/src/server/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/routes/index.js" afterPath="$PROJECT_DIR$/src/server/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/views/index.jade" afterPath="$PROJECT_DIR$/src/server/views/index.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TabTags.js" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TabTags.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -127,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/pages/LoginPage/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="-81">
               <caret line="100" column="44" lean-forward="false" selection-start-line="100" selection-start-column="44" selection-end-line="100" selection-end-column="44" />
               <folding />
             </state>
@@ -155,6 +51,16 @@
               <folding>
                 <element signature="e#39#81#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TabTags.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/client/pages/TestVideoPage/TabTags.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="207" column="45" lean-forward="false" selection-start-line="205" selection-start-column="19" selection-end-line="207" selection-end-column="45" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -271,7 +177,6 @@
         <option value="$PROJECT_DIR$/src/server/config.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/client/index.js" />
-        <option value="$PROJECT_DIR$/src/client/pages/TestVideoPage/TabTags.js" />
         <option value="$PROJECT_DIR$/src/client/pages/VideoScreen/addTags.js" />
         <option value="$PROJECT_DIR$/src/client/store/index.js" />
         <option value="$PROJECT_DIR$/src/client/components/Reviews/index.js" />
@@ -285,6 +190,7 @@
         <option value="$PROJECT_DIR$/src/client/pages/TestVideoPage/TestVideoPage.styl" />
         <option value="$PROJECT_DIR$/src/client/pages/LoginPage/login.css" />
         <option value="$PROJECT_DIR$/src/client/pages/LoginPage/index.js" />
+        <option value="$PROJECT_DIR$/src/client/pages/TestVideoPage/TabTags.js" />
       </list>
     </option>
   </component>
@@ -865,12 +771,12 @@
       <workItem from="1490178164019" duration="2037000" />
       <workItem from="1490180295755" duration="6795000" />
       <workItem from="1490256780086" duration="190000" />
-      <workItem from="1490256985440" duration="16460000" />
+      <workItem from="1490256985440" duration="17239000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="769922000" />
+    <option name="totallyTimeSpent" value="770701000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -883,7 +789,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="934" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1566594" sideWeight="0.8457143" order="0" side_tool="false" content_ui="combo" />
@@ -893,7 +799,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37200958" sideWeight="0.4978166" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37200958" sideWeight="0.4978166" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1566594" sideWeight="0.15428571" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1222,17 +1128,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/pages/TestVideoPage/TabTags.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="204" column="40" lean-forward="false" selection-start-line="204" selection-start-column="40" selection-end-line="204" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-            <element signature="e#210#251#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/pages/VideoScreen/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1333,8 +1228,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/pages/LoginPage/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="-81">
           <caret line="100" column="44" lean-forward="false" selection-start-line="100" selection-start-column="44" selection-end-line="100" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/pages/TestVideoPage/TabTags.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="207" column="45" lean-forward="false" selection-start-line="205" selection-start-column="19" selection-end-line="207" selection-end-column="45" />
           <folding />
         </state>
       </provider>
