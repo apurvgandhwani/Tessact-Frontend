@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5f0bb8a-140f-41f6-ba69-a7fcc8135303" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TestVideoPage/DummyPlayer.js" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/DummyPlayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/store/tessactLogoClickedAction.js" afterPath="$PROJECT_DIR$/src/client/store/tessactLogoClickedAction.js" />
-    </list>
+    <list default="true" id="e5f0bb8a-140f-41f6-ba69-a7fcc8135303" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -52,6 +48,7 @@
               <caret line="31" column="46" lean-forward="false" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
               <folding>
                 <element signature="e#193#229#0" expanded="true" />
+                <marker date="1490350297349" expanded="true" signature="978:5076" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -88,6 +85,8 @@
               <caret line="38" column="21" lean-forward="false" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
+                <marker date="1490349433454" expanded="true" signature="2142:2398" ph="&lt;MuiThemeProvider/&gt;" />
+                <marker date="1490349433454" expanded="true" signature="2183:2377" ph="&lt;Root/&gt;" />
               </folding>
             </state>
           </provider>
@@ -97,7 +96,7 @@
         <entry file="file://$PROJECT_DIR$/src/client/store/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="41" column="17" lean-forward="true" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+              <caret line="41" column="17" lean-forward="false" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
               </folding>
@@ -109,7 +108,7 @@
         <entry file="file://$PROJECT_DIR$/src/client/store/rootReducer.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+              <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -121,7 +120,7 @@
         <entry file="file://$PROJECT_DIR$/src/client/store/tagSelectedReducer.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="36">
-              <caret line="2" column="11" lean-forward="true" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+              <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -801,12 +800,12 @@
       <workItem from="1490178164019" duration="2037000" />
       <workItem from="1490180295755" duration="6795000" />
       <workItem from="1490256780086" duration="190000" />
-      <workItem from="1490256985440" duration="20657000" />
+      <workItem from="1490256985440" duration="21267000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="774119000" />
+    <option name="totallyTimeSpent" value="774729000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1210,7 +1209,7 @@
     <entry file="file://$PROJECT_DIR$/src/client/store/rootReducer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -1223,6 +1222,8 @@
           <caret line="38" column="21" lean-forward="false" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
+            <marker date="1490349433454" expanded="true" signature="2142:2398" ph="&lt;MuiThemeProvider/&gt;" />
+            <marker date="1490349433454" expanded="true" signature="2183:2377" ph="&lt;Root/&gt;" />
           </folding>
         </state>
       </provider>
@@ -1230,7 +1231,7 @@
     <entry file="file://$PROJECT_DIR$/src/client/store/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="41" column="17" lean-forward="true" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+          <caret line="41" column="17" lean-forward="false" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
           <folding>
             <element signature="e#0#59#0" expanded="true" />
           </folding>
@@ -1240,7 +1241,7 @@
     <entry file="file://$PROJECT_DIR$/src/client/store/tagSelectedReducer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
-          <caret line="2" column="11" lean-forward="true" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+          <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -1287,6 +1288,7 @@
           <caret line="31" column="46" lean-forward="false" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
           <folding>
             <element signature="e#193#229#0" expanded="true" />
+            <marker date="1490350297349" expanded="true" signature="978:5076" ph="{...}" />
           </folding>
         </state>
       </provider>
