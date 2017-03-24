@@ -110,7 +110,7 @@
             //var markerLength = (marker.endTime - marker.time)*1.859777898;  //Dhoom
             markerDiv.css(setting.markerStyle)
                 .css({
-                    "width": markerLength, "margin-left": -parseFloat(markerDiv.css("width")) / 2 + 'px',
+                    "width": markerLength + '%', "margin-left": -parseFloat(markerDiv.css("width")) / 2 + 'px',
                     "left": getPosition(marker) + '%',
                 })
                 .attr("data-marker-key", marker.key)
@@ -437,7 +437,8 @@
             },
             getVideoDuration: function(i) {
             duration = i;
-            x = 777.203/duration;
+           // x = 777.203/duration;
+                x = 100/duration;
             console.log("time is this" + x)
         }
         };

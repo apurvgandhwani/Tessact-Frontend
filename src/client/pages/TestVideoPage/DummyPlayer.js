@@ -13,30 +13,32 @@ import {markerReachedAction} from '../../store/markerReachedAction'
 var markerJson, player, currentTime, ind;
 var values;
 var lastNotifiedIndex = -1;
-class Player extends Component {
+class DummyPlayer extends Component {
     constructor() {
         super();
         this.state = {
             player: {},
-            tags:[{category: "Compliance",
+            tags: [{
+                category: "Compliance",
                 stopTime: 10,
-                text:"Car",
-                time: 0}]
+                text: "Car",
+                time: 0
+            }]
         };
     }
 
-    componentWillMount(){
+    componentWillMount() {
         var that = this;
 
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://www.backend.trigger.tessact.com/api/v1/videos/"+ this.props. video_file_selected_reducer.id +"/frame_tags/",
+            "url": "https://www.backend.trigger.tessact.com/api/v1/videos/" + this.props.video_file_selected_reducer.id + "/frame_tags/",
             "method": "GET",
             "headers": {
                 Authorization: "Token " + that.props.token_Reducer.token
             },
-            success:( response, textStatus, jQxhr )=> {
+            success: (response, textStatus, jQxhr) => {
                 that.props.tagFetchedAction(response);
                 //console.log(that.state.tags)
             }
@@ -48,20 +50,27 @@ class Player extends Component {
             that.setState({tags: response})
             //console.log(that.state.tags)
             //this.context.router.push('/app')
+            const videoOptions = {
+                fluid: true,
+                preload: false,
+                autoplay: false,
+                controls: true,
+                aspectRatio: "16:9"
+            }
             var self = this;
-            var options ={hidden:true};
-            player = videojs(this.refs.video, this.props.options).ready(function () {
+            var options = {hidden: true};
+            player = videojs(this.video_el, videoOptions).ready(function () {
                 self.player = this;
                 self.player.on('play', self.handlePlay);
             });
             player.rangeslider(options);
             player.hideControlTime();
-            player.on("sliderchange",()=> {
+            player.on("sliderchange", () => {
                 values = player.getValueSlider();
                 //console.log(values)
                 this.props.newMarkerTimeAction(values)
             });
-            player.on("timeupdate", ()=> {
+            player.on("timeupdate", () => {
                 currentTime = player.currentTime();
                 //console.log(currentTime)
             });
@@ -97,7 +106,7 @@ class Player extends Component {
             //         that.props.markerReachedAction(lastNotifiedIndex);
             //     }
             //
-            //     console.log(lastNotifiedIndex)
+            //     conso    le.log(lastNotifiedIndex)
             //
             // }, 500);
 
@@ -121,8 +130,10 @@ class Player extends Component {
         });
 
     }
+
     componentDidMount() {
     }
+
     componentWillUnmount() {
         console.log('Will Unmount');
         lastNotifiedIndex = -1;
@@ -132,6 +143,7 @@ class Player extends Component {
         var index = this.props.tag_selected_reducer.ind;
         this.state.player.markers.jumpToSpecificMarker(index);
     }
+
     getTimeValue() {
         //console.log(this.state.player.getValueSlider());
     }
@@ -143,7 +155,7 @@ class Player extends Component {
     }
 
 
-    showSlider(){
+    showSlider() {
         this.state.player.setValueSlider(this.props.new_marker_reducer.start, this.props.new_marker_reducer.end);
         this.state.player.showSlider();
         this.state.player.pause();
@@ -153,10 +165,10 @@ class Player extends Component {
         this.state.player.hideSlider();
     }
 
-    updateTagInTable(){
+    updateTagInTable() {
         // console.log(this.state.tags)
         this.state.tags.map((item, i) => {
-            if( item.time <= currentTime   && currentTime <= item.stopTime){
+            if (item.time <= currentTime && currentTime <= item.stopTime) {
                 this.props.markerReachedAction(i);
                 console.log(i);
             }
@@ -164,16 +176,15 @@ class Player extends Component {
     }
 
 
-    render()
-    {
+    render() {
         var props = blacklist(this.props, 'children', 'className', 'src', 'type', 'onPlay');
         props.className = cx(this.props.className, 'videojs', 'video-js vjs-default-skin', 'vjs-big-play-centered');
 
         assign(props, {
             ref: 'video',
             controls: true,
-            width:"860",  //860 earlier
-            height:"490"
+            width: "860",  //860 earlier
+            height: "490"
         });
 
         //setInterval(this.updateTagInTable, 500)
@@ -193,13 +204,19 @@ class Player extends Component {
         }
 
         return (
-            <div>
-                <video ref='video' {... props} data-setup='{ "inactivityTimeout": 0 }'>
-                    <source src={this.props. video_file_selected_reducer.url} type="video/mp4"/>
-                </video>
-                {/*<button onClick={this.jumpToSpecificMarker.bind(this)}>next</button>*/}
-                {/*<button onClick={this.hideSlider.bind(this)}>prev</button>*/}
-            </div>)
+
+            <div className='video-player'>
+                <div className='video-player-inner'>
+                    <video
+                        className='video-js video-el vjs-big-play-centered vjs-default-skin'
+                        id='video-el'
+                        ref={node=> this.video_el = node}>
+                        <source src={this.props.video_file_selected_reducer.url} type="video/mp4"/>
+                    </video>
+                </div>
+            </div>
+
+        )
 
 
     }
@@ -207,11 +224,11 @@ class Player extends Component {
 const mapStateToProps = (state) => {
     return {
         // tags: state.tagReducer,
-        marker_store:state.markerReducer,
+        marker_store: state.markerReducer,
         token_Reducer: state.tokenReducer,
         tag_selected_reducer: state.tagSelectedReducer,
         new_marker_reducer: state.newMarkerReducer,
-        video_file_selected_reducer:state.VideoFileSelectedReducer,
+        video_file_selected_reducer: state.VideoFileSelectedReducer,
         // card_Reducer: state.cardReducer,
         // tag_brief_Reducer:state.tagBriefReducer,
         // marker_store_cigarette:state.markerStoreCigarette
@@ -220,6 +237,10 @@ const mapStateToProps = (state) => {
 
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({newMarkerTimeAction: newMarkerTimeAction, tagFetchedAction:tagFetchedAction, markerReachedAction: markerReachedAction}, dispatch);
+    return bindActionCreators({
+        newMarkerTimeAction: newMarkerTimeAction,
+        tagFetchedAction: tagFetchedAction,
+        markerReachedAction: markerReachedAction
+    }, dispatch);
 }
-export default connect(mapStateToProps, matchDispatchToProps)(Player);
+export default connect(mapStateToProps, matchDispatchToProps)(DummyPlayer);

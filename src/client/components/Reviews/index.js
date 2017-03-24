@@ -49,7 +49,7 @@ class Reviews extends Component {
 		$progress.append($bar)
 
 		$el.append($progress);
-		$bar.stop().animate({width: '100%'}, 2000, function(){
+		$bar.stop().animate({width: '100%'}, 4000, function(){
 			$el.empty().html('<img class="img-green-tick" src="/public/img/green-check.png"/>')
 		});
 	}
@@ -62,8 +62,13 @@ class Reviews extends Component {
 
     setCurrentItem = (item)=> {
         this.props.setCurrentItem(item);
-        this.context.router.push('/video-screen')
+        this.context.router.push('/test-video-page')
+        //this.context.router.push('/video-screen')
     }
+
+    toGroups = () => {
+        this.context.router.push('/groups')
+	}
 
 	render(){
 		return (
@@ -72,7 +77,9 @@ class Reviews extends Component {
 					assignIsOpen={this.state.assignIsOpen}
 					toggleAssign={this.toggleAssign}
 					selectedRows={this.props.selectedRows}
-					onSubmitProcess={this.onSubmitProcess}/>
+					onSubmitProcess={this.onSubmitProcess}
+				    toGroups={this.toGroups}
+				/>
 				<ReviewTable 
 					//items={this.props.list}
 					selectedRows={this.props.selectedRows}

@@ -8,9 +8,14 @@ import App from './containers/App'
 import LoginPage from './pages/LoginPage'
 import Home from './pages/Home'
 import VideoScreen from './pages/VideoScreen'
+import TestVideoPage from './pages/TestVideoPage'
 import TagList from './pages/VideoScreen/tagList'
 import AddTags from './pages/VideoScreen/addTags'
 import EditTag from './pages/VideoScreen/editTag'
+
+import GroupsPage from './pages/GroupsPage'
+
+const debug = require('debug')('tessact:client-router');
 
 function authorize(){
     console.log('inside')
@@ -21,20 +26,37 @@ function authorize(){
 }
 function getRoutes(store) {
 
+    function hasAuth(nextState, replace, callback){
+        const state = store.getState();
+        const valid = !!state.tokenReducer.token;
+
+        debug('AUTH: ', valid)
+
+        if (valid){
+            debug('AUTH: Bailing. Already Valid.')
+            return callback()
+        }
+        replace('/login')
+        debug('AUTH: To Login')
+        callback();
+    }
+
+
     return (
-        <Router history={browserHistory}>
-            <Route path="/" component={LoginPage}/>
-            <Route path='app' component={App}  onEnter={()=>{authorize()}}>
-                <IndexRoute component={Home}/>
-                <Route path='/video-screen' component={VideoScreen}>
-                    <IndexRoute component={TagList}/>
-                    <Route path='/add' component={AddTags}/>
-                    <Route path='/edit' component={EditTag}/>
-                    <Route path='/TagList' component={TagList}/>
+
+            <Route path='/' component={App}>
+                <Route path='/login' component={LoginPage}/>
+                <Route path='/app' onEnter={hasAuth}>
+                    <IndexRoute component={Home}/>
+                    <Route path='/test-video-page' component={TestVideoPage}/>
+                    <Route path='/groups' component={GroupsPage}/>
                     <Redirect from='*' to='/'/>
                 </Route>
+                <IndexRedirect to='/app'/>
+                <Redirect from='*' to='/app'/>
             </Route>
-        </Router>
+
+
     )
 }
 export default getRoutes;

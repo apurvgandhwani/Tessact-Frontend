@@ -1,0 +1,275 @@
+:local(.container)
+	flex 1
+	display flex
+	overflow scroll
+	
+	.left-side, .right-side
+		display flex
+		flex-direction column
+	.left-side
+		flex 3
+	
+	.right-side 
+		flex 1.7
+		min-width 500px
+		flex-shrink 0
+		
+
+	// Components
+	.video-player
+		padding 40px
+		display block
+		width 100%
+		.video-el
+			max-width 100%
+
+	.video-player-buttons
+		padding 40px
+		display flex
+		width 100%
+		.button-item
+			flex 1
+			background-color #D7D7D7
+			padding 18px 30px
+			font-size 1em
+			text-align center
+			border-radius 8px
+			margin 0 4px
+			cursor pointer
+			&:hover
+				background-color darken(@background-color, 10%)
+
+	.video-player-tabs
+		flex 1
+		display flex
+		flex-direction column
+		margin 40px 40px 0 0
+		box-shadow 0px 4px 12px 0 rgba(#000, 0.16)
+
+	.video-player-comment
+		height 23vh
+		
+
+:local(.container)
+	.swipeable-view
+		background-color #fff
+		height 100%
+		display flex
+		flex-direction column
+
+	.react-swipeable-view-container
+		height 100%
+
+	.info-item
+		display flex
+		align-items center
+		padding 10px 20px
+		.info-label
+			flex 1
+			width 100px
+			font-family museo700
+			font-weight 500
+		.info-value
+			flex 2
+			font-family museo700
+			font-weight 500
+
+
+
+:local(.container)
+	.tags-table
+		display flex
+		flex-direction column
+		flex 1
+
+
+	.tags-header
+		display flex
+		align-items center
+		height 32px
+		justify-content space-around
+		//border-bottom 1px rgba(#000, 0.12) solid
+		background-color rgba(#000, 0.12)
+		padding-left 30px
+	.header-item
+		   flex-grow 1
+		   flex-basis 0
+
+	.tags-table-body
+		flex 1
+		overflow-y hidden
+		max-height 600px
+
+	.tags-table-actions
+		clearfix()
+		display flex
+		align-items center
+		justify-content flex-end
+		padding 4px 12px
+		height 48px
+
+		border-top 1px rgba(#000, 0.12) solid
+
+	.header-item
+		padding 6px 8px
+
+	.header-1, .header-2
+	.cell-1, .cell-2
+		width 80px
+
+	.header-3, .header-4
+	.cell-3, .cell-4
+		flex 1
+
+	.list-item
+		display flex
+		align-items center
+		border-bottom 1px #eee solid
+		padding-left 30px
+		position relative
+		&:hover, &.is-active
+			background-color #f2f2f2
+
+		&.is-active
+			border 1px orange solid
+			border-width 1px 0 1px 0
+
+		.cell
+			padding 2px 8px
+			display flex
+			align-items center
+			height 50px
+		&:after
+			absolute top 16px left 8px
+			width 16px
+			height 16px
+			content ''
+
+		&.has-alcohol
+			&:after
+				background-color #FFDC00
+		&.has-smoking
+			&:after
+				background-color #D13F19
+
+
+
+	.red-box
+		width 16px
+		height 16px
+		margin 3px 5px
+		background-color red
+		margin: auto
+
+	.yellow-box
+		width 16px
+		height 16px
+		margin 3px 5px
+		background-color yellow
+		margin: auto
+
+
+
+:local(.container) .video-player-comment
+	margin 20px 40px 20px 0px
+	background-color #fff
+	box-shadow 0px 4px 12px 0 rgba(#000, 0.16)
+	display flex
+	flex-direction column
+
+	.textarea-comment
+		border none
+		border-bottom 1px rgba(#000, 0.12) solid
+		flex 1
+		resizable none
+		padding 20px
+
+	.comment-footer
+		height 50px
+		padding 4px 12px
+		display flex
+		align-items center
+		justify-content flex-end
+
+
+:local(.container)
+	.marker-view-body
+		padding 20px
+		flex 1
+
+	.marker-view-footer
+		padding 0 20px
+		height 50px
+		text-align right
+
+	.control
+		display flex
+		align-items flex-start
+		width 100%
+		margin-bottom 20px
+
+	.control-label
+		width 120px
+		padding 15px 12px
+
+:local(.container)
+		.flags-table
+			display flex
+			flex-flow column
+			overflow hidden
+			flex 1
+
+tbody
+	overflow-y auto
+	height 380px
+thead
+	display block
+	flex-shrink 0
+	margin-right: 1.075em;
+
+
+tr
+	display flex
+	width 100%
+
+th,
+td
+	min-width 25px
+	display flex
+
+th~th,
+td~td
+	flex 1 1 22%
+	word-wrap break-word
+h4, h3{
+		font-family museo700
+		font-weight 500
+	}
+.add-tag-header{
+	margin-left 30px;
+	margin-bottom 30px;
+}
+
+select{
+	border-style solid
+	border-width 2px
+	width 255px
+	height 40px
+	font-family museo500
+	padding-left 10px
+	font-size 15px
+	background-color transparent
+	border-color black
+	}
+    select > option {
+	   font-family museo500
+
+	}
+
+
+	.detail-div h4{
+		display:inline-block;
+		width:140px;
+		margin-left: 30px;
+		margin-bottom 25px
+	}

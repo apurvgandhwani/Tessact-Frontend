@@ -21,7 +21,7 @@ const style = {
 	},
 	actionButton: {
 		backgroundColor: '#D7D7D7',
-		marginLeft: '24px',
+		marginLeft: '4px',
 		borderRadius: 0,
 		height: '36px',
 		fontFamily: 'inherit',
@@ -120,6 +120,10 @@ class ReviewSearch extends Component {
 					<FlatButton style={style.actionButton} onClick={this.props.toggleAssign}>
 						<i className='fa fa-fw fa-tasks'/>
 						<span className='btn-text'> Assign </span>
+					</FlatButton>
+					<FlatButton style={style.actionButton} onClick={this.props.toGroups}>
+						<i className='fa fa-fw fa-group'/>
+						<span className='btn-text'> Groups </span>
 					</FlatButton>
 				</div>
 

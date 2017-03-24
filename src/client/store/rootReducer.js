@@ -11,8 +11,9 @@ import MediaFileStore from './MediaFileStore'
 import tagFetchReducer from './tagFetchReducer'
 import markerReachedReducer from './markerReachedReducer'
 import editTagReducer from './editTagReducer'
+import Groups from './Groups'
 
 export default combineReducers({
   router,
-   Data, markerReducer, tokenReducer, tagSelectedReducer, newMarkerReducer, VideoFileSelectedReducer, MediaFileStore, tagFetchReducer, markerReachedReducer, editTagReducer
+   Data, markerReducer, tokenReducer, tagSelectedReducer, newMarkerReducer, VideoFileSelectedReducer, MediaFileStore, tagFetchReducer, markerReachedReducer, editTagReducer, Groups
 });

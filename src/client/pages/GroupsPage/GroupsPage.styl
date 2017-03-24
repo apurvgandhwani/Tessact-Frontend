@@ -1,0 +1,126 @@
+sidebar_width = 200px
+color_orange = #FA802A
+
+:local(.container)
+	display flex
+	flex 1
+
+	.group-content
+		display flex
+		flex-direction column
+		flex 1
+		
+	.content-box
+		flex 1
+		display flex
+		flex-direction column
+		background-color #fff
+	
+:local(.sidebar)
+	width sidebar_width
+	border-right 1px rgba(#000, 0.12) solid
+	position relative
+	display flex
+	flex-direction column
+	
+	.groups-list
+		flex 1
+		height 400px
+		overflow-y auto
+	
+	.groups-list-item
+		border-bottom 1px rgba(#000, 0.2) solid
+		// border-top 1px rgba(#000, 0.2) solid
+		padding 16px
+		transition background .12s ease-in
+		position relative
+		font-size 16px
+
+		&:hover, &.is-active
+			background-color rgba(#000, 0.12)
+
+	
+	.bottom-action
+		background-color color_orange
+	
+:local(.header)
+	display flex
+	align-items center
+	padding 0px 20px
+	height 72px
+	border-bottom 1px rgba(#000, 0.12) solid
+	
+	.header-title
+		flex 1
+	.header-actions
+		margin-left 20px
+		
+:local(.listHeader)
+	background-color #fff
+	height 60px
+	
+	display flex
+	align-items center
+	position relative
+	
+	padding 0 20px
+	
+	.search-box
+		display flex
+		align-items center
+		position relative
+		height 42px
+		flex 2
+		
+	.search-input
+		height 36px
+		border 1px rgba(#000, 0.2) solid
+		background-color #fff
+		border-width 1px 0px 1px 1px
+		width 100%
+		padding 0 12px
+		font-family inherit
+		outline none
+		
+		&:focus
+			border-color color_orange
+
+	
+
+:local(.list)
+	flex 1
+	overflow-y auto
+	height 400px
+	padding 20px
+	clearfix()
+
+
+	.members-list-item
+		display block
+		float left
+		margin-right 20px
+		margin-bottom 20px
+		
+		.item-image
+			width 160px
+			height 160px
+			background-color #eee
+			border 1px #ccc solid
+			margin-bottom 10px
+		
+		.item-text
+			text-align center
+		
+		.item-in-list
+			display none
+			
+
+	&.in-list-mode
+		padding 0
+		.members-list-item
+			display table-row
+			float none
+			.item-image
+				display none
+			.item-in-list
+				display block
