@@ -9,6 +9,7 @@ import {bindActionCreators} from 'redux';
 import {newMarkerTimeAction} from '../../store/newMarkerTimeAction'
 import {tagFetchedAction} from '../../store/tagFetchedAction'
 import {markerReachedAction} from '../../store/markerReachedAction'
+import {tessactLogoClickedAction} from '../../store/tessactLogoClickedAction'
 
 var markerJson, player, currentTime, ind;
 var values;
@@ -28,6 +29,7 @@ class DummyPlayer extends Component {
     }
 
     componentWillMount() {
+        this.props.tessactLogoClickedAction();
         var that = this;
 
         var settings = {
@@ -137,6 +139,8 @@ class DummyPlayer extends Component {
     componentWillUnmount() {
         console.log('Will Unmount');
         lastNotifiedIndex = -1;
+        this.props.tessactLogoClickedAction();
+
     }
 
     jumpToSpecificMarker() {
@@ -240,7 +244,8 @@ function matchDispatchToProps(dispatch) {
     return bindActionCreators({
         newMarkerTimeAction: newMarkerTimeAction,
         tagFetchedAction: tagFetchedAction,
-        markerReachedAction: markerReachedAction
+        markerReachedAction: markerReachedAction,
+        tessactLogoClickedAction:tessactLogoClickedAction
     }, dispatch);
 }
 export default connect(mapStateToProps, matchDispatchToProps)(DummyPlayer);
