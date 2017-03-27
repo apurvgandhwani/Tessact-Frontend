@@ -54,8 +54,13 @@ const RowItem = ({item, index})=> (
 class TabTags extends Component {
 	static propTypes = {
 		className: PropTypes.string.isRequired,
-		onAddClick: PropTypes.func.isRequired
+		onAddClick: PropTypes.func.isRequired,
+        onEditClick: PropTypes.func.isRequired
 	}
+
+    state = {
+        buttonDisabled: true
+    };
 
 	componentDidMount = ()=> {
 		//const {list} = this.props;
@@ -203,9 +208,11 @@ class TabTags extends Component {
 				</Table>
 				</div>
 				<div className='tags-table-actions'>
-                    {/*<GreyButton*/}
-							{/*onClick={this.onDoneClick}*/}
-							{/*label='Edit'/>*/}
+                    <GreyButton
+							onClick={this.props.onEditClick}
+							label='Edit'
+							disabled={this.state.buttonDisabled}
+					/>
 					<GreyButton
 						onClick={this.props.onAddClick}
 						label='ADD'/>

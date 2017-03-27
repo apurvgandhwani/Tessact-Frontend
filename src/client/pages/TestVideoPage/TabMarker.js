@@ -34,13 +34,19 @@ const TAG_CATEGORIES = [
 	'Category C',
 ]
 
+
 class TabMarker extends Component {
 	static propTypes = {
 		className: PropTypes.string.isRequired,
 		onDoneClick: PropTypes.func.isRequired
 	}
 
-
+    constructor() {
+        super();
+        this.state = {
+            added_tags: []
+        };
+    }
 
     secondsToHms(input, fps) {
         var pad = function (input) {
@@ -122,7 +128,6 @@ class TabMarker extends Component {
 					<div className='control'>
 						<div className='control-label'> Tag Name </div>
 						<div className='control-field'>
-
 							<select>
 								<option>Compliance</option>
 							</select>
@@ -137,7 +142,6 @@ class TabMarker extends Component {
 							</select>
 						</div>
 					</div>
-
 				</div>
 				<div className='marker-view-footer'>
 					<GreyButton

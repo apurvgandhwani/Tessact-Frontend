@@ -11,7 +11,7 @@ import {tagFetchedAction} from '../../store/tagFetchedAction'
 import {markerReachedAction} from '../../store/markerReachedAction'
 import {tessactLogoClickedAction} from '../../store/tessactLogoClickedAction'
 
-var markerJson, player, currentTime, ind;
+var markerJson, player, currentTime, ind, file;
 var values;
 var lastNotifiedIndex = -1;
 class DummyPlayer extends Component {
@@ -161,6 +161,7 @@ class DummyPlayer extends Component {
 
     showSlider() {
         this.state.player.setValueSlider(this.props.new_marker_reducer.start, this.props.new_marker_reducer.end);
+        //this.state.player.setValueSlider(player.currentTime());
         this.state.player.showSlider();
         this.state.player.pause();
     }
@@ -168,6 +169,7 @@ class DummyPlayer extends Component {
     hideSlider() {
         this.state.player.hideSlider();
     }
+
 
     updateTagInTable() {
         // console.log(this.state.tags)

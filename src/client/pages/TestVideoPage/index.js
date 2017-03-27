@@ -52,6 +52,7 @@ class TestVideoPage extends Component {
             <div className={c.container}>
                 <div className='left-side'>
                     <DummyPlayer/>
+
                     <TestVideoButtons/>
                 </div>
                 <div className='right-side'>

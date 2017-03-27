@@ -13,6 +13,7 @@ import FlatButton from 'material-ui/FlatButton'
 import TabInfo from './TabInfo'
 import TabTags from './TabTags'
 import TabMarker from './TabMarker'
+import EditTab from './EditTab'
 import VideoComment from './VideoComment'
 
 import {addButtonClickedAction} from '../../store/addButtonClickedAction'
@@ -74,6 +75,13 @@ class VideoTabs extends Component {
         this.setState({tabIndex: 2})
 
     }
+
+    onEditClick = ()=> {
+        this.props.addButtonClickedAction(true);
+        this.setState({tabIndex: 3})
+
+    }
+
     onDoneClick = ()=> {
         this.props.doneButtonClickedAction(false);
         this.setState({tabIndex: 0})
@@ -106,6 +114,7 @@ class VideoTabs extends Component {
                                 //current={current}
                                 className='swipeable-view'
                                 onAddClick={this.onAddClick}
+                                onEditClick={this.onEditClick}
                                 />
                             <TabInfo
                                 className='swipeable-view'/>
@@ -115,6 +124,12 @@ class VideoTabs extends Component {
                                 //onCancelClick={this.onCreateCancelClick}
                                 onDoneClick={this.onDoneClick}
                                 />
+                            <EditTab
+                                //current={current}
+                                className='swipeable-view'
+                                //onCancelClick={this.onCreateCancelClick}
+                                onDoneClick={this.onDoneClick}
+                            />
                             {/*{this.props.children}*/}
                             {/*<div>*/}
                                 {/*<div className="detail-div">*/}

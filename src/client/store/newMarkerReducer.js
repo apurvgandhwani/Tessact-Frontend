@@ -9,10 +9,10 @@ export default function (state = initialState , action) {
     switch (action.type) {
         case 'SLIDER_ADJUSTED':
             state = {...state, start : action.start, end: action.end};
-
         case 'ADD_BUTTON_CLICKED':
             state = {...state, flag:action.payload, flag_2:true};
             break;
+
         case 'EDIT_BUTTON_CLICKED':
             state = {...state, flag:action.payload, flag_2:true};
             break;
