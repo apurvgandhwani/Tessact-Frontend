@@ -8,6 +8,7 @@ import DeleteIcon from 'material-ui/svg-icons/content/clear'
 import ListIcon from 'material-ui/svg-icons/action/view-list'
 import GridIcon from 'material-ui/svg-icons/action/view-module'
 import FlatButton from 'material-ui/FlatButton'
+import GreyButton from '../../components/ui/GreyButton'
 
 
 import {ORANGE} from 'utils/colors'
@@ -15,11 +16,12 @@ import {ORANGE} from 'utils/colors'
 const styles = {
 	searchButton: {
 		height: '36px',
-		width: '36px',
+		width: '44px',
 		backgroundColor: ORANGE,
 		border: '1px rgba(0,0,0,0.2) solid',
 		borderWidth: '1px 1px 1px 0',
-		padding: '6px 6px'
+		padding: '6px 6px',
+		marginRight:'4px'
 	},
 	button: {
 		backgroundColor: 'rgba(0,0,0,0.2)',
@@ -32,7 +34,8 @@ const styles = {
 		position: 'absolute',
 		right: '6px',
 		top: '60px',
-		zIndex: 600
+		zIndex: 600,
+		color: '#4b4b4b'
 	}
 }
 
@@ -77,13 +80,13 @@ class MembersListHeader extends Component {
 					</IconButton>
 				</div>
 				
-				<FlatButton
-					icon={<AddIcon/>}
-					style={styles.button}
+				<GreyButton
+					icon={<AddIcon style={{color:'#4b4b4b'}}/>}
+					//style={styles.button}
 					label='Add'/>
-				<FlatButton
-					icon={<DeleteIcon/>}
-					style={styles.button}
+				<GreyButton
+					icon={<DeleteIcon style={{color:'#fff'}}/>}
+					//style={styles.button}
 					label='Remove'/>
 				<IconButton
 					style={styles.toggleMode}

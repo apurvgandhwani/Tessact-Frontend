@@ -4,7 +4,8 @@ import FlatButton from 'material-ui/FlatButton'
 const styles = {
 	button: {
 		backgroundColor: '#d6d6d6',
-		margin:"2px"
+		margin:"2px",
+		color:'#4b4b4b'
 	}
 }
 

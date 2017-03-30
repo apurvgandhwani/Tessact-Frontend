@@ -11,73 +11,80 @@ import {videoFileSelectedAction} from '../../store/VideoFileSelectedAction'
 import {MediaFilesChangeAction} from '../../store/MediaFilesChangeAction'
 import 'react-select/dist/react-select.css'
 
+
 const style = {
-	searchButton: {
-		width: '50px',
-		minWidth: '50px',
-		height: '36px',
-		borderRadius: 0,
-		backgroundColor: '#FB802A'
-	},
-	actionButton: {
-		backgroundColor: '#D7D7D7',
-		marginLeft: '4px',
-		borderRadius: 0,
-		height: '36px',
-		fontFamily: 'inherit',
-		paddingLeft: '28px',
-		paddingRight: '28px',
-	}
+    searchButton: {
+        width: '50px',
+        minWidth: '50px',
+        height: '36px',
+        borderRadius: 0,
+        backgroundColor: '#FB802A'
+    },
+    actionButton: {
+        backgroundColor: '#D7D7D7',
+        marginLeft: '4px',
+        borderRadius: 0,
+        height: '36px',
+        fontFamily: 'inherit',
+        color: '#4b4b4b',
+        paddingLeft: '28px',
+        paddingRight: '28px',
+    }
 }
 
 
-
 class ReviewSearch extends Component {
-	state = {
-        selectedUser : 1,
-        selectedProcess :1,
+    state = {
+        selectedUser: 1,
+        selectedProcess: 1,
+        selectedSearch: 1,
+        processOptions: [
+            {value: 1, label: 'Compliance'},
+            {value: 2, label: 'Actions'},
+            {value: 3, label: 'Emotions'},
+            {value: 4, label: 'Actors'}
+        ],
+        assignOptions: [
+            {value: 1, label: 'Aswin'},
+            {value: 2, label: 'Apurv'},
+            {value: 3, label: 'Rohit'},
+            {value: 4, label: 'Aditya'},
+        ],
+        searchOptions: [{value: 1, label: 'Media Files'}, {value: 2, label: 'Jobs'}]
+    }
 
-    processOptions: [
-			{value: 1, label: 'Compliance'},
-			{value: 2, label: 'Actions'},
-			{value: 3, label: 'Emotions'},
-			{value: 4, label: 'Actors'}
-		],
-		assignOptions: [
-			{value: 1, label: 'Aswin'},
-			{value: 2, label: 'Apurv'},
-			{value: 3, label: 'Rohit'},
-			{value: 4, label: 'Aditya'},
-		]
-	}
+    doAssign = () => {
+        console.log('saving...')
+        this.props.onSubmitProcess();
+        this.props.toggleAssign();
+    }
 
-	doAssign = ()=> {
-		console.log('saving...')
-		this.props.onSubmitProcess();
-		this.props.toggleAssign();
-	}
-
-	updateProcess = (a,b)=> {
+    updateProcess = (a, b) => {
         console.log(a.label)
         this.setState({selectedProcess: a.value})
-	}
+    }
 
-	updateAssigned = (a,b)=> {
-		console.log(a.label)
-		this.setState({selectedUser: a.value})
-	}
+    updateSearch = (a, b) => {
+        console.log(a.label)
+        this.setState({selectedSearch: a.value})
+    }
 
-	handleOnChange(){
-		var that = this;
+    updateAssigned = (a, b) => {
+        console.log(a.label)
+        this.setState({selectedUser: a.value})
+    }
+
+    handleOnChange() {
+        var that = this;
         var settings_second = {
             "async": true,
             "crossDomain": true,
-            "url":  that.props.media_file_store.workGroupURL + "?search=" + document.getElementById("search_text").value,
+            "url": that.props.media_file_store.workGroupURL + "?search=" + document.getElementById("search_text").value,
             "method": "GET",
             "headers": {
                 Authorization: "Token " + that.props.token_Reducer.token
             },
-            success: function( data, textStatus, jQxhr ){
+            success: function (data, textStatus, jQxhr) {
                 //that.setState({MediaFiles: data})
                 that.props.MediaFilesChangeAction(data, that.props.media_file_store.workGroupURL)
                 //console.log(that.state.MediaFiles)
@@ -88,104 +95,114 @@ class ReviewSearch extends Component {
 
 
         });
-	}
-	
-	render(){
+    }
 
-		// console.log('is assign open: ', this.props.assignIsOpen)
+    render() {
 
-		return (
-			<div className='review-search'>
-				<div className='search-label'> Media Files </div>
-				<div className='search-box'>
-					<input
-						id="search_text"
-						type='text'
-						className='search-input'
-						placeholder='search'
-					    onChange={this.handleOnChange.bind(this)}/>
-					<div className='search-icon'>
-						<FlatButton 
-							style={style.searchButton}
-							icon={<SearchIcon color='#fff'/>}
-							/>
-					</div>
+        // console.log('is assign open: ', this.props.assignIsOpen)
 
-				</div>
-				<div className='search-actions'>
-					<FlatButton style={style.actionButton}>
-						<i className='fa fa-fw fa-filter'/>
-						<span className='btn-text'> Filter </span>
-					</FlatButton>
-					<FlatButton style={style.actionButton} onClick={this.props.toggleAssign}>
-						<i className='fa fa-fw fa-tasks'/>
-						<span className='btn-text'> Assign </span>
-					</FlatButton>
-					<FlatButton style={style.actionButton} onClick={this.props.toGroups}>
-						<i className='fa fa-fw fa-group'/>
-						<span className='btn-text'> Groups </span>
-					</FlatButton>
-				</div>
+        return (
+            <div className='review-search'>
+                <div className='search-label'>
+                    <Select
+                    clearable={false}
+                    value={this.state.selectedSearch}
+                    onChange={this.updateSearch}
+                    options={this.state.searchOptions}/>
+                </div>
+
+                <div className='search-box'>
+                    <input
+                        id="search_text"
+                        type='text'
+                        className='search-input'
+                        placeholder='search'
+                        onChange={this.handleOnChange.bind(this)}/>
+                    <div className='search-icon'>
+                        <FlatButton
+                            style={style.searchButton}
+                            icon={<SearchIcon color='#fff'/>}
+                        />
+                    </div>
+
+                </div>
+                <div className='search-actions'>
+                    <FlatButton style={style.actionButton}>
+                        <i className='fa fa-fw fa-filter'/>
+                        <span className='btn-text'> Filter </span>
+                    </FlatButton>
+                    <FlatButton style={style.actionButton} onClick={this.props.toggleAssign}>
+                        <i className='fa fa-fw fa-tasks'/>
+                        <span className='btn-text'> Assign </span>
+                    </FlatButton>
+                    <FlatButton style={style.actionButton} onClick={this.props.toGroups}>
+                        <i className='fa fa-fw fa-group'/>
+                        <span className='btn-text'> Groups </span>
+                    </FlatButton>
+                </div>
 
 
-				{
-					this.props.assignIsOpen 
-						&& <div className='assign-dialog'>
-							<div className='assign-dialog-inner'>
-								<div className='dia-title'> Assign </div>
-								<div className='dia-body'>
-									<div className='control-container'>
-										<div className='control-label'> Assign to </div>
-										<div className='control'>
-											<Select
-												name='assign-user'
-												clearable={false}
-												value={this.state.selectedUser}
-												onChange={this.updateAssigned}
-												options={this.state.assignOptions}/>
-										</div>
-									</div>
-									<div className='control-container'>
-										<div className='control-label'> Process </div>
-										<div className='control'>
-											<Select
-												name='assign-process'
-												//multi={true}
-												clearable={false}
-												value={this.state.selectedProcess}
-												onChange={this.updateProcess}
-												options={this.state.processOptions}/>
-										</div>
-									</div>
-								</div>
-								<div className='dia-footer'>
-									<FlatButton label='Cancel'
-										style={{color: '#F55A36'}}
-										onClick={this.props.toggleAssign}/>
-									<FlatButton label='Done'
-										style={{color: '#F55A36'}}
-										onClick={this.doAssign}/>
-								</div>
-							</div>
-						</div>
-				}
-			</div>
-		)
-	}
+                {
+                    this.props.assignIsOpen
+                    && <div className='assign-dialog'>
+                        <div className='assign-dialog-inner'>
+                            <div className='dia-title'> Assign</div>
+                            <div className='dia-body'>
+                                <div className='control-container'>
+                                    <div className='control-label'> Assign to</div>
+                                    <div className='control'>
+                                        <Select
+                                            name='assign-user'
+                                            clearable={false}
+                                            value={this.state.selectedUser}
+                                            onChange={this.updateAssigned}
+                                            options={this.state.assignOptions}/>
+                                    </div>
+                                </div>
+                                <div className='control-container'>
+                                    <div className='control-label'> Process</div>
+                                    <div className='control'>
+                                        <Select
+                                            name='assign-process'
+                                            //multi={true}
+                                            clearable={false}
+                                            value={this.state.selectedProcess}
+                                            onChange={this.updateProcess}
+                                            options={this.state.processOptions}/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='dia-footer'>
+                                <FlatButton label='Cancel'
+                                            style={{color: '#F55A36'}}
+                                            onClick={this.props.toggleAssign}/>
+                                <FlatButton label='Done'
+                                            style={{color: '#F55A36'}}
+                                            onClick={this.doAssign}/>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        )
+    }
 }
 
 
 const mapStateToProps = (state) => {
     return {
         token_Reducer: state.tokenReducer,
-        media_file_store:state.MediaFileStore
+        media_file_store: state.MediaFileStore
 
 
     };
 };
 //
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({videoFileSelectedAction: videoFileSelectedAction, MediaFilesChangeAction:MediaFilesChangeAction}, dispatch);
+    return bindActionCreators({
+        videoFileSelectedAction: videoFileSelectedAction,
+        MediaFilesChangeAction: MediaFilesChangeAction
+    }, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(ReviewSearch);

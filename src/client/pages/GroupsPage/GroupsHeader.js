@@ -7,10 +7,10 @@ import {Tabs, Tab} from 'material-ui/Tabs'
 
 const styles = {
 	tab: {
-		padding: '2px 14px',
+		padding: '2px 34px',
 		width: '140px',
 		height: '72px',
-		color: '#444'
+		color: '#4b4b4b'
 	},
 	tabItemContainer: {
 		background: 'none'
@@ -45,14 +45,14 @@ class GroupsHeader extends Component {
 						tabItemContainerStyle={styles.tabItemContainer}
 						value={this.state.selectedTab}
 						onChange={this.handleTabChange}>
-						<Tab 
-							value={0} 
+						<Tab
+							value={0}
 							buttonStyle={styles.tab}
-							label='Members'/>
-						<Tab 
-							value={1} 
-							buttonStyle={styles.tab}
-							label='Permissions'/>
+							label={<span style={{color: '#4b4b4b', margin: '25'}}>Members</span>}/>
+						<Tab
+							value={1}
+							//buttonStyle={styles.tab}
+							label={<span style={{color: '#4b4b4b', margin: '25'}}>Permissions</span>}/>
 					</Tabs>
 				</div>
 			</div>

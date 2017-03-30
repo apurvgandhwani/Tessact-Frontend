@@ -8,7 +8,7 @@ import {bindActionCreators} from 'redux';
 import DropDownMenu from 'material-ui/DropDownMenu'
 import MenuItem from 'material-ui/MenuItem'
 
-import GreyButton from 'components/ui/GreyButton'
+import GreyButton from '../../components/ui/GreyButton'
 import Table from 'react-bootstrap/lib/Table'
 
 import {newMarkerTimeAction} from '../../store/newMarkerTimeAction'
@@ -182,11 +182,12 @@ class TabTags extends Component {
 				<Table className='flags-table' id="flags-table">
 					<thead>
 					<tr>
-						<th></th>
+						<th>   </th>
 						<th> Time In</th>
 						<th> Time Out</th>
 						<th> Type</th>
 						<th> Category</th>
+
 					</tr>
 					</thead>
 					<tbody>

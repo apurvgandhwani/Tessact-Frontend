@@ -10,6 +10,7 @@ import TestVideoButtons from './TestVideoButtons'
 import VideoTabs from './VideoTabs'
 import VideoComment from './VideoComment'
 import DummyPlayer from './DummyPlayer'
+import VideoInfo from './VideoInfo'
 // import PlaneVideoPlayer from './PlaneVideoPlayer'
 //import {actions as mfActions} from 'store/MediaFiles'
 //import {actions as tagActions} from 'store/Tags'
@@ -52,7 +53,7 @@ class TestVideoPage extends Component {
             <div className={c.container}>
                 <div className='left-side'>
                     <DummyPlayer/>
-
+                    <VideoInfo fileName= {this.props.video_file_selected_reducer.videoName}/>
                     <TestVideoButtons/>
                 </div>
                 <div className='right-side'>

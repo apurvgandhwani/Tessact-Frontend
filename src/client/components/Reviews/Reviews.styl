@@ -33,19 +33,20 @@
 		width 100%
 		display flex
 		align-items center
-		height 60px
+		height 50px
 		padding 0 24px
 		font-family montserrat !important
 		border-bottom 1px rgba(#000, 0.2) solid
 		
 		.search-label
-			font-weight bold
+			flex 1
+
 			
 		.search-box
-			flex 1
+			flex 8
 			display flex
 			align-items center
-			margin-left 24px
+			margin-left 4px
 			.search-input
 				outline none
 				width 300px
@@ -63,12 +64,16 @@
 		
 	.td-filename
 		cursor pointer
+		font-family museo700
+		font-weight bolder
+		color #4b4b4b
 		&:hover
 			.detail-name
 				text-decoration underline
 		
 	.td-status
 		font-weight bold
+		color #4b4b4b
 		&.td-green
 			color #0e9544
 		&.td-orange
@@ -78,29 +83,37 @@
 		
 	.table-header
 		font-family montserrat
+		height 10px
+
 
 	.detail-type
+		font-family museo300
+		color #4b4b4b
 
+	.file-duration, .file-channel
+		font-family museo700
+		color #4b4b4b
 
-	.file-channel
-
-
-	.file-duration
-		font-weight bold
 
 	.file-upload-date
-		font-weight bold
+		font-family museo700
+		color #4b4b4b
+
 
 	.file-tx-date
-		font-weight bold
+		font-family museo700
+		color #4b4b4b
+
 
 	.file-assignee
-		font-weight bold
+		font-family museo700
+		color #4b4b4b
+
 
 	.item-file-details
 		display flex
 		align-items center
-		margin 12px 0
+		margin 6px 0
 		width auto
 		.file-image
 			height 60px
