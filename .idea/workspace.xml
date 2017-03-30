@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5f0bb8a-140f-41f6-ba69-a7fcc8135303" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/VideoInfo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/main-bundle.js" afterPath="$PROJECT_DIR$/build/public/main-bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/components/Header/Header.styl" afterPath="$PROJECT_DIR$/src/client/components/Header/Header.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/components/Reviews/ReviewSearch.js" afterPath="$PROJECT_DIR$/src/client/components/Reviews/ReviewSearch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/components/Reviews/Reviews.styl" afterPath="$PROJECT_DIR$/src/client/components/Reviews/Reviews.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/components/Sidebar/Sidebar.styl" afterPath="$PROJECT_DIR$/src/client/components/Sidebar/Sidebar.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/components/Sidebar/index.js" afterPath="$PROJECT_DIR$/src/client/components/Sidebar/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/components/ui/GreyButton/index.js" afterPath="$PROJECT_DIR$/src/client/components/ui/GreyButton/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/GroupsPage/GroupsHeader.js" afterPath="$PROJECT_DIR$/src/client/pages/GroupsPage/GroupsHeader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/GroupsPage/GroupsPage.styl" afterPath="$PROJECT_DIR$/src/client/pages/GroupsPage/GroupsPage.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/GroupsPage/MembersListHeader.js" afterPath="$PROJECT_DIR$/src/client/pages/GroupsPage/MembersListHeader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TabTags.js" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TabTags.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TestVideoPage.styl" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TestVideoPage.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TestVideoPage/index.js" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/index.js" />
-    </list>
+    <list default="true" id="e5f0bb8a-140f-41f6-ba69-a7fcc8135303" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -908,12 +892,12 @@
       <workItem from="1490809960438" duration="9929000" />
       <workItem from="1490866178227" duration="17841000" />
       <workItem from="1490899343432" duration="5091000" />
-      <workItem from="1490908958018" duration="1874000" />
+      <workItem from="1490908958018" duration="3184000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="834737000" />
+    <option name="totallyTimeSpent" value="836047000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
