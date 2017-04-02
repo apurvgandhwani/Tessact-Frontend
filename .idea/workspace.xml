@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e5f0bb8a-140f-41f6-ba69-a7fcc8135303" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TestVideoPage.styl" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TestVideoPage.styl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/components/Reviews/Reviews.styl" afterPath="$PROJECT_DIR$/src/client/components/Reviews/Reviews.styl" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,10 +24,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="TestVideoPage.styl" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TestVideoPage.styl" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/pages/TestVideoPage/TestVideoPage.styl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
+            <state relative-caret-position="686">
               <caret line="235" column="8" lean-forward="false" selection-start-line="235" selection-start-column="8" selection-end-line="235" selection-end-column="8" />
               <folding />
             </state>
@@ -59,6 +59,28 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="159">
               <caret line="112" column="31" lean-forward="false" selection-start-line="112" selection-start-column="31" selection-end-line="112" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Reviews.styl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/client/components/Reviews/Reviews.styl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="41" column="20" lean-forward="false" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+              <folding>
+                <marker date="1491118281710" expanded="true" signature="623:871" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReviewSearch.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/components/Reviews/ReviewSearch.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="105" column="36" lean-forward="true" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -104,26 +126,6 @@
               <folding>
                 <marker date="1490912829371" expanded="true" signature="79:227" ph="{...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VideoComment.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/pages/TestVideoPage/VideoComment.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="42" lean-forward="false" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReviewSearch.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/components/Reviews/ReviewSearch.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-234">
-              <caret line="105" column="40" lean-forward="false" selection-start-line="105" selection-start-column="40" selection-end-line="105" selection-end-column="40" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -201,7 +203,6 @@
         <option value="$PROJECT_DIR$/src/client/pages/TestVideoPage/VideoTabs.js" />
         <option value="$PROJECT_DIR$/src/client/components/Header/Header.styl" />
         <option value="$PROJECT_DIR$/src/client/components/Reviews/ReviewSearch.js" />
-        <option value="$PROJECT_DIR$/src/client/components/Reviews/Reviews.styl" />
         <option value="$PROJECT_DIR$/src/client/pages/GroupsPage/GroupsHeader.js" />
         <option value="$PROJECT_DIR$/src/client/components/ui/GreyButton/index.js" />
         <option value="$PROJECT_DIR$/src/client/pages/GroupsPage/MembersListHeader.js" />
@@ -212,6 +213,7 @@
         <option value="$PROJECT_DIR$/src/client/pages/TestVideoPage/VideoInfo.js" />
         <option value="$PROJECT_DIR$/src/client/pages/TestVideoPage/index.js" />
         <option value="$PROJECT_DIR$/src/client/pages/TestVideoPage/TestVideoPage.styl" />
+        <option value="$PROJECT_DIR$/src/client/components/Reviews/Reviews.styl" />
       </list>
     </option>
   </component>
@@ -895,12 +897,12 @@
       <workItem from="1490809960438" duration="9929000" />
       <workItem from="1490866178227" duration="17841000" />
       <workItem from="1490899343432" duration="5091000" />
-      <workItem from="1490908958018" duration="6792000" />
+      <workItem from="1490908958018" duration="8333000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="839655000" />
+    <option name="totallyTimeSpent" value="841196000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1053,14 +1055,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="1129" column="0" lean-forward="false" selection-start-line="1129" selection-start-column="0" selection-end-line="1129" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/Reviews/Reviews.styl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1269,14 +1263,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/Reviews/ReviewSearch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-234">
-          <caret line="105" column="40" lean-forward="false" selection-start-line="105" selection-start-column="40" selection-end-line="105" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/pages/TestVideoPage/VideoComment.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1347,9 +1333,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/pages/TestVideoPage/TestVideoPage.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
+        <state relative-caret-position="686">
           <caret line="235" column="8" lean-forward="false" selection-start-line="235" selection-start-column="8" selection-end-line="235" selection-end-column="8" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/Reviews/ReviewSearch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="105" column="36" lean-forward="true" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/Reviews/Reviews.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="41" column="20" lean-forward="false" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+          <folding>
+            <marker date="1491118281710" expanded="true" signature="623:871" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
