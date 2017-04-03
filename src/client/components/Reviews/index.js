@@ -8,7 +8,7 @@ import c from './Reviews.styl'
 
 import ReviewSearch from './ReviewSearch'
 import ReviewTable from './ReviewTable'
-
+import JobsTable from './JobsTable'
 import {actions} from 'store/Data'
 
 class Reviews extends Component {
@@ -62,7 +62,8 @@ class Reviews extends Component {
 
     setCurrentItem = (item)=> {
         this.props.setCurrentItem(item);
-        this.context.router.push('/test-video-page')
+        //this.context.router.push('/test-video-page')
+        this.context.router.push('/tagging-video-page')
         //this.context.router.push('/video-screen')
     }
 
@@ -70,7 +71,28 @@ class Reviews extends Component {
         this.context.router.push('/groups')
 	}
 
+
 	render(){
+
+		var MediaFilesView;
+        if(this.props.search_option_changed_reducer.index == 1){
+            MediaFilesView = <ReviewTable
+				//items={this.props.list}
+				selectedRows={this.props.selectedRows}
+				authToken={this.props.auth_token}
+				onRowSelection={this.onRowSelection}
+				setCurrentItem={this.setCurrentItem}/>
+		}
+
+        if(this.props.search_option_changed_reducer.index == 2){
+            MediaFilesView = <JobsTable
+				//items={this.props.list}
+				selectedRows={this.props.selectedRows}
+				authToken={this.props.auth_token}
+				onRowSelection={this.onRowSelection}
+				setCurrentItem={this.setCurrentItem}/>
+        }
+
 		return (
 			<div className={c.container}>
 				<ReviewSearch
@@ -80,12 +102,7 @@ class Reviews extends Component {
 					onSubmitProcess={this.onSubmitProcess}
 				    toGroups={this.toGroups}
 				/>
-				<ReviewTable 
-					//items={this.props.list}
-					selectedRows={this.props.selectedRows}
-					onRowSelection={this.onRowSelection}
-					authToken={this.props.auth_token}
-					setCurrentItem={this.setCurrentItem}/>
+				{MediaFilesView}
 			</div>
 		)
 	}
@@ -94,7 +111,8 @@ class Reviews extends Component {
 const mapStateToProps = (state)=> ({
 	//list: state.Data.list,
 	selectedRows: state.Data.selectedRows,
-	auth_token: state.Data.auth_token
+	auth_token: state.Data.auth_token,
+	search_option_changed_reducer: state.searchOptionChangedReducer
 })
 
 const mapDispatchToProps = (dispatch)=> ({

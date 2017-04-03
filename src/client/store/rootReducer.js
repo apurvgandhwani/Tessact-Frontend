@@ -12,8 +12,9 @@ import tagFetchReducer from './tagFetchReducer'
 import markerReachedReducer from './markerReachedReducer'
 import editTagReducer from './editTagReducer'
 import Groups from './Groups'
+import searchOptionChangedReducer from './searchOptionChangedReducer'
 
 export default combineReducers({
   router,
-   Data, markerReducer, tokenReducer, tagSelectedReducer, newMarkerReducer, VideoFileSelectedReducer, MediaFileStore, tagFetchReducer, markerReachedReducer, editTagReducer, Groups
+   Data, markerReducer, tokenReducer, tagSelectedReducer, newMarkerReducer, VideoFileSelectedReducer, MediaFileStore, tagFetchReducer, markerReachedReducer, editTagReducer, Groups, searchOptionChangedReducer
 });

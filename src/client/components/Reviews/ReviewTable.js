@@ -177,7 +177,7 @@ class ReviewTable extends Component {
 					<TableRow className='table-header-row'>
 						<TableHeaderColumn  className='th-filename'> Filename </TableHeaderColumn>
 						<TableHeaderColumn> Channel </TableHeaderColumn>
-						<TableHeaderColumn> Duration </TableHeaderColumn>
+						<TableHeaderColumn> File Type </TableHeaderColumn>
 						<TableHeaderColumn> Uploaded </TableHeaderColumn>
 						<TableHeaderColumn> TX Date </TableHeaderColumn>
 						<TableHeaderColumn> Process </TableHeaderColumn>
@@ -199,7 +199,7 @@ class ReviewTable extends Component {
 										<div className='file-image' style={{backgroundImage: `url('${item.video.poster.list_thumbnail}')`}}/>
 										<div className='details'>
 											<p className='detail-name'> {item.video.title} </p>
-											<p className='detail-type'> Movie </p>
+											<p className='detail-type'>{this.secondsToHms(item.video.duration)}  </p>
 										</div>
 									</div>
 								</TableRowColumn>
@@ -207,7 +207,7 @@ class ReviewTable extends Component {
 									<p className="file-channel">Zee</p>
 								</TableRowColumn>
 								<TableRowColumn>
-									<p className="file-duration">{this.secondsToHms(item.video.duration)} </p>
+									<p className="file-duration">Movie </p>
 								</TableRowColumn>
 								<TableRowColumn>
 									<p className="file-upload-date">{item.video.created_on}</p>

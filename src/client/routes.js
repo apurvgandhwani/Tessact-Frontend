@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage'
 import Home from './pages/Home'
 import VideoScreen from './pages/VideoScreen'
 import TestVideoPage from './pages/TestVideoPage'
+import TaggingVideoPage from './pages/TaggingVideoPage'
 import TagList from './pages/VideoScreen/tagList'
 import AddTags from './pages/VideoScreen/addTags'
 import EditTag from './pages/VideoScreen/editTag'
@@ -49,6 +50,7 @@ function getRoutes(store) {
                 <Route path='/app' onEnter={hasAuth}>
                     <IndexRoute component={Home}/>
                     <Route path='/test-video-page' component={TestVideoPage}/>
+                    <Route path='/tagging-video-page' component={TaggingVideoPage}/>
                     <Route path='/groups' component={GroupsPage}/>
                     <Redirect from='*' to='/'/>
                 </Route>

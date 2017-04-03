@@ -9,6 +9,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {videoFileSelectedAction} from '../../store/VideoFileSelectedAction'
 import {MediaFilesChangeAction} from '../../store/MediaFilesChangeAction'
+import {searchOptionChangedAction} from '../../store/searchOptionChangedAction'
 import 'react-select/dist/react-select.css'
 
 
@@ -65,8 +66,9 @@ class ReviewSearch extends Component {
     }
 
     updateSearch = (a, b) => {
-        console.log(a.label)
+        console.log(a.value)
         this.setState({selectedSearch: a.value})
+        this.props.searchOptionChangedAction(a.value)
     }
 
     updateAssigned = (a, b) => {
@@ -74,7 +76,7 @@ class ReviewSearch extends Component {
         this.setState({selectedUser: a.value})
     }
 
-    handleOnChange() {
+    handleOnChange(){
         var that = this;
         var settings_second = {
             "async": true,
@@ -193,15 +195,14 @@ const mapStateToProps = (state) => {
     return {
         token_Reducer: state.tokenReducer,
         media_file_store: state.MediaFileStore
-
-
     };
 };
 //
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
         videoFileSelectedAction: videoFileSelectedAction,
-        MediaFilesChangeAction: MediaFilesChangeAction
+        MediaFilesChangeAction: MediaFilesChangeAction,
+        searchOptionChangedAction: searchOptionChangedAction
     }, dispatch);
 }
 
