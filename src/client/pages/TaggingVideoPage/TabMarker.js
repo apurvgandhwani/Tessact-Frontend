@@ -85,7 +85,8 @@ class TabMarker extends Component {
             actor_value: [],
 			emotion_value: [],
 			action_value: [],
-			compliance_value: []
+			compliance_value: [],
+
         };
     }
 
@@ -103,7 +104,7 @@ class TabMarker extends Component {
     }
     handleComplianceSelectChange (value) {
         console.log('You\'ve selected:', value);
-        this.setState({ compliance_value: value });
+        this.setState({ compliance_value: value.value });
     }
 
     secondsToHms(input, fps) {
@@ -133,12 +134,20 @@ class TabMarker extends Component {
     //
 	onDoneClick = ()=> {
         this.props.onDoneClick()
-		// this.props.saveTag()
-		// 	.then(()=> {
-		// 		this.props.onDoneClick()
-		// 	})
+        // this.props.saveTag()
+        // 	.then(()=> {
+        // 		this.props.onDoneClick()
+        // 	})
 
+    }
+
+    AppendClick(){
+		//console.log(this.state.actor_value, this.state.action_value)
+		this.state.added_tags.push({"actors":this.state.actor_value, "actions":this.state.action_value, "compliance":this.state.compliance_value, "emotions":this.state.emotion_value})
+		console.log(this.state.added_tags)
+		this.setState({actor_value:[],action_value:[],emotion_value:[],compliance_value:[]})
 	}
+
 
 	render(){
 		const {
@@ -236,7 +245,7 @@ class TabMarker extends Component {
 
 					<div className='marker-view-footer'>
 					<GreyButton
-						//onClick={this.props.onCancelClick}
+						onClick={this.AppendClick.bind(this)}
 						label='APPEND'/>
 					<GreyButton
 						onClick={this.onDoneClick}

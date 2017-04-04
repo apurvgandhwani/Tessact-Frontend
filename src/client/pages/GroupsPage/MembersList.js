@@ -45,7 +45,7 @@ class MembersList extends Component {
 								<TableRowColumn className='item-joining-date item-3'>
 									{moment(x.joining_date).format('DD MMM YYYY')}
 								</TableRowColumn>
-								<TableRowColumn className='item-last-activity item-4'>
+								<TableRowColumn clas	sName='item-last-activity item-4'>
 									{moment(x.last_activity).fromNow()}
 								</TableRowColumn>
 							</TableRow>
