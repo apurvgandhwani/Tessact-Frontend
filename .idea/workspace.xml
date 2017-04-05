@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5f0bb8a-140f-41f6-ba69-a7fcc8135303" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/store/playButtonClickedAction.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/main-bundle.js" afterPath="$PROJECT_DIR$/build/public/main-bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TaggingVideoPage/DummyPlayer.js" afterPath="$PROJECT_DIR$/src/client/pages/TaggingVideoPage/DummyPlayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TaggingVideoPage/TabTags.js" afterPath="$PROJECT_DIR$/src/client/pages/TaggingVideoPage/TabTags.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TaggingVideoPage/TestVideoPage.styl" afterPath="$PROJECT_DIR$/src/client/pages/TaggingVideoPage/TestVideoPage.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TaggingVideoPage/index.js" afterPath="$PROJECT_DIR$/src/client/pages/TaggingVideoPage/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TestVideoPage/DummyPlayer.js" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/DummyPlayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TabTags.js" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TabTags.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TestVideoPage.styl" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TestVideoPage.styl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/store/newMarkerReducer.js" afterPath="$PROJECT_DIR$/src/client/store/newMarkerReducer.js" />
-    </list>
+    <list default="true" id="e5f0bb8a-140f-41f6-ba69-a7fcc8135303" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -121,7 +109,7 @@
       <file leaf-file-name="TestVideoPage.styl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/client/pages/TaggingVideoPage/TestVideoPage.styl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
+            <state relative-caret-position="-72">
               <caret line="236" column="16" lean-forward="false" selection-start-line="236" selection-start-column="16" selection-end-line="236" selection-end-column="16" />
               <folding />
             </state>
@@ -760,12 +748,12 @@
       <workItem from="1491214146732" duration="8499000" />
       <workItem from="1491297290213" duration="8733000" />
       <workItem from="1491314890548" duration="1022000" />
-      <workItem from="1491327631746" duration="6435000" />
+      <workItem from="1491327631746" duration="7301000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="887077000" />
+    <option name="totallyTimeSpent" value="887943000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1190,7 +1178,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/pages/TaggingVideoPage/TestVideoPage.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
+        <state relative-caret-position="-72">
           <caret line="236" column="16" lean-forward="false" selection-start-line="236" selection-start-column="16" selection-end-line="236" selection-end-column="16" />
           <folding />
         </state>
