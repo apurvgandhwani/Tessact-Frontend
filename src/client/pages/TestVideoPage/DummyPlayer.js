@@ -10,6 +10,7 @@ import {newMarkerTimeAction} from '../../store/newMarkerTimeAction'
 import {tagFetchedAction} from '../../store/tagFetchedAction'
 import {markerReachedAction} from '../../store/markerReachedAction'
 import {tessactLogoClickedAction} from '../../store/tessactLogoClickedAction'
+import {playButtonClickedAction} from '../../store/playButtonClickedAction'
 
 var markerJson, player, currentTime, ind, file;
 var values;
@@ -153,6 +154,7 @@ class DummyPlayer extends Component {
     }
 
     handlePlay() {
+        this.props.playButtonClickedAction()
         console.log("handle play ")
         console.log("hii" + player.getChild('ControlBar').getChild('ProgressControl').currentWidth())
         console.log(player.currentTime())
@@ -247,7 +249,8 @@ function matchDispatchToProps(dispatch) {
         newMarkerTimeAction: newMarkerTimeAction,
         tagFetchedAction: tagFetchedAction,
         markerReachedAction: markerReachedAction,
-        tessactLogoClickedAction:tessactLogoClickedAction
+        tessactLogoClickedAction:tessactLogoClickedAction,
+        playButtonClickedAction:playButtonClickedAction
     }, dispatch);
 }
 export default connect(mapStateToProps, matchDispatchToProps)(DummyPlayer);

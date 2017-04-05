@@ -3,8 +3,6 @@ import classnames from 'classnames'
 import {connect} from 'react-redux'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import c from './TestVideoPage.styl'
-
-
 import TestVideoPlayer from './TestVideoPlayer'
 import TestVideoButtons from './TestVideoButtons'
 import VideoTabs from './VideoTabs'
@@ -54,12 +52,13 @@ class TestVideoPage extends Component {
                 <div className='left-side'>
                     <DummyPlayer/>
                     <VideoInfo fileName= {this.props.video_file_selected_reducer.videoName}/>
+                    <div className="space-filler"></div>
                     <TestVideoButtons/>
                 </div>
                 <div className='right-side'>
                     <VideoTabs/>
-                    <VideoComment
-                    />
+                    {/*<VideoComment*/}
+                    {/*/>*/}
                 </div>
             </div>
         )

@@ -215,6 +215,7 @@ class TabTags extends Component {
 							disabled={this.state.buttonDisabled}
 					/>
 					<GreyButton
+						//disabled={this.props.new_marker_reducer.disable_add_tag}
 						onClick={this.props.onAddClick}
 						label='ADD'/>
 				</div>
@@ -260,7 +261,8 @@ const mapStateToProps = (state) => {
         marker_store: state.markerReducer,
         video_file_reducer: state.VideoFileSelectedReducer,
         tag_fetch_reducer:state.tagFetchReducer,
-        marker_reached_reducer:state.markerReachedReducer
+        marker_reached_reducer:state.markerReachedReducer,
+        new_marker_reducer: state.newMarkerReducer,
     };
 };
 function matchDispatchToProps(dispatch) {

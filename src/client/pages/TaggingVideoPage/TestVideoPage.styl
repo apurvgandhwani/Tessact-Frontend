@@ -2,22 +2,22 @@
 	flex 1
 	display flex
 	overflow scroll
-	
+
 	.left-side, .right-side
 		display flex
 		flex-direction column
 	.left-side
 		flex 3
-	
-	.right-side 
+
+	.right-side
 		flex 1.7
 		min-width 500px
 		flex-shrink 0
 		height 100vh
 
-		
 
-	// Components
+
+// Components
 	.video-player
 		padding-left 20px
 		padding-right 40px
@@ -58,15 +58,15 @@
 		flex 3
 		display flex
 		flex-direction column
-		margin 20px 10px 0 0
+		margin 20px 10px 50px 0
 		box-shadow 0px 4px 12px 0 rgba(#000, 0.16)
 		background-color white
 
 	.video-player-comment
 		flex 1
 
-		//height 23vh
-		
+//height 23vh
+
 
 :local(.container)
 	.swipeable-view
@@ -74,7 +74,6 @@
 		height 100%
 		display flex
 		flex-direction column
-
 
 	.react-swipeable-view-container
 		height 100%
@@ -94,25 +93,22 @@
 			font-weight 500
 
 
-
 :local(.container)
 	.tags-table
 		display flex
 		flex-direction column
 		flex 1
 
-
 	.tags-header
 		display flex
 		align-items center
 		height 32px
 		justify-content space-around
-		//border-bottom 1px rgba(#000, 0.12) solid
 		background-color rgba(#000, 0.12)
 		padding-left 30px
 	.header-item
-		   flex-grow 1
-		   flex-basis 0
+		flex-grow 1
+		flex-basis 0
 
 	.tags-table-body
 		flex 1
@@ -230,15 +226,15 @@
 		padding 15px 12px
 
 :local(.container)
-		.flags-table
-			display flex
-			flex-flow column
-			overflow hidden
-			flex 1
+	.flags-table
+		display flex
+		flex-flow column
+		overflow hidden
+		flex 1
 
 tbody
 	overflow-y auto
-	min-height 380px
+	min-height 680px
 thead
 	display block
 	flex-shrink 0
@@ -257,9 +253,9 @@ td~td
 	flex 1 1 22%
 	word-wrap break-word
 h4, h3{
-		font-family museo700
-		font-weight 500
-	}
+	font-family museo700
+	font-weight 500
+}
 .add-tag-header{
 	margin-left 30px;
 	margin-bottom 30px;
@@ -276,16 +272,16 @@ select, Select{
 	font-size 15px
 	background-color transparent
 	border-color black
-	}
-    select > option {
-	   font-family museo500
+}
+select > option {
+	font-family museo500
 
-	}
+}
 
 
-	.detail-div h4{
-		display:inline-block;
-		width:140px;
-		margin-left: 30px;
-		margin-bottom 25px
-	}
+.detail-div h4{
+	display:inline-block;
+	width:140px;
+	margin-left: 30px;
+	margin-bottom 25px
+}

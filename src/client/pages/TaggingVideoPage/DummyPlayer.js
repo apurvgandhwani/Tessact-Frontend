@@ -10,6 +10,7 @@ import {newMarkerTimeAction} from '../../store/newMarkerTimeAction'
 import {tagFetchedAction} from '../../store/tagFetchedAction'
 import {markerReachedAction} from '../../store/markerReachedAction'
 import {tessactLogoClickedAction} from '../../store/tessactLogoClickedAction'
+import {playButtonClickedAction} from '../../store/playButtonClickedAction'
 
 var markerJson, player, currentTime, ind, file;
 var values;
@@ -63,7 +64,7 @@ class DummyPlayer extends Component {
             var options = {hidden: true};
             player = videojs(this.video_el, videoOptions).ready(function () {
                 self.player = this;
-                self.player.on('play', self.handlePlay);
+                self.player.on('play', that.handlePlay);
             });
             player.rangeslider(options);
             player.hideControlTime();
@@ -139,7 +140,7 @@ class DummyPlayer extends Component {
     componentWillUnmount() {
         console.log('Will Unmount');
         lastNotifiedIndex = -1;
-        this.props.tessactLogoClickedAction();
+        //this.props.tessactLogoClickedAction();
 
     }
 
@@ -153,10 +154,15 @@ class DummyPlayer extends Component {
     }
 
     handlePlay() {
+        //this.props.playButtonClickedAction
+
         console.log("handle play ")
         console.log("hii" + player.getChild('ControlBar').getChild('ProgressControl').currentWidth())
         console.log(player.currentTime())
+        this.props.playButtonClickedAction()
+
     }
+
 
 
     showSlider() {
@@ -164,6 +170,7 @@ class DummyPlayer extends Component {
         //this.state.player.setValueSlider(player.currentTime());
         this.state.player.showSlider();
         this.state.player.pause();
+
     }
 
     hideSlider() {
@@ -247,7 +254,8 @@ function matchDispatchToProps(dispatch) {
         newMarkerTimeAction: newMarkerTimeAction,
         tagFetchedAction: tagFetchedAction,
         markerReachedAction: markerReachedAction,
-        tessactLogoClickedAction:tessactLogoClickedAction
+        tessactLogoClickedAction:tessactLogoClickedAction,
+        playButtonClickedAction:playButtonClickedAction
     }, dispatch);
 }
 export default connect(mapStateToProps, matchDispatchToProps)(DummyPlayer);
