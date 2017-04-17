@@ -60,6 +60,11 @@ class DummyPlayer extends Component {
                 controls: true,
                 aspectRatio: "16:9"
             }
+
+            var isPause = 0;
+            var pausetime = 5; // stop at 2 seconds
+
+
             var self = this;
             var options = {hidden: true};
             player = videojs(this.video_el, videoOptions).ready(function () {
@@ -75,6 +80,10 @@ class DummyPlayer extends Component {
             });
             player.on("timeupdate", () => {
                 currentTime = player.currentTime();
+                if( isPause == 0 && ( player.currentTime() >= pausetime ) ){
+                    player.pause();
+                    wait();
+                }
                 //console.log(currentTime)
             });
             // setInterval(function () {
@@ -116,6 +125,15 @@ class DummyPlayer extends Component {
 
             if (this.props.onPlayerInit) this.props.onPlayerInit(player);
 
+
+
+
+            function wait(){
+                setTimeout(function(){
+                    isPause = 1;
+                    player.play();
+                },1000)
+            }
 
             console.log(player.currentTime())
             player.markers({

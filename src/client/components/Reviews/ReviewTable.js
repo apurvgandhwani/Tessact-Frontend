@@ -15,7 +15,7 @@ import {
 
 class ReviewTable extends Component {
 	static propTypes = {
-		items: PropTypes.array.isRequired,
+		//items: PropTypes.array.isRequired,
 		selectedRows: PropTypes.array.isRequired,
 		authToken: PropTypes.string.isRequired
 	};

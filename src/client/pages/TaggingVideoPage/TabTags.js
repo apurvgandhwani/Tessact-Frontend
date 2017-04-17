@@ -182,7 +182,7 @@ class TabTags extends Component {
 				<Table className='flags-table' id="flags-table">
 					<thead>
 					<tr>
-						<th>   </th>
+						<th></th>
 						<th> Time In</th>
 						<th> Time Out</th>
 						<th> Type</th>

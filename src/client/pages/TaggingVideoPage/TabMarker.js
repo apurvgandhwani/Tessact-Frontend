@@ -21,37 +21,37 @@ const TAGS_TABLE_MAP = {
 }
 
 const ACTORS = [
-    { label: 'Sameer', value: 'Sameer' },
-    { label: 'Aditya', value: 'Aditya' },
-    { label: 'Anjely', value: 'Anjely' },
-    { label: 'Kavya', value: 'Kavya' },
-    { label: 'Monish', value: 'Monish' },
-    { label: 'Kaira', value: 'Kaira' },
+    { label: 'Sameer', value: '1' },
+    { label: 'Aditya', value: '2' },
+    { label: 'Anjely', value: '3' },
+    { label: 'Kavya', value: '4' },
+    { label: 'Monish', value: '5' },
+    { label: 'Kaira', value: '6' },
 ];
 const EMOTIONS = [
-    { label:"Happy",value: 'happy' },
-    { label:"Angry",value: 'Angry' },
-    { label:"Excited",value: 'Excited' },
-    { label:"Sad",value: 'Sad' },
-    { label:"Shocked",value: 'Shocked' },
-    { label:"Normal",value: 'Normal' },
+    { label:"Happy",value: '11' },
+    { label:"Angry",value: '12' },
+    { label:"Excited",value: '13' },
+    { label:"Sad",value: '14' },
+    { label:"Shocked",value: '15' },
+    { label:"Normal",value: '16' },
 ];
 const ACTIONS	 = [
-    { label:"Fight",value: 'Fight' },
-    { label:"Crying",value: 'Crying' },
-    { label:"Dancing",value: 'Dancing' },
-    { label:"Love Making",value: 'Love Making' },
-    { label:"Running",value: 'Running' },
-    { label:"Driving",value: 'Driving' },
+    { label:"Fight",value: "21" },
+    { label:"Crying",value: '22' },
+    { label:"Dancing",value: '23' },
+    { label:"Love Making",value: '24' },
+    { label:"Running",value: '25' },
+    { label:"Driving",value: '26' },
 ];
 
 const COMPLIANCE = [
-    { label:"Smoking",value: 'Smoking' },
-    { label:"Alcohol",value: 'Alcohol' },
-    { label:"Blood",value: 'Blood' },
-    { label:"Nudity",value: 'Nudity' },
-    { label:"Vulgar Words",value: 'Vulgar Words' },
-    { label:"Abuse",value: 'Abuse' },
+    { label:"Smoking",value: '31' },
+    { label:"Alcohol",value: '32' },
+    { label:"Blood",value: '33' },
+    { label:"Nudity",value: '34' },
+    { label:"Vulgar Words",value: '35' },
+    { label:"Abuse",value: '36' },
 ];
 const TAG_TYPES = [
 	'smoking',
@@ -67,6 +67,7 @@ const TAG_CATEGORIES = [
 	'Category C',
 ]
 
+var actor_array, action_array, emotion_array;
 
 class TabMarker extends Component {
 	static propTypes = {
@@ -82,25 +83,29 @@ class TabMarker extends Component {
 			emotion_options: EMOTIONS,
 			action_options:ACTIONS,
 			compliance_options:COMPLIANCE,
-            actor_value: [],
-			emotion_value: [],
-			action_value: [],
-			compliance_value: [],
+            actor_value: ",",
+			emotion_value: ",",
+			action_value: ",",
+			compliance_value: "",
 
         };
     }
 
     handleActorSelectChange (value) {
         console.log('You\'ve selected:', value);
+        //console.log(typeof this.state.actor_value)
         this.setState({ actor_value: value });
+
     }
     handleEmotionSelectChange (value) {
-        console.log('You\'ve selected:', value);
+        console.log('You\'ve selected:', value)
         this.setState({ emotion_value: value });
+
     }
     handleActionSelectChange (value) {
         console.log('You\'ve selected:', value);
         this.setState({ action_value: value });
+
     }
     handleComplianceSelectChange (value) {
         console.log('You\'ve selected:', value);
@@ -133,6 +138,7 @@ class TabMarker extends Component {
 	// }
     //
 	onDoneClick = ()=> {
+
         this.props.onDoneClick()
         // this.props.saveTag()
         // 	.then(()=> {
@@ -142,10 +148,37 @@ class TabMarker extends Component {
     }
 
     AppendClick(){
-		//console.log(this.state.actor_value, this.state.action_value)
-		this.state.added_tags.push({"actors":this.state.actor_value, "actions":this.state.action_value, "compliance":this.state.compliance_value, "emotions":this.state.emotion_value})
-		console.log(this.state.added_tags)
-		this.setState({actor_value:[],action_value:[],emotion_value:[],compliance_value:[]})
+		console.log(this.state.actor_value, this.state.action_value, this.state.emotion_value)
+		//this.state.added_tags.push({"actors":this.state.actor_value, "actions":this.state.action_value, "compliance":this.state.compliance_value, "emotions":this.state.emotion_value})
+		//this.state.actor_value.split(',').concat(this.state.action_value.split(','), this.state.emotion_value.split(','));
+
+        // var actor_array, action_array, emotion_array
+        //
+
+
+        if(this.state.actor_value.indexOf(',') > -1){
+			actor_array = this.state.actor_value.split(',')
+        }
+        if(this.state.actor_value.indexOf(',') == -1){
+        	actor_array = [];
+		}
+        if(this.state.action_value.indexOf(',') > -1){
+            action_array = this.state.action_value.split(',')
+        }
+        if(this.state.action_value.indexOf(',') == -1){
+            action_array = [];
+        }
+        if(this.state.emotion_value.indexOf(',') > -1){
+            emotion_array = this.state.emotion_value.split(',')
+        }
+        if(this.state.emotion_value.indexOf(',') == -1){
+            emotion_array = [];
+        }
+        this.setState({added_tags: actor_array.concat(action_array, emotion_array)})
+        console.log(actor_array.concat(action_array, emotion_array))
+		//console.log(this.state.added_tags)
+
+        this.setState({actor_value:[],action_value:[],emotion_value:[],compliance_value:[]})
 	}
 
 

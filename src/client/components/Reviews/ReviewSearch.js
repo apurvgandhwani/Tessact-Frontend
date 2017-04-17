@@ -35,15 +35,36 @@ const style = {
 
 
 class ReviewSearch extends Component {
+
+
+        state = {
+            selectedUser: 1,
+            selectedProcess: [],
+            selectedSearch: 1,
+            processOptions: [
+                {value: "Compliance", label: 'Compliance'},
+                {value: 'Actions', label: 'Actions'},
+                {value:'Emotions', label: 'Emotions'},
+                {value: 'Actors', label: 'Actors'}
+            ],
+            assignOptions: [
+                {value: 1, label: 'Aswin'},
+                {value: 2, label: 'Apurv'},
+                {value: 3, label: 'Rohit'},
+                {value: 4, label: 'Aditya'},
+            ],
+            searchOptions: [{value: 1, label: 'Media Files'}, {value: 2, label: 'Jobs'}]
+        }
+
     state = {
         selectedUser: 1,
-        selectedProcess: 1,
+        selectedProcess: [],
         selectedSearch: 1,
         processOptions: [
-            {value: 1, label: 'Compliance'},
-            {value: 2, label: 'Actions'},
-            {value: 3, label: 'Emotions'},
-            {value: 4, label: 'Actors'}
+            {value: "Compliance", label: 'Compliance'},
+            {value: 'Actions', label: 'Actions'},
+            {value:'Emotions', label: 'Emotions'},
+            {value: 'Actors', label: 'Actors'}
         ],
         assignOptions: [
             {value: 1, label: 'Aswin'},
@@ -60,9 +81,9 @@ class ReviewSearch extends Component {
         this.props.toggleAssign();
     }
 
-    updateProcess = (a, b) => {
+    updateProcess = (a,b) => {
         console.log(a.label)
-        this.setState({selectedProcess: a.value})
+        this.setState({selectedProcess: a})
     }
 
     updateSearch = (a, b) => {
@@ -72,11 +93,11 @@ class ReviewSearch extends Component {
     }
 
     updateAssigned = (a, b) => {
-        console.log(a.label)
+        console.log(a.value)
         this.setState({selectedUser: a.value})
     }
 
-    handleOnChange(){
+    handleOnChange() {
         var that = this;
         var settings_second = {
             "async": true,
@@ -107,10 +128,10 @@ class ReviewSearch extends Component {
             <div className='review-search'>
                 <div className='search-label'>
                     <Select
-                    clearable={false}
-                    value={this.state.selectedSearch}
-                    onChange={this.updateSearch}
-                    options={this.state.searchOptions}/>
+                        clearable={false}
+                        value={this.state.selectedSearch}
+                        onChange={this.updateSearch}
+                        options={this.state.searchOptions}/>
                 </div>
 
                 <div className='search-box'>
@@ -164,13 +185,12 @@ class ReviewSearch extends Component {
                                 <div className='control-container'>
                                     <div className='control-label'> Process</div>
                                     <div className='control'>
-                                        <Select
-                                            name='assign-process'
-                                            //multi={true}
-                                            clearable={false}
-                                            value={this.state.selectedProcess}
-                                            onChange={this.updateProcess}
-                                            options={this.state.processOptions}/>
+                                        <Select multi simpleValue
+                                                //name="assign-process"
+                                                value={this.state.selectedProcess}
+                                                placeholder="Select Process"
+                                                options={this.state.processOptions}
+                                                onChange={this.updateProcess} />
                                     </div>
                                 </div>
                             </div>
