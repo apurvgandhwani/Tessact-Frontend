@@ -10,6 +10,8 @@ import ReviewSearch from './ReviewSearch'
 import ReviewTable from './ReviewTable'
 import JobsTable from './JobsTable'
 import {actions} from 'store/Data'
+import AddFileButton from './AddFileButton'
+
 
 class Reviews extends Component {
 	state = {
@@ -103,6 +105,7 @@ class Reviews extends Component {
 				    toGroups={this.toGroups}
 				/>
 				{MediaFilesView}
+				<AddFileButton/>
 			</div>
 		)
 	}

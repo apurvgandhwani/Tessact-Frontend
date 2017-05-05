@@ -174,7 +174,7 @@ class ReviewTable extends Component {
 					className='table-header'
 					style={{fontFamily: 'montserratregular'}}
 					adjustForCheckbox={true}>
-					<TableRow className='table-header-row'>
+					<TableRow className='table-header-row' style={{height:'10'}}>
 						<TableHeaderColumn  className='th-filename'> Filename </TableHeaderColumn>
 						<TableHeaderColumn> Channel </TableHeaderColumn>
 						<TableHeaderColumn> File Type </TableHeaderColumn>
