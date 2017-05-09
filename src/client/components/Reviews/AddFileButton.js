@@ -24,7 +24,7 @@ var bytesUploaded = 0;
 var files;
 var reader = new FileReader();
 import {connect} from 'react-redux'
-import withStyles from 'isomorphic-style-loader/lib/withStyles'
+
 
 
 class AddButton extends Component {
