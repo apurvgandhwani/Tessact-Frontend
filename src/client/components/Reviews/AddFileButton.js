@@ -12,7 +12,7 @@ const styles = {
     }
 }
 
-var maxBlockSize = 3500 * 1024;//Each file will be split in 256 KB.
+var maxBlockSize;
 var numberOfBlocks = 1;
 var selectedFile = null;
 var currentFilePointer = 0;
@@ -23,11 +23,16 @@ var submitUri = null;
 var bytesUploaded = 0;
 var files;
 var reader = new FileReader();
-export default class AddButton extends Component {
+import {connect} from 'react-redux'
+import withStyles from 'isomorphic-style-loader/lib/withStyles'
+
+
+class AddButton extends Component {
 
     handleFileSelect(e) {
+
         var that = this
-        maxBlockSize = 3500 * 1024;
+        maxBlockSize = 10000 * 1024;
         currentFilePointer = 0;
         totalBytesRemaining = 0;
         files = e.target.files;
@@ -51,11 +56,39 @@ export default class AddButton extends Component {
         // $("#fileSize").text(selectedFile.size);
         // $("#fileType").text(selectedFile.type);
 
-        var baseUrl = 'https://triggerbackendnormal.blob.core.windows.net/backend-media/e7581d7b-a59d-47eb-b8aa-6b6799179b36.mp4?sv=2016-05-31&sr=b&se=2017-05-09T18%3A26%3A07Z&sp=w&sig=TlS/a9RgVT/j7BHztjFZSF2L21za48J7sknoAre3Sko%3D'
-        submitUri = baseUrl
-        console.log(submitUri);
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://www.backend.trigger.tessact.com/api/v1/videos/get_video_url/",
+            "method": "GET",
+            "credentials": 'include',
+            "headers": {
+                Authorization: "Token " + that.props.token_Reducer.token
+            },
+            success:( response, textStatus, jQxhr )=> {
+               console.log(response.blob_url)
+            }
+        }
 
-        this.uploadFileInBlocks();
+        $.ajax(settings).done((response) => {
+            //alert(response.auth_token);
+            //token = response.auth_token
+            //that.props.setAuthToken(token);
+            //console.log(token);
+            //console.log("hello" + 126.4567 % 3600 % 60);
+            //window.localStorage.token_auth = token;
+            //this.context.router.push('/app')
+            var baseUrl = response.blob_url + '?' + response.token;
+            submitUri = baseUrl
+            this.uploadFileInBlocks();
+            //console.log(response.blob_url + '?' + response.token)
+        });
+
+       // var baseUrl = 'https://triggerbackendnormal.blob.core.windows.net/backend-media/e7581d7b-a59d-47eb-b8aa-6b6799179b36.mp4?sv=2016-05-31&sr=b&se=2017-05-09T18%3A26%3A07Z&sp=w&sig=TlS/a9RgVT/j7BHztjFZSF2L21za48J7sknoAre3Sko%3D'
+       // submitUri = baseUrl
+        //console.log(submitUri);
+
+
 
     }
 
@@ -146,36 +179,6 @@ export default class AddButton extends Component {
     }
 
     render(){
-
-        reader.onloadend = function (evt) {
-            if (evt.target.readyState == FileReader.DONE) { // DONE == 2
-                var uri = submitUri + '&comp=block&blockid=' + blockIds[blockIds.length - 1];
-                var requestData = new Uint8Array(evt.target.result);
-                $.ajax({
-                    url: uri,
-                    type: "PUT",
-                    data: requestData,
-                    processData: false,
-                    beforeSend: function(xhr) {
-                        xhr.setRequestHeader('x-ms-blob-type', 'BlockBlob');
-                        // xhr.setRequestHeader('Content-Length', requestData.length);
-                    },
-                    success: function (data, status) {
-                        console.log(data);
-                        console.log(status);
-                        bytesUploaded += requestData.length;
-                        var percentComplete = ((parseFloat(bytesUploaded) / parseFloat(selectedFile.size)) * 100).toFixed(2);
-                        console.log(percentComplete)
-                        this.uploadFileInBlocks();
-                    },
-                    error: function(xhr, desc, err) {
-                        console.log(desc);
-                        console.log(err);
-                    }
-                });
-            }
-        };
-
         return (
             <label htmlFor='myInput'>
                 <input id="myInput" type="file" ref={(ref) => this.upload = ref} style={{visibility: 'hidden'}} onChange={this.handleFileSelect.bind(this)}/>
@@ -189,3 +192,13 @@ export default class AddButton extends Component {
         )
     }
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+        token_Reducer: state.tokenReducer,
+        media_file_store:state.MediaFileStore
+    };
+};
+
+export default connect(mapStateToProps)(AddButton);
