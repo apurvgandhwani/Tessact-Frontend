@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import c from './GroupsPage.styl'
-
+import $ from 'jquery'
 import GroupsSidebar from './GroupsSidebar'
 import GroupsHeader  from './GroupsHeader'
 import MembersList from './MembersList'
@@ -15,7 +15,54 @@ import {actions as groupActions} from 'store/Groups'
 
 const debug = require('debug')('tessact:pages:groups')
 
+var groupList = [];
+
 class GroupsPage extends Component {
+
+	componentWillMount(){
+
+		var that = this;
+
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://www.backend.trigger.tessact.com/api/v1/workgroups/",     //put url to get group list from here
+            "method": "GET",
+            "headers": {
+                Authorization: "Token " + that.props.token_Reducer.token
+            },
+            success: function( response, textStatus, jQxhr ){
+
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://www.backend.trigger.tessact.com/api/v1/workgroups/"+ response.results[0].id + "/members/",     //put url to get group list from here
+                    "method": "GET",
+                    "headers": {
+                        Authorization: "Token " + that.props.token_Reducer.token
+                    },
+                    success: function( response, textStatus, jQxhr ){
+
+                    },
+                }
+
+                $.ajax(settings).done((response) => {
+
+                    //alert("yo");
+
+                    console.log(response[0].username);
+                });
+            },
+        }
+
+        $.ajax(settings).done((response) => {
+
+        	groupList = response.results;
+            //alert("yo");
+            //console.log(response.results[0].name);
+        });
+
+    }
 	state = {
 		mode: 'grid'
 	}
@@ -40,7 +87,9 @@ class GroupsPage extends Component {
 			mode 
 		} = this.state;
 
+
 		const members = list.map(x => x.members)
+
 		const selectedItems = list.filter(
 			x => x.id.toString() === selectedId.toString()
 		)
@@ -80,6 +129,7 @@ class GroupsPage extends Component {
 }
 
 const mapStateToProps = (state)=> ({
+    token_Reducer: state.tokenReducer,
 	list: state.Groups.list,
 	isLoading: state.Groups.isLoading,
 	hasError: state.Groups.hasError,

@@ -16,7 +16,8 @@ import AddFileButton from './AddFileButton'
 class Reviews extends Component {
 	state = {
 		items: [],
-		assignIsOpen: false
+		assignIsOpen: false,
+		fileUploadIsOpen:false
 	};
 
 	static contextTypes = {
@@ -62,6 +63,13 @@ class Reviews extends Component {
 		})
 	}
 
+    openFileUpload(){
+        this.setState({
+            fileUploadIsOpen: !this.state.fileUploadIsOpen
+        })
+    }
+
+
     setCurrentItem = (item)=> {
         this.props.setCurrentItem(item);
         //this.context.router.push('/test-video-page')
@@ -105,7 +113,10 @@ class Reviews extends Component {
 				    toGroups={this.toGroups}
 				/>
 				{MediaFilesView}
-				<AddFileButton/>
+				<AddFileButton
+					openFileUpload={this.openFileUpload.bind(this)}
+					fileUploadIsOpen={this.state.fileUploadIsOpen}
+				/>
 			</div>
 		)
 	}

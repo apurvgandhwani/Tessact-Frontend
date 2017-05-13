@@ -64,7 +64,6 @@ class ReviewTable extends Component {
                 $.ajax(settings_second).done((response) => {
                     //alert("yo");
 
-
                 });
             },
         }

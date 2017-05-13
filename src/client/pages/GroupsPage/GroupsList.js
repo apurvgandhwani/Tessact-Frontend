@@ -11,15 +11,15 @@ class GroupsList extends Component {
 		const {
 			className,
 			list,
-			selectedId
+			//selectedId
 		} = this.props;
 		const cx = classnames(className)
 		return (
 			<div className={cx}>
 				{
 					list.map((x, i)=> {
-						const active = x.id.toString() === selectedId.toString()
-						const cx = 'groups-list-item' +  (active ? ' is-active' : '')
+						//const active = x.id.toString() === selectedId.toString()
+						const cx = 'groups-list-item'
 						return (
 							<div
 								key={x.id}
