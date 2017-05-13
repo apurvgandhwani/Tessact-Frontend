@@ -288,7 +288,7 @@ class AddButton extends Component {
         return (
             <div>
             <label htmlFor='myInput'>
-                <input id="myInput" type="file" ref={(ref) => this.upload = ref} style={{visibility: 'hidden'}} webkitdirectory/>
+                <input id="myInput" type="file" ref={(ref) => this.upload = ref} style={{visibility: 'hidden'}} webkitdirectory directory multiple/>
                 <FloatingActionButton
                     className="floatingButton"
                     backgroundColor='#5199f6'

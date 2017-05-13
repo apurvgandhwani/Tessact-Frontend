@@ -2,31 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5f0bb8a-140f-41f6-ba69-a7fcc8135303" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/ImageUploadPage/Reviews.styl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/ImageUploadPage/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/NewUploadPage/AddFileButton.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/NewUploadPage/JobsTable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/NewUploadPage/ReviewSearch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/NewUploadPage/ReviewTable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/NewUploadPage/Reviews.styl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/pages/NewUploadPage/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/main-bundle.js" afterPath="$PROJECT_DIR$/build/public/main-bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/components/Reviews/AddFileButton.js" afterPath="$PROJECT_DIR$/src/client/components/Reviews/AddFileButton.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/components/Reviews/ReviewTable.js" afterPath="$PROJECT_DIR$/src/client/components/Reviews/ReviewTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/GroupsPage/MembersListHeader.js" afterPath="$PROJECT_DIR$/src/client/pages/GroupsPage/MembersListHeader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TaggingVideoPage/EditTab.js" afterPath="$PROJECT_DIR$/src/client/pages/TaggingVideoPage/EditTab.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TaggingVideoPage/TabMarker.js" afterPath="$PROJECT_DIR$/src/client/pages/TaggingVideoPage/TabMarker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TaggingVideoPage/TabTags.js" afterPath="$PROJECT_DIR$/src/client/pages/TaggingVideoPage/TabTags.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TaggingVideoPage/TestVideoPlayer.js" afterPath="$PROJECT_DIR$/src/client/pages/TaggingVideoPage/TestVideoPlayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TaggingVideoPage/index.js" afterPath="$PROJECT_DIR$/src/client/pages/TaggingVideoPage/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TestVideoPage/EditTab.js" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/EditTab.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TabMarker.js" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TabMarker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TabTags.js" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TabTags.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TestVideoButtons.js" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TestVideoButtons.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TestVideoPlayer.js" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/TestVideoPlayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/TestVideoPage/index.js" afterPath="$PROJECT_DIR$/src/client/pages/TestVideoPage/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/routes.js" afterPath="$PROJECT_DIR$/src/client/routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/NewUploadPage/AddFileButton.js" afterPath="$PROJECT_DIR$/src/client/pages/NewUploadPage/AddFileButton.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -75,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/src/client/pages/NewUploadPage/AddFileButton.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="83">
-              <caret line="290" column="128" lean-forward="false" selection-start-line="290" selection-start-column="128" selection-end-line="290" selection-end-column="128" />
+              <caret line="290" column="146" lean-forward="false" selection-start-line="290" selection-start-column="146" selection-end-line="290" selection-end-column="146" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
                 <element signature="e#872#2062#0" expanded="false" />
@@ -941,12 +919,12 @@
       <workItem from="1493973450511" duration="9541000" />
       <workItem from="1494490484804" duration="46103000" />
       <workItem from="1494675705964" duration="2756000" />
-      <workItem from="1494680709099" duration="19987000" />
+      <workItem from="1494680709099" duration="20896000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1028327000" />
+    <option name="totallyTimeSpent" value="1029236000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1383,7 +1361,7 @@
     <entry file="file://$PROJECT_DIR$/src/client/pages/NewUploadPage/AddFileButton.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="83">
-          <caret line="290" column="128" lean-forward="false" selection-start-line="290" selection-start-column="128" selection-end-line="290" selection-end-column="128" />
+          <caret line="290" column="146" lean-forward="false" selection-start-line="290" selection-start-column="146" selection-end-line="290" selection-end-column="146" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
             <element signature="e#872#2062#0" expanded="false" />
