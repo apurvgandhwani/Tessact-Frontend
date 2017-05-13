@@ -288,14 +288,15 @@ class AddButton extends Component {
         return (
             <div>
             <label htmlFor='myInput'>
-                <input id="myInput" type="file" ref={(ref) => this.upload = ref} style={{visibility: 'hidden'}} />
+                <input id="myInput" type="file" ref={(ref) => this.upload = ref} style={{visibility: 'hidden'}} webkitdirectory/>
                 <FloatingActionButton
                     className="floatingButton"
-                    backgroundColor='#fb802a'
+                    backgroundColor='#5199f6'
                     //onClick={(e) => this.upload.click() }
                     onClick= {this.props.openFileUpload}>
                     <ContentAdd />
                 </FloatingActionButton>
+
             </label>
                 {
                     this.props.fileUploadIsOpen
@@ -307,28 +308,8 @@ class AddButton extends Component {
                                     <div className='control-label'> Video File</div>
                                     <div className='control-browse'>
                                         <input type="text" className="form-control" id="fileName" value={selectedFile.name} readOnly/>
-                                        <button type="button" className="btn btn-primary" style={{backgroundColor:"#fe8012", borderColor:"#fe8012"}} onClick={(e) => this.upload_file.click()}>Browse</button>
+                                        <button type="button" className="btn btn-primary" style={{backgroundColor:'#5199f6', borderColor:'#5199f6'}} onClick={(e) => this.upload_file.click()}>Browse</button>
                                         <input id="myInput" type="file" ref={(ref) => this.upload_file = ref} style={{visibility: 'hidden', width:0}} onChange={this.handleFileSelect.bind(this)}/>
-                                    </div>
-                                </div>
-                                <div className='control-container'>
-                                    <div className='control-label'> Poster</div>
-                                    <div className='control-browse'>
-                                        <input type="text" className="form-control" id="posterName" value={selectedPoster.name} readOnly/>
-                                        <button type="button" className="btn btn-primary" style={{backgroundColor:"#fe8012", borderColor:"#fe8012"}} onClick={(e) => this.upload.click() }>Browse</button>
-                                        <input id="posterImage" type="file" ref={(ref) => this.upload = ref} style={{visibility: 'hidden', width:0}} onChange={this.handlePosterSelect.bind(this)}/>
-                                    </div>
-                                </div>
-                                <div className='control-container'>
-                                    <div className='control-label'> Type</div>
-                                    <div className='control'>
-                                        <Select
-                                            name='assign-user'
-                                            clearable={false}
-                                            //value={this.state.selectedUser}
-                                            //onChange={this.updateAssigned}
-                                            //options={this.state.assignOptions}
-                                        />
                                     </div>
                                 </div>
                             </div>
@@ -347,6 +328,7 @@ class AddButton extends Component {
         )
     }
 }
+
 
 const mapStateToProps = (state) => {
     return {
