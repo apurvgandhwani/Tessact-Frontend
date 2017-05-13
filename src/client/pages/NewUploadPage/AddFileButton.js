@@ -28,7 +28,7 @@ var reader = new FileReader();
 import {connect} from 'react-redux'
 
 var videoURL;
-
+var folder;
 class AddButton extends Component {
 
 
@@ -71,7 +71,43 @@ class AddButton extends Component {
         this.props.openFileUpload();
 
     }
-    handleFileSelect(e) {
+
+
+
+    handleFolderSelect(e) {
+        folder = document.getElementById("myInput");
+
+        var files = folder.files,
+            len = files.length,
+            i;
+        for (i = 0; i < len; i += 1) {
+            console.log(files[i]);
+        }
+        maxBlockSize = 3500 * 1024;
+        currentFilePointer = 0;
+        totalBytesRemaining = 0;
+        files = e.target.files;
+        selectedFile = files[0];
+        console.log(selectedFile.name)
+        console.log(selectedFile.size)
+        console.log(selectedFile.type)
+        fileSize = selectedFile.size;
+        if (fileSize < maxBlockSize) {
+            maxBlockSize = fileSize;
+            console.log("max block size = " + maxBlockSize);
+        }
+        $('#fileName').val(selectedFile.name)
+
+        totalBytesRemaining = fileSize;
+        if (fileSize % maxBlockSize == 0) {
+            numberOfBlocks = fileSize / maxBlockSize;
+        } else {
+            numberOfBlocks = parseInt(fileSize / maxBlockSize, 10) + 1;
+        }
+        console.log("total blocks = " + numberOfBlocks);
+    }
+
+    handleFileSelect(e){
         maxBlockSize = 3500 * 1024;
         currentFilePointer = 0;
         totalBytesRemaining = 0;

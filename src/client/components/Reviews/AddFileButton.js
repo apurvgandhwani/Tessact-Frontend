@@ -316,7 +316,7 @@ class AddButton extends Component {
                                     <div className='control-browse'>
                                         <input type="text" className="form-control" id="posterName" value={selectedPoster.name} readOnly/>
                                         <button type="button" className="btn btn-primary" style={{backgroundColor:"#fe8012", borderColor:"#fe8012"}} onClick={(e) => this.upload.click() }>Browse</button>
-                                        <input id="posterImage" type="file" ref={(ref) => this.upload = ref} style={{visibility: 'hidden', width:0}} onChange={this.handlePosterSelect.bind(this)}/>
+                                        <input id="posterImage" type="file" ref={(ref) => this.upload = ref} style={{visibility: 'hidden', width:0}} onChange={this.handlePosterSelect.bind(this)} accept="image/*"/>
                                     </div>
                                 </div>
                                 <div className='control-container'>
