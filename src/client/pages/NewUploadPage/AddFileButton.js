@@ -30,11 +30,13 @@ var fileIndex = 0;
 var imageURL;
 var folder;
 var numberOfFiles;
+var url_array=["https://www.backend.trigger.tessact.com/api/v1/frames/c6180ce1-2260-4bed-800f-c2325e6242e0/"];
 class AddButton extends Component {
 
 
     doUpload = () => {
         this.handleUpload(0);
+        this.props.openLoading();
     }
 
     doCancel = () => {
@@ -132,6 +134,9 @@ class AddButton extends Component {
             var baseUrl = response.blob_url + '?' + response.token;
             submitUri = baseUrl
             imageURL = response.blob_url;
+
+            url_array.push(response.blob_url)
+
             console.log(response.blob_url + '?' + response.token)
 
             if (fileIndex == 0){
@@ -226,7 +231,10 @@ class AddButton extends Component {
                 fileIndex = fileIndex + 1;
                 if(fileIndex==files.length){
                     console.log("all images uploaded")
+                    console.log(url_array)
                     that.sendURL();
+                    fileIndex = 0;
+                    that.props.updateImageURLS(url_array);
 
                 }
                 else {
@@ -268,8 +276,14 @@ class AddButton extends Component {
                 blockIds = new Array();
 
                 fileIndex = fileIndex + 1;
-                if(i==files.length){
+                console.log("current index is " + fileIndex)
+
+                if(fileIndex===files.length){
                     console.log("all images uploaded")
+                    alert("All Images Uploaded")
+                    //that.props.openLoading();
+                    console.log(url_array)
+                    that.props.updateImageURLS(url_array);
                 }
                 else {
                     that.sendURL();
@@ -305,8 +319,8 @@ class AddButton extends Component {
                     onClick= {this.props.openFileUpload}>
                     <ContentAdd />
                 </FloatingActionButton>
-
             </label>
+
                 {
                     this.props.fileUploadIsOpen
                     && <div className='assign-dialog'>
@@ -337,8 +351,6 @@ class AddButton extends Component {
         )
     }
 }
-
-
 const mapStateToProps = (state) => {
     return {
         token_Reducer: state.tokenReducer,
