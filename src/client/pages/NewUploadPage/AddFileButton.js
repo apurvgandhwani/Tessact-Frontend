@@ -72,6 +72,10 @@ class AddButton extends Component {
 
     }
 
+    componentDidMount(){
+        this.refs.x.directory = true;
+        this.refs.x.webkitdirectory = true;
+    }
 
 
     handleFolderSelect(e) {
@@ -324,7 +328,7 @@ class AddButton extends Component {
         return (
             <div>
             <label htmlFor='myInput'>
-                <input id="myInput" type="file" ref={(ref) => this.upload = ref} style={{visibility: 'hidden'}} webkitdirectory directory multiple/>
+                <input id="myInput" type="file" ref={(ref) => this.upload = ref} style={{visibility: 'hidden'}} multiple="multiple"/>
                 <FloatingActionButton
                     className="floatingButton"
                     backgroundColor='#5199f6'
@@ -345,7 +349,7 @@ class AddButton extends Component {
                                     <div className='control-browse'>
                                         <input type="text" className="form-control" id="fileName" value={selectedFile.name} readOnly/>
                                         <button type="button" className="btn btn-primary" style={{backgroundColor:'#5199f6', borderColor:'#5199f6'}} onClick={(e) => this.upload_file.click()}>Browse</button>
-                                        <input id="myInput" type="file" ref={(ref) => this.upload_file = ref} style={{visibility: 'hidden', width:0}} onChange={this.handleFileSelect.bind(this)}/>
+                                        <input id="myInput" type="file" ref={(ref) => this.upload_file = ref} style={{visibility: 'hidden', width:0}} onChange={this.handleFileSelect.bind(this)}  webkitdirectory directory multiple/>
                                     </div>
                                 </div>
                             </div>
