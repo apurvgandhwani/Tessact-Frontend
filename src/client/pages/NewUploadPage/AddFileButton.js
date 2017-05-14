@@ -26,25 +26,97 @@ var fileSize = 0;
 var files, posterFile;
 var reader = new FileReader();
 import {connect} from 'react-redux'
-
-var videoURL;
+var fileIndex = 0;
+var imageURL;
 var folder;
+var numberOfFiles;
 class AddButton extends Component {
 
 
     doUpload = () => {
+        this.handleUpload(0);
+    }
+
+    doCancel = () => {
+        this.props.openFileUpload();
+
+    }
+
+
+    sendURL(){
+        var blobPosterFile = selectedPoster;
+        console.log("U called me?")
+        var formData = new FormData();
+        formData.append("file", imageURL)
+
+        var that = this;
+        let token;
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://www.backend.trigger.tessact.com/api/v1/frames/",
+            "type": "POST",
+            processData: false,
+            contentType: false,
+            "credentials": 'include',
+            "headers": {
+                Authorization: "Token " + that.props.token_Reducer.token
+            },
+            "data": formData,
+
+            success:( response, textStatus, jQxhr )=> {
+                //this.props.tokenAction(response.auth_token);
+                console.log("urlsent")
+            }
+        }
+
+        $.ajax(settings).done((response) => {
+            //that.handleUpload(fileIndex);
+            // token = response.auth_token
+
+            // //that.props.setAuthToken(token);
+            // console.log(token);
+            // console.log("hello" + 126.4567 % 3600 % 60);
+            // window.localStorage.token_auth = token;
+            // this.context.router.push('/app')
+        });
+    }
+
+    handleUpload(i){
+
+        numberOfBlocks = 1;
+        //currentFilePointer = 0;
+        //totalBytesRemaining = 0;
+       // blockIds = new Array();
+
+
         var that = this;
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://www.backend.trigger.tessact.com/api/v1/videos/get_video_url/",
+            "url": "https://www.backend.trigger.tessact.com/api/v1/frames/get_frame_url/",
             "method": "GET",
             "credentials": 'include',
             "headers": {
                 Authorization: "Token " + this.props.token_Reducer.token
             },
             success:( response, textStatus, jQxhr )=> {
-                console.log(response.blob_url)
+                console.log(response)
+                selectedFile = files[i];
+                fileSize = selectedFile.size;
+                if (fileSize < maxBlockSize) {
+                    maxBlockSize = fileSize;
+                    console.log("max block size = " + maxBlockSize);
+                }
+
+                totalBytesRemaining = fileSize;
+                if (fileSize % maxBlockSize == 0) {
+                    numberOfBlocks = fileSize / maxBlockSize;
+                } else {
+                    numberOfBlocks = parseInt(fileSize / maxBlockSize, 10) + 1;
+                }
+                console.log("total blocks = " + numberOfBlocks);
+
             }
         }
 
@@ -59,142 +131,28 @@ class AddButton extends Component {
 
             var baseUrl = response.blob_url + '?' + response.token;
             submitUri = baseUrl
-            videoURL = response.blob_url;
-            this.uploadFileInBlocks();
-            this.props.openFileUpload();
-            //console.log(response.blob_url + '?' + response.token)
+            imageURL = response.blob_url;
+            console.log(response.blob_url + '?' + response.token)
+
+            if (fileIndex == 0){
+                that.props.openFileUpload();
+            }
+            that.uploadImage();
+
         });
 
-    }
-
-    doCancel = () => {
-        this.props.openFileUpload();
-
-    }
-
-    componentDidMount(){
-        this.refs.x.directory = true;
-        this.refs.x.webkitdirectory = true;
-    }
 
 
-    handleFolderSelect(e) {
-        folder = document.getElementById("myInput");
 
-        var files = folder.files,
-            len = files.length,
-            i;
-        for (i = 0; i < len; i += 1) {
-            console.log(files[i]);
-        }
-        maxBlockSize = 3500 * 1024;
-        currentFilePointer = 0;
-        totalBytesRemaining = 0;
-        files = e.target.files;
-        selectedFile = files[0];
-        console.log(selectedFile.name)
-        console.log(selectedFile.size)
-        console.log(selectedFile.type)
-        fileSize = selectedFile.size;
-        if (fileSize < maxBlockSize) {
-            maxBlockSize = fileSize;
-            console.log("max block size = " + maxBlockSize);
-        }
-        $('#fileName').val(selectedFile.name)
-
-        totalBytesRemaining = fileSize;
-        if (fileSize % maxBlockSize == 0) {
-            numberOfBlocks = fileSize / maxBlockSize;
-        } else {
-            numberOfBlocks = parseInt(fileSize / maxBlockSize, 10) + 1;
-        }
-        console.log("total blocks = " + numberOfBlocks);
     }
 
     handleFileSelect(e){
-        maxBlockSize = 3500 * 1024;
+        maxBlockSize = 1000 * 1024;
         currentFilePointer = 0;
         totalBytesRemaining = 0;
         files = e.target.files;
-        selectedFile = files[0];
-        console.log(selectedFile.name)
-        console.log(selectedFile.size)
-        console.log(selectedFile.type)
-        fileSize = selectedFile.size;
-        if (fileSize < maxBlockSize) {
-            maxBlockSize = fileSize;
-            console.log("max block size = " + maxBlockSize);
-        }
-        $('#fileName').val(selectedFile.name)
-
-        totalBytesRemaining = fileSize;
-        if (fileSize % maxBlockSize == 0) {
-            numberOfBlocks = fileSize / maxBlockSize;
-        } else {
-            numberOfBlocks = parseInt(fileSize / maxBlockSize, 10) + 1;
-        }
-        console.log("total blocks = " + numberOfBlocks);
-        // $("#fileName").text(selectedFile.name);
-        // $("#fileSize").text(selectedFile.size);
-        // $("#fileType").text(selectedFile.type);
-
-        // var settings = {
-        //     "async": true,
-        //     "crossDomain": true,
-        //     "url": "https://www.backend.trigger.tessact.com/api/v1/videos/get_video_url/",
-        //     "method": "GET",
-        //     "credentials": 'include',
-        //     "headers": {
-        //         Authorization: "Token " + that.props.token_Reducer.token
-        //     },
-        //     success:( response, textStatus, jQxhr )=> {
-        //        console.log(response.blob_url)
-        //     }
-        // }
-        //
-        // $.ajax(settings).done((response) => {
-        //     //alert(response.auth_token);
-        //     //token = response.auth_token
-        //     //that.props.setAuthToken(token);
-        //     //console.log(token);
-        //     //console.log("hello" + 126.4567 % 3600 % 60);
-        //     //window.localStorage.token_auth = token;
-        //     //this.context.router.push('/app')
-        //     var baseUrl = response.blob_url + '?' + response.token;
-        //     submitUri = baseUrl
-        //     this.uploadFileInBlocks();
-        //     //console.log(response.blob_url + '?' + response.token)
-        // });
-
-       // var baseUrl = 'https://triggerbackendnormal.blob.core.windows.net/backend-media/e7581d7b-a59d-47eb-b8aa-6b6799179b36.mp4?sv=2016-05-31&sr=b&se=2017-05-09T18%3A26%3A07Z&sp=w&sig=TlS/a9RgVT/j7BHztjFZSF2L21za48J7sknoAre3Sko%3D'
-       // submitUri = baseUrl
-        //console.log(submitUri);
+        //console.log(files[0])
     }
-
-    handlePosterSelect(e) {
-        //maxBlockSize = 1000 * 1024;
-        //currentFilePointer = 0;
-        //totalBytesRemaining = 0;
-        posterFile = e.target.files;
-        selectedPoster = posterFile[0];
-        console.log(selectedPoster.name)
-        console.log(selectedPoster.size)
-        console.log(selectedPoster.type)
-        //fileSize = selectedPoster.size;
-        // if (fileSize < maxBlockSize) {
-        //     maxBlockSize = fileSize;
-        //     console.log("max block size = " + maxBlockSize);
-        // }
-        $('#posterName').val(selectedPoster.name)
-        //totalBytesRemaining = fileSize;
-        //if (fileSize % maxBlockSize == 0) {
-           // numberOfBlocks = fileSize / maxBlockSize;
-      //  } else {
-         //   numberOfBlocks = parseInt(fileSize / maxBlockSize, 10) + 1;
-      //  }
-      //  console.log("total blocks = " + numberOfBlocks);
-    }
-
 
     loadEnd(evt){
         var that = this;
@@ -244,6 +202,46 @@ class AddButton extends Component {
             this.commitBlockList();
         }
     }
+    uploadImage() {
+        var that = this;
+        var uri = submitUri
+        console.log(uri);
+        var requestBody = '<?xml version="1.0" encoding="utf-8"?><BlockList>';
+        $.ajax({
+            url: uri,
+            processData:false,
+            type: "PUT",
+            data: selectedFile,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('x-ms-blob-type', 'BlockBlob');
+                //xhr.setRequestHeader('x-ms-blob-content-type', selectedFile.type);
+                //xhr.setRequestHeader('Content-Length', requestBody.length);
+            },
+            success: function (data, status) {
+                console.log(data);
+                console.log("hi " + files[fileIndex].name + " uploaded");
+
+                blockIds = new Array();
+
+                fileIndex = fileIndex + 1;
+                if(fileIndex==files.length){
+                    console.log("all images uploaded")
+                    that.sendURL();
+
+                }
+                else {
+                    that.sendURL();
+                    that.handleUpload(fileIndex);
+                }
+
+
+            },
+            error: function (xhr, desc, err) {
+                console.log(desc);
+                console.log(err);
+            }
+        });
+    }
 
     commitBlockList() {
         var that = this;
@@ -265,9 +263,19 @@ class AddButton extends Component {
             },
             success: function (data, status) {
                 console.log(data);
-                console.log("hi" + status);
+                console.log("hi " + files[fileIndex].name + " uploaded");
+
                 blockIds = new Array();
-                that.uploadPoster();
+
+                fileIndex = fileIndex + 1;
+                if(i==files.length){
+                    console.log("all images uploaded")
+                }
+                else {
+                    that.sendURL();
+
+                }
+
 
             },
             error: function (xhr, desc, err) {
@@ -285,45 +293,6 @@ class AddButton extends Component {
         return str;
     }
 
-    uploadPoster() {
-        var blobPosterFile = selectedPoster;
-        console.log("U called me?")
-        var formData = new FormData();
-        formData.append("file", videoURL)
-        formData.append("poster", blobPosterFile);
-        formData.append("title", selectedFile.name)
-
-        var that = this;
-        let token;
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://www.backend.trigger.tessact.com/api/v1/videos/",
-            "type": "POST",
-            processData: false,
-            contentType: false,
-            "credentials": 'include',
-            "headers": {
-                Authorization: "Token " + that.props.token_Reducer.token
-            },
-            "data": formData,
-
-            success:( response, textStatus, jQxhr )=> {
-                //this.props.tokenAction(response.auth_token);
-                console.log("poster uploaded")
-            }
-        }
-
-        $.ajax(settings).done((response) => {
-            // alert(response.auth_token);
-            // token = response.auth_token
-            // //that.props.setAuthToken(token);
-            // console.log(token);
-            // console.log("hello" + 126.4567 % 3600 % 60);
-            // window.localStorage.token_auth = token;
-            // this.context.router.push('/app')
-        });
-    }
     render(){
         return (
             <div>
@@ -349,7 +318,7 @@ class AddButton extends Component {
                                     <div className='control-browse'>
                                         <input type="text" className="form-control" id="fileName" value={selectedFile.name} readOnly/>
                                         <button type="button" className="btn btn-primary" style={{backgroundColor:'#5199f6', borderColor:'#5199f6'}} onClick={(e) => this.upload_file.click()}>Browse</button>
-                                        <input id="myInput" type="file" ref={(ref) => this.upload_file = ref} style={{visibility: 'hidden', width:0}} onChange={this.handleFileSelect.bind(this)}  webkitdirectory directory multiple/>
+                                        <input id="myInput" type="file" ref={(ref) => this.upload_file = ref} style={{visibility: 'hidden', width:0}} onChange={this.handleFileSelect.bind(this)} multiple/>
                                     </div>
                                 </div>
                             </div>
