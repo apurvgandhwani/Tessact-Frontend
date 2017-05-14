@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5f0bb8a-140f-41f6-ba69-a7fcc8135303" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/public/main-bundle.js" afterPath="$PROJECT_DIR$/build/public/main-bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/pages/NewUploadPage/AddFileButton.js" afterPath="$PROJECT_DIR$/src/client/pages/NewUploadPage/AddFileButton.js" />
-    </list>
+    <list default="true" id="e5f0bb8a-140f-41f6-ba69-a7fcc8135303" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -925,12 +921,12 @@
       <workItem from="1494490484804" duration="46103000" />
       <workItem from="1494675705964" duration="2756000" />
       <workItem from="1494680709099" duration="32402000" />
-      <workItem from="1494754888823" duration="919000" />
+      <workItem from="1494754888823" duration="1130000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1041661000" />
+    <option name="totallyTimeSpent" value="1041872000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
