@@ -178,6 +178,7 @@ class Reviews extends Component {
                         ))}
                     </GridList>
                 </div>
+
             </div>
 
         )

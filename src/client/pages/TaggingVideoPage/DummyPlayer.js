@@ -12,7 +12,7 @@ import {markerReachedAction} from '../../store/markerReachedAction'
 import {tessactLogoClickedAction} from '../../store/tessactLogoClickedAction'
 import {playButtonClickedAction} from '../../store/playButtonClickedAction'
 
-var markerJson, player, currentTime, ind, file;
+var markerJson, player, currentTime, ind, file,duration;
 var values;
 var lastNotifiedIndex = -1;
 class DummyPlayer extends Component {
@@ -80,12 +80,19 @@ class DummyPlayer extends Component {
             });
             player.on("timeupdate", () => {
                 currentTime = player.currentTime();
-                if( isPause == 0 && ( player.currentTime() >= pausetime ) ){
+                duration = player.duration();
+                console.log(currentTime)
+                var percentage = ( currentTime / duration ) * 100;
+                $("#custom-seekbar span").css("width", percentage+"%");
+
+                if (isPause == 0 && ( player.currentTime() >= pausetime )) {
                     player.pause();
                     wait();
                 }
                 //console.log(currentTime)
             });
+
+
             // setInterval(function () {
             //     that.state.tags.map((item, i) => {
             //         if( item.time <= currentTime && currentTime <= item.stopTime){
@@ -126,13 +133,11 @@ class DummyPlayer extends Component {
             if (this.props.onPlayerInit) this.props.onPlayerInit(player);
 
 
-
-
-            function wait(){
-                setTimeout(function(){
+            function wait() {
+                setTimeout(function () {
                     isPause = 1;
                     player.play();
-                },1000)
+                }, 1000)
             }
 
             console.log(player.currentTime())
@@ -171,6 +176,16 @@ class DummyPlayer extends Component {
         //console.log(this.state.player.getValueSlider());
     }
 
+    customBarClicked(e){
+        console.log(e)
+        var offset = $(e.target).offset();
+        var left = (e.pageX - offset.left);
+        var totalWidth = $("#custom-seekbar").width();
+       var percentage = ( left / totalWidth );
+        var vidTime = duration * percentage;
+        player.currentTime(vidTime)
+    }
+
     handlePlay() {
         //this.props.playButtonClickedAction
 
@@ -180,7 +195,6 @@ class DummyPlayer extends Component {
         this.props.playButtonClickedAction()
 
     }
-
 
 
     showSlider() {
@@ -236,15 +250,20 @@ class DummyPlayer extends Component {
 
         return (
 
-            <div className='video-player'>
-                <div className='video-player-inner'>
-                    <video
-                        className='video-js video-el vjs-big-play-centered vjs-default-skin'
-                        id='video-el'
-                        ref={node=> this.video_el = node}>
-                        <source src={this.props.video_file_selected_reducer.url} type="video/mp4"/>
-                    </video>
+            <div>
+                <div className='video-player'>
+                    <div className='video-player-inner'>
+                        <video
+                            className='video-js video-el vjs-big-play-centered vjs-default-skin'
+                            id='video-el'
+                            ref={node => this.video_el = node}>
+                            <source src={this.props.video_file_selected_reducer.url} type="video/mp4"/>
+                        </video>
+                    </div>
                 </div>
+                {/*<div id="custom-seekbar" onClick={this.customBarClicked.bind(this)}>*/}
+                    {/*<span></span>*/}
+                {/*</div>*/}
             </div>
 
         )
@@ -272,8 +291,8 @@ function matchDispatchToProps(dispatch) {
         newMarkerTimeAction: newMarkerTimeAction,
         tagFetchedAction: tagFetchedAction,
         markerReachedAction: markerReachedAction,
-        tessactLogoClickedAction:tessactLogoClickedAction,
-        playButtonClickedAction:playButtonClickedAction
+        tessactLogoClickedAction: tessactLogoClickedAction,
+        playButtonClickedAction: playButtonClickedAction
     }, dispatch);
 }
 export default connect(mapStateToProps, matchDispatchToProps)(DummyPlayer);

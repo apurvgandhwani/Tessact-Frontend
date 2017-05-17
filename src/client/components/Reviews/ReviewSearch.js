@@ -36,26 +36,6 @@ const style = {
 
 class ReviewSearch extends Component {
 
-
-        state = {
-            selectedUser: 1,
-            selectedProcess: [],
-            selectedSearch: 1,
-            processOptions: [
-                {value: "Compliance", label: 'Compliance'},
-                {value: 'Actions', label: 'Actions'},
-                {value:'Emotions', label: 'Emotions'},
-                {value: 'Actors', label: 'Actors'}
-            ],
-            assignOptions: [
-                {value: 1, label: 'Aswin'},
-                {value: 2, label: 'Apurv'},
-                {value: 3, label: 'Rohit'},
-                {value: 4, label: 'Aditya'},
-            ],
-            searchOptions: [{value: 1, label: 'Media Files'}, {value: 2, label: 'Jobs'}]
-        }
-
     state = {
         selectedUser: 1,
         selectedProcess: [],
@@ -72,7 +52,7 @@ class ReviewSearch extends Component {
             {value: 3, label: 'Rohit'},
             {value: 4, label: 'Aditya'},
         ],
-        searchOptions: [{value: 1, label: 'Media Files'}, {value: 2, label: 'Jobs'}]
+        searchOptions: [{value: 1, label: 'Media Files'}, {value: 2, label: 'Jobs'}, {value:3, label:"New Media Files"}]
     }
 
     doAssign = () => {
@@ -131,7 +111,7 @@ class ReviewSearch extends Component {
                     <Select
                         clearable={false}
                         value={this.state.selectedSearch}
-                        onChange={this.updateSearch}
+                        onChange={this.updateSearch.bind(this)}
                         options={this.state.searchOptions}/>
                 </div>
 

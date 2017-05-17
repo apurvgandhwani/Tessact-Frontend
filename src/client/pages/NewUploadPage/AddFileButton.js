@@ -30,7 +30,7 @@ var fileIndex = 0;
 var imageURL;
 var folder;
 var numberOfFiles;
-var url_array=["https://www.backend.trigger.tessact.com/api/v1/frames/c6180ce1-2260-4bed-800f-c2325e6242e0/"];
+var url_array=[];
 class AddButton extends Component {
 
 

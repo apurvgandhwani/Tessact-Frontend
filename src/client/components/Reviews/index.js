@@ -6,12 +6,14 @@ import {connect} from 'react-redux'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import c from './Reviews.styl'
 
+import MediaFilesPage from './MediaFilesPage'
 import ReviewSearch from './ReviewSearch'
 import ReviewTable from './ReviewTable'
 import JobsTable from './JobsTable'
 import {actions} from 'store/Data'
 import AddFileButton from './AddFileButton'
 
+var MediaFilesView;
 
 class Reviews extends Component {
 	state = {
@@ -84,7 +86,8 @@ class Reviews extends Component {
 
 	render(){
 
-		var MediaFilesView;
+		MediaFilesView;
+
         if(this.props.search_option_changed_reducer.index == 1){
             MediaFilesView = <ReviewTable
 				//items={this.props.list}
@@ -102,6 +105,17 @@ class Reviews extends Component {
 				onRowSelection={this.onRowSelection}
 				setCurrentItem={this.setCurrentItem}/>
         }
+
+        if(this.props.search_option_changed_reducer.index == 3){
+            MediaFilesView = <MediaFilesPage
+				//items={this.props.list}
+				selectedRows={this.props.selectedRows}
+				authToken={this.props.auth_token}
+				onRowSelection={this.onRowSelection}
+				setCurrentItem={this.setCurrentItem}/>
+        }
+
+
 
 		return (
 			<div className={c.container}>
