@@ -5,6 +5,8 @@ import {connect} from 'react-redux'
 
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
 import c from './Reviews.styl'
+import $ from 'jquery'
+import _ from 'lodash'
 
 import MediaFilesPage from './MediaFilesPage'
 import ReviewSearch from './ReviewSearch'
@@ -12,6 +14,7 @@ import ReviewTable from './ReviewTable'
 import JobsTable from './JobsTable'
 import {actions} from 'store/Data'
 import AddFileButton from './AddFileButton'
+import {searchOptionChangedAction} from '../../store/searchOptionChangedAction'
 
 var MediaFilesView;
 
@@ -19,16 +22,28 @@ class Reviews extends Component {
 	state = {
 		items: [],
 		assignIsOpen: false,
-		fileUploadIsOpen:false
+		fileUploadIsOpen:false,
+		mediaFilesUrls:[],
+		checkedFilesArray:[]
 	};
 
 	static contextTypes = {
 		router: PropTypes.object.isRequired
 	}
 
+    componentWillMount(){
+        this.props.search_option_changed_reducer.index =1 ;
+		console.log(this.props.search_option_changed_reducer.index)
+	}
 	onRowSelection = (selected)=> {
 		console.log('Selected rows: ', selected)
+		this.setState({checkedFilesArray:selected})
 		this.props.selectRows(selected)
+	}
+
+	fetchMediaFilePageUrls(filesURLS){
+    	this.setState({mediaFilesUrls:filesURLS})
+		console.log(this.state.mediaFilesUrls)
 	}
 
 	onSubmitProcess = ()=> {
@@ -59,6 +74,32 @@ class Reviews extends Component {
 		});
 	}
 
+	processFiles(){
+        var resultArr = _.at(this.state.mediaFilesUrls, this.state.checkedFilesArray)
+		console.log(resultArr)
+
+        var that = this;
+        for(var i=0;i<resultArr.length;i++) {
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": resultArr[i] + 'process_for_compliance/',
+                "method": "GET",
+                "headers": {
+                    Authorization: "Token " + that.props.token_Reducer.token
+                },
+                success: function (response, textStatus, jQxhr) {
+                },
+            }
+
+            $.ajax(settings).done((response) => {
+                //alert("yo");
+                console.log("compliance for " + i + "done")
+            });
+        }
+
+    }
+
 	toggleAssign = ()=> {
 		this.setState({
 			assignIsOpen: !this.state.assignIsOpen
@@ -74,7 +115,7 @@ class Reviews extends Component {
 
     setCurrentItem = (item)=> {
         this.props.setCurrentItem(item);
-        //this.context.router.push('/test-video-page')
+        //this.context.router.push('/new-video-page')
         this.context.router.push('/tagging-video-page')
         //this.context.router.push('/video-screen')
     }
@@ -111,7 +152,8 @@ class Reviews extends Component {
 				//items={this.props.list}
 				selectedRows={this.props.selectedRows}
 				authToken={this.props.auth_token}
-				onRowSelection={this.onRowSelection}
+				onRowSelection={this.onRowSelection.bind(this)}
+				fetchMediaFilePageUrls={this.fetchMediaFilePageUrls.bind(this)}
 				setCurrentItem={this.setCurrentItem}/>
         }
 
@@ -125,6 +167,8 @@ class Reviews extends Component {
 					selectedRows={this.props.selectedRows}
 					onSubmitProcess={this.onSubmitProcess}
 				    toGroups={this.toGroups}
+					processFiles={this.processFiles.bind(this)}
+					searchIndex={this.props.search_option_changed_reducer}
 				/>
 				{MediaFilesView}
 				<AddFileButton
@@ -140,6 +184,7 @@ const mapStateToProps = (state)=> ({
 	//list: state.Data.list,
 	selectedRows: state.Data.selectedRows,
 	auth_token: state.Data.auth_token,
+    token_Reducer: state.tokenReducer,
 	search_option_changed_reducer: state.searchOptionChangedReducer
 })
 

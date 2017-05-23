@@ -1,8 +1,7 @@
 /**
  * Created by root on 5/16/17.
  */
-import
-{Component, PropTypes} from 'react'
+import {Component, PropTypes} from 'react'
 import {findDOMNode} from 'react-dom'
 import {browserHistory} from 'react-router'
 import throttle from 'lodash/throttle'
@@ -12,10 +11,26 @@ import {connect} from 'react-redux';
 import {videoFileSelectedAction} from '../../store/VideoFileSelectedAction'
 import {MediaFilesChangeAction} from '../../store/MediaFilesChangeAction'
 import {
-    Table, TableBody, TableHeader,
+    Table, TableBody, TableHeader, TableFooter,
     TableHeaderColumn, TableRow, TableRowColumn
 } from 'material-ui/Table';
 
+import ChevronLeft from 'material-ui/svg-icons/navigation/chevron-left';
+import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
+import IconButton from 'material-ui/IconButton';
+
+
+const styles = {
+    height: "100%",
+    footerContent: {
+        float: 'left'
+    },
+    footerText: {
+        float: 'left',
+        paddingTop: '16px',
+        height: '16px'
+    }
+};
 
 class MediaFilesPage extends Component {
     static propTypes = {
@@ -28,8 +43,14 @@ class MediaFilesPage extends Component {
         router: PropTypes.object.isRequired
     }
 
+
     state = {
-        MediaFiles: []};
+        MediaFiles: [],
+        fileURLS:[],
+        previous: null,
+        next: null
+        
+    };
     componentDidMount = ()=> {
         this._fixTableHeight = throttle(()=> {
             this.fixTableHeight()
@@ -40,27 +61,35 @@ class MediaFilesPage extends Component {
 
     componentWillMount = ()=> {
         var that = this;
-
+        var URL_array = [];
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://www.backend.trigger.tessact.com/api/v1/videos/",
+            "url": "https://www.backend.trigger.tessact.com/api/v1/videos/?page=1",
             "method": "GET",
             "headers": {
                 Authorization: "Token " + that.props.token_Reducer.token
             },
             success: function( response, textStatus, jQxhr ){
-
-
+                response.results.map((item,i) => {
+                    URL_array.push(item.url)
+                    //that.setState({fileURLS:that.state.fileURLS.push(item.url)})
+                })
             },
         }
 
         $.ajax(settings).done((response) => {
             //alert("yo");
             that.setState({
-                MediaFiles: response.results
+                MediaFiles: response.results,
+                fileURLS:URL_array,
+                previous: response.previous,
+                next: response.next
             })
+            this.props.fetchMediaFilePageUrls(that.state.fileURLS);
             console.log(that.state.MediaFiles)
+            console.log(that.state.next + " and " + that.state.previous)
+            //console.log(that.state.fileURLS)
             console.log('check');
         });
 
@@ -80,12 +109,15 @@ class MediaFilesPage extends Component {
     fixTableHeight = ()=> {
         var tableDiv = findDOMNode(this.table_el.refs.tableDiv);
         var bounds = tableDiv.getBoundingClientRect();
-        var finalHeight = $(window).height() - bounds.top;
+        var finalHeight = $(window).height() - bounds.top - 40;
 
         $(tableDiv).css('height', finalHeight + 'px')
         console.log('tableheight: ', finalHeight)
     }
 
+    onRowChecked(row){
+        console.log(row)
+    }
     getStatusClassName = (status)=> {
         var c = 'td-status';
         var s = status.toLowerCase();
@@ -118,6 +150,86 @@ class MediaFilesPage extends Component {
         }
     }
 
+    getPreviousPage(){
+        console.log("previous")
+        var that = this;
+        var URL_array = [];
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": that.state.previous,
+            "method": "GET",
+            "headers": {
+                Authorization: "Token " + that.props.token_Reducer.token
+            },
+            success: function( response, textStatus, jQxhr ){
+                response.results.map((item,i) => {
+                    URL_array.push(item.url)
+                    //that.setState({fileURLS:that.state.fileURLS.push(item.url)})
+                })
+            },
+        }
+
+        if(that.state.previous != null) {
+            $.ajax(settings).done((response) => {
+                //alert("yo");
+                that.setState({
+                    MediaFiles: response.results,
+                    fileURLS: URL_array,
+                    previous: response.previous,
+                    next: response.next
+                })
+                this.props.fetchMediaFilePageUrls(that.state.fileURLS);
+                console.log(that.state.MediaFiles)
+                //console.log(that.state.fileURLS)
+                console.log('check');
+            });
+        }
+        else {
+            alert("nothing previous to show")
+        }
+    }
+
+    getNextPage(){
+        var that = this;
+        var URL_array = [];
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": that.state.next,
+            "method": "GET",
+            "headers": {
+                Authorization: "Token " + that.props.token_Reducer.token
+            },
+            success: function( response, textStatus, jQxhr ){
+                response.results.map((item,i) => {
+                    URL_array.push(item.url)
+                    //that.setState({fileURLS:that.state.fileURLS.push(item.url)})
+                })
+            },
+        }
+
+        if(that.state.next != null) {
+            $.ajax(settings).done((response) => {
+                //alert("yo");
+                that.setState({
+                    MediaFiles: response.results,
+                    fileURLS: URL_array,
+                    previous: response.previous,
+                    next: response.next
+
+                })
+                this.props.fetchMediaFilePageUrls(that.state.fileURLS);
+                console.log(that.state.MediaFiles)
+                //console.log(that.state.fileURLS)
+                console.log('check');
+            });
+        }
+        else{
+            window.alert("no more content available")
+        }
+    }
+
     secondsToHms =(d) =>{
         d = Number(d);
         var h = Math.floor(d / 3600);
@@ -143,20 +255,24 @@ class MediaFilesPage extends Component {
                 ref={(el)=> this.table_el = el }
                 fixedHeader={true}
                 multiSelectable={true}
+                onCheck={this.onRowChecked}
+                onRowSelection={this.props.onRowSelection}>
          >
                 <TableHeader
                     className='table-header'
                     style={{fontFamily: 'montserratregular'}}
                     adjustForCheckbox={true}>
                     <TableRow className='table-header-row' style={{height:'10'}}>
-                        <TableHeaderColumn  className='th-filename'> Filename </TableHeaderColumn>
+                        <TableHeaderColumn className='th-filename'> Filename </TableHeaderColumn>
                         <TableHeaderColumn> Channel </TableHeaderColumn>
                         <TableHeaderColumn> File Type </TableHeaderColumn>
 
                     </TableRow>
                 </TableHeader>
                 <TableBody
+                    onCheck={this.onRowChecked}
                     showRowHover={true}
+                    style={styles.height}
                     deselectOnClickaway={false}>
                     {
                         this.state.MediaFiles.map((item,i)=> (
@@ -183,6 +299,19 @@ class MediaFilesPage extends Component {
                         ))
                     }
                 </TableBody>
+                <TableFooter adjustForCheckbox={false}>
+                    <TableRow>
+                        <TableRowColumn style={styles.footerContent}>
+                            <IconButton onClick={() => this.getPreviousPage()} >
+                                <ChevronLeft/>
+                            </IconButton>
+                            <IconButton onClick={() => this.getNextPage()}>
+                                <ChevronRight/>
+                            </IconButton>
+                        </TableRowColumn>
+                        <TableRowColumn style={styles.footerText} />
+                    </TableRow>
+                </TableFooter>
             </Table>
         )
     }

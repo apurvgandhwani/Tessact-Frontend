@@ -162,6 +162,10 @@ class ReviewTable extends Component {
 		}
 	}
 
+	cellChecked(x, y, z){
+		console.log(z)
+	}
+
     render(){
         return (
 			<Table

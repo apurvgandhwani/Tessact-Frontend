@@ -43,7 +43,7 @@ class ReviewSearch extends Component {
         processOptions: [
             {value: "Compliance", label: 'Compliance'},
             {value: 'Actions', label: 'Actions'},
-            {value:'Emotions', label: 'Emotions'},
+            {value: 'Emotions', label: 'Emotions'},
             {value: 'Actors', label: 'Actors'}
         ],
         assignOptions: [
@@ -52,16 +52,20 @@ class ReviewSearch extends Component {
             {value: 3, label: 'Rohit'},
             {value: 4, label: 'Aditya'},
         ],
-        searchOptions: [{value: 1, label: 'Media Files'}, {value: 2, label: 'Jobs'}, {value:3, label:"New Media Files"}]
+        searchOptions: [{value: 1, label: 'Media Files'}, {value: 2, label: 'Jobs'}, {
+            value: 3,
+            label: "New Media Files"
+        }]
     }
 
     doAssign = () => {
         console.log('saving...')
-        this.props.onSubmitProcess();
+        this.props.onSubmitProcess(this.state.selectedProcess);
         this.props.toggleAssign();
+        this.props.processFiles();
     }
 
-    updateProcess = (a,b) => {
+    updateProcess = (a, b) => {
         console.log(a.label)
         this.setState({selectedProcess: a})
     }
@@ -105,6 +109,7 @@ class ReviewSearch extends Component {
 
         // console.log('is assign open: ', this.props.assignIsOpen)
 
+
         return (
             <div className='review-search'>
                 <div className='search-label'>
@@ -135,10 +140,13 @@ class ReviewSearch extends Component {
                         <i className='fa fa-fw fa-filter'/>
                         <span className='btn-text'> Filter </span>
                     </FlatButton>
-                    <FlatButton style={style.actionButton} onClick={this.props.toggleAssign}>
-                        <i className='fa fa-fw fa-tasks'/>
-                        <span className='btn-text'> Assign </span>
-                    </FlatButton>
+                    {
+                        this.props.searchIndex.index == 3 &&
+                        <FlatButton style={style.actionButton} onClick={this.props.toggleAssign}>
+                            <i className='fa fa-fw fa-tasks'/>
+                            <span className='btn-text'> Assign </span>
+                        </FlatButton>
+                    }
                     <FlatButton style={style.actionButton} onClick={this.props.toGroups}>
                         <i className='fa fa-fw fa-group'/>
                         <span className='btn-text'> Groups </span>
@@ -167,11 +175,11 @@ class ReviewSearch extends Component {
                                     <div className='control-label'> Process</div>
                                     <div className='control'>
                                         <Select multi simpleValue
-                                                //name="assign-process"
+                                            //name="assign-process"
                                                 value={this.state.selectedProcess}
                                                 placeholder="Select Process"
                                                 options={this.state.processOptions}
-                                                onChange={this.updateProcess} />
+                                                onChange={this.updateProcess}/>
                                     </div>
                                 </div>
                             </div>

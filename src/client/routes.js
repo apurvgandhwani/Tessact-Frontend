@@ -15,6 +15,7 @@ import AddTags from './pages/VideoScreen/addTags'
 import EditTag from './pages/VideoScreen/editTag'
 import ImageUploadPage from './pages/ImageUploadPage'
 import NewUploadPage from './pages/NewUploadPage'
+import NewVideoPage from './pages/NewVideoPage'
 
 import GroupsPage from './pages/GroupsPage'
 
@@ -51,7 +52,7 @@ function getRoutes(store) {
                 <Route path='/login' component={LoginPage}/>
                 <Route path='/app' onEnter={hasAuth}>
                     <IndexRoute component={Home}/>
-                    <Route path='/test-video-page' component={TestVideoPage}/>
+                    <Route path='/new-video-page' component={NewVideoPage}/>
                     <Route path='/tagging-video-page' component={TaggingVideoPage}/>
                     <Route path='/groups' component={GroupsPage}/>
                     <Route path='/image-upload-page' component={ImageUploadPage}/>
