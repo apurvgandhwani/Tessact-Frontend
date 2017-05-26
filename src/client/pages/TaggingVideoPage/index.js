@@ -51,9 +51,9 @@ class TestVideoPage extends Component {
             <div className={c.container}>
                 <div className='left-side'>
                     <DummyPlayer/>
-                    {/*<VideoInfo fileName= {this.props.video_file_selected_reducer.videoName}/>*/}
+                    <VideoInfo fileName= {this.props.video_file_selected_reducer.videoName}/>
                     {/*<div className="space-filler"></div>*/}
-                    {/*<TestVideoButtons/>*/}
+                    <TestVideoButtons/>
                 </div>
                 <div className='right-side'>
                     <VideoTabs/>

@@ -61,7 +61,8 @@ class AddButton extends Component {
             submitUri = baseUrl
             videoURL = response.blob_url;
             this.uploadFileInBlocks();
-            this.props.openFileUpload();
+            //this.props.openFileUpload();
+            that.props.uploadProgress();
             //console.log(response.blob_url + '?' + response.token)
         });
 
@@ -176,6 +177,8 @@ class AddButton extends Component {
                     bytesUploaded += requestData.length;
                     var percentComplete = ((parseFloat(bytesUploaded) / parseFloat(selectedFile.size)) * 100).toFixed(2);
                     console.log("percentage complete " + percentComplete)
+                    $(".progress-bar").css("width", + percentComplete +"%");
+                    $(".status").text(percentComplete +"%");
                     that.uploadFileInBlocks();
                 },
                 error: function(xhr, desc, err) {
@@ -271,6 +274,8 @@ class AddButton extends Component {
             success:( response, textStatus, jQxhr )=> {
                 //this.props.tokenAction(response.auth_token);
                 console.log("poster uploaded")
+                this.props.openFileUpload();
+                that.props.uploadProgress();
             }
         }
 
@@ -332,6 +337,9 @@ class AddButton extends Component {
                                     </div>
                                 </div>
                             </div>
+                            {this.props.showUploadProgress
+                            && <div id="progress-wrp"><div className="progress-bar"></div ><div className="status">0%</div></div>
+                            }
                             <div className='dia-footer'>
                                 <FlatButton label='Cancel'
                                             style={{color: '#F55A36'}}

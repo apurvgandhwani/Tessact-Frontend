@@ -261,9 +261,6 @@ class DummyPlayer extends Component {
                         </video>
                     </div>
                 </div>
-                <div id="custom-seekbar" onClick={this.customBarClicked.bind(this)}>
-                    <span></span>
-                </div>
             </div>
 
         )

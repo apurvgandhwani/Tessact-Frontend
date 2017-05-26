@@ -57,14 +57,14 @@ class TestVideoPage extends Component {
                     {/*<VideoInfo fileName= {this.props.video_file_selected_reducer.videoName}/>*/}
                     {/*<div className="space-filler"></div>*/}
                     {/*<TestVideoButtons/>*/}
-                    {/*<TagsSection/>*/}
+                    <TagsSection/>
 
                 </div>
                 <div className='right-side'>
-                    <VideoTabs/>
+                    {/*<VideoTabs/>*/}
                     {/*<VideoComment/>*/}
-                    {/*<InfoSection/>*/}
-                    {/*<AddTagSection/>*/}
+                    <InfoSection/>
+                    <AddTagSection/>
                     {/*/>*/}
                 </div>
             </div>

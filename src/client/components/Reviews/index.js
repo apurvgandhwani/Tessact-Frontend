@@ -24,7 +24,8 @@ class Reviews extends Component {
 		assignIsOpen: false,
 		fileUploadIsOpen:false,
 		mediaFilesUrls:[],
-		checkedFilesArray:[]
+		checkedFilesArray:[],
+		showUploadProgress:false
 	};
 
 	static contextTypes = {
@@ -100,6 +101,11 @@ class Reviews extends Component {
 
     }
 
+    uploadProgress(){
+		this.setState({showUploadProgress: !this.state.showUploadProgress})
+	}
+
+
 	toggleAssign = ()=> {
 		this.setState({
 			assignIsOpen: !this.state.assignIsOpen
@@ -115,8 +121,8 @@ class Reviews extends Component {
 
     setCurrentItem = (item)=> {
         this.props.setCurrentItem(item);
-        this.context.router.push('/new-video-page')
-        //this.context.router.push('/tagging-video-page')
+        //this.context.router.push('/new-video-page')
+        this.context.router.push('/tagging-video-page')
         //this.context.router.push('/video-screen')
     }
 
@@ -171,10 +177,15 @@ class Reviews extends Component {
 					searchIndex={this.props.search_option_changed_reducer}
 				/>
 				{MediaFilesView}
+				{this.props.search_option_changed_reducer.index == 3 &&
 				<AddFileButton
 					openFileUpload={this.openFileUpload.bind(this)}
 					fileUploadIsOpen={this.state.fileUploadIsOpen}
+					uploadProgress={this.uploadProgress.bind(this)}
+					showUploadProgress={this.state.showUploadProgress}
 				/>
+				}
+
 			</div>
 		)
 	}

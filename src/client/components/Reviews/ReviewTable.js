@@ -127,6 +127,8 @@ class ReviewTable extends Component {
 				return "Approved"
 			case "NPR":
 				return "Not Processed"
+            case "PRD":
+                return "Processed"
 			default:
 				return ""
 		}
@@ -184,10 +186,13 @@ class ReviewTable extends Component {
 								<TableRowColumn>
 									<p className="file-upload-date">{item.video.created_on}</p>
 								</TableRowColumn>
-								<TableRowColumn className='process-column'>  </TableRowColumn>
-								<TableRowColumn
-									className={this.getStatusClassName(item.job_status)}>
+								<TableRowColumn>
+									<p className='process-column'>{item.job_type}</p>
+								</TableRowColumn>
+								<TableRowColumn>
+									<p className={this.getStatusClassName(item.job_status)}>
                                     {this.jobStatus(item.job_status)}
+									</p>
 								</TableRowColumn>
 							</TableRow>
                         ))
