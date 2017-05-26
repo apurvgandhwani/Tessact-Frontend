@@ -65,7 +65,7 @@ class MediaFilesPage extends Component {
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://www.backend.trigger.tessact.com/api/v1/videos/?page=1",
+            "url": "https://www.backend.trigger.tessact.com/api/v1/videos/?ordering=-created_on&page=1",
             "method": "GET",
             "headers": {
                 Authorization: "Token " + that.props.token_Reducer.token
@@ -149,6 +149,7 @@ class MediaFilesPage extends Component {
             )
         }
     }
+
 
     getPreviousPage(){
         console.log("previous")

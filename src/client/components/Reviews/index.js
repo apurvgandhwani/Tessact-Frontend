@@ -115,8 +115,8 @@ class Reviews extends Component {
 
     setCurrentItem = (item)=> {
         this.props.setCurrentItem(item);
-        //this.context.router.push('/new-video-page')
-        this.context.router.push('/tagging-video-page')
+        this.context.router.push('/new-video-page')
+        //this.context.router.push('/tagging-video-page')
         //this.context.router.push('/video-screen')
     }
 

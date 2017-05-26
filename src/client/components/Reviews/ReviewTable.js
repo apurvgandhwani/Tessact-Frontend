@@ -42,47 +42,17 @@ class ReviewTable extends Component {
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://www.backend.trigger.tessact.com//api/v1/workgroups/",
+            "url": "https://www.backend.trigger.tessact.com/api/v1/auto_video_jobs/",
             "method": "GET",
             "headers": {
                 Authorization: "Token " + that.props.token_Reducer.token
             },
             success: function( response, textStatus, jQxhr ){
-                var settings_second = {
-                    "async": true,
-                    "crossDomain": true,
-                    "url":  response.results[0].url + "tagging_jobs/",
-                    "method": "GET",
-                    "headers": {
-                        Authorization: "Token " + that.props.token_Reducer.token
-                    },
-                    success: function( data, textStatus, jQxhr ){
-                        //that.setState({MediaFiles: data})
-						that.props.MediaFilesChangeAction(data, response.results[0].url + "tagging_jobs/")
-                        //console.log(that.state.MediaFiles)
-                    },
-                }
-                $.ajax(settings_second).done((response) => {
-                    //alert("yo");
-
-                });
+               that.setState({MediaFiles:response.results})
+				console.log(that.state.MediaFiles)
             },
         }
 
-        var listSettings = {
-
-            "async": true,
-            "crossDomain": true,
-            "url": "https://trigger-backend.appspot.com/api/v1/workgroups/279ba660-90e9-4507-aa74-3407f7f9405a/tagging_jobs",
-            "method": "GET",
-            "headers": {
-                Authorization: that.props.token_Reducer.token
-            },
-            success: function( data, textStatus, jQxhr ){
-               // alert("success");
-
-            },
-        }
 
         $.ajax(settings).done((response) => {
             //alert("yo");
@@ -183,9 +153,7 @@ class ReviewTable extends Component {
 						<TableHeaderColumn> Channel </TableHeaderColumn>
 						<TableHeaderColumn> File Type </TableHeaderColumn>
 						<TableHeaderColumn> Uploaded </TableHeaderColumn>
-						<TableHeaderColumn> TX Date </TableHeaderColumn>
 						<TableHeaderColumn> Process </TableHeaderColumn>
-						<TableHeaderColumn> Assigned </TableHeaderColumn>
 						<TableHeaderColumn> Status </TableHeaderColumn>
 					</TableRow>
 				</TableHeader>
@@ -193,7 +161,7 @@ class ReviewTable extends Component {
 					showRowHover={true}
 					deselectOnClickaway={false}>
                     {
-                        this.props.media_file_store.MediaFiles.map((item,i)=> (
+                        this.state.MediaFiles.map((item,i)=> (
 							<TableRow
 								key={i}
 								className={`table-item-${i}`}
@@ -216,13 +184,7 @@ class ReviewTable extends Component {
 								<TableRowColumn>
 									<p className="file-upload-date">{item.video.created_on}</p>
 								</TableRowColumn>
-								<TableRowColumn>
-									<p className="file-tx-date">20-02-17</p>
-								</TableRowColumn>
 								<TableRowColumn className='process-column'>  </TableRowColumn>
-								<TableRowColumn>
-									<p className="file-assignee">Apurv</p>
-								</TableRowColumn>
 								<TableRowColumn
 									className={this.getStatusClassName(item.job_status)}>
                                     {this.jobStatus(item.job_status)}

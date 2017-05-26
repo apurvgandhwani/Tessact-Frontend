@@ -12,6 +12,9 @@ import VideoInfo from './VideoInfo'
 // import PlaneVideoPlayer from './PlaneVideoPlayer'
 //import {actions as mfActions} from 'store/MediaFiles'
 //import {actions as tagActions} from 'store/Tags'
+import TagsSection from './tagsSection'
+import AddTagSection from './AddTagSection'
+import InfoSection from './InfoSection'
 
 const debug = require('debug')('tessact:pages:video-page')
 
@@ -54,11 +57,14 @@ class TestVideoPage extends Component {
                     {/*<VideoInfo fileName= {this.props.video_file_selected_reducer.videoName}/>*/}
                     {/*<div className="space-filler"></div>*/}
                     {/*<TestVideoButtons/>*/}
+                    {/*<TagsSection/>*/}
 
                 </div>
                 <div className='right-side'>
                     <VideoTabs/>
-                    {/*<VideoComment*/}
+                    {/*<VideoComment/>*/}
+                    {/*<InfoSection/>*/}
+                    {/*<AddTagSection/>*/}
                     {/*/>*/}
                 </div>
             </div>

@@ -4,6 +4,7 @@ import classnames from 'classnames'
 import GreyButton from 'components/ui/GreyButton'
 
 
+
 class VideoComment extends Component {
 	render(){
 		return (
@@ -17,6 +18,7 @@ class VideoComment extends Component {
 						label='SUBMIT'/>
 				</div>
 			</div>
+
 		)
 	}
 }

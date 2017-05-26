@@ -19,7 +19,7 @@
 
 // Components
 	.video-player
-		padding-left 60px
+		padding-left 100px
 		padding-right 40px
 		padding-bottom 10px
 		padding-top 20px
@@ -36,7 +36,7 @@
 		margin-right 40px
 		outline: white;
 		background-color white
-		margin-left 60px
+		margin-left 100px
 		overflow: hidden;
 		position: relative;
 		max-width: 100%;
@@ -50,24 +50,16 @@
 		height: 10px;
 		width: 0px;
 
-	.video-player-buttons
-		padding-left 20px
+	.tagSection
+		padding-left 100px
 		padding-right 40px
 		padding-bottom 10px
-		padding-top 20px
+		padding-top 10px
 		display flex
+		flex-direction column
 		width 100%
-		.button-item
-			flex 1
-			background-color #D7D7D7
-			padding 18px 30px
-			font-size 1em
-			text-align center
-			border-radius 8px
-			margin 0 4px
-			cursor pointer
-			&:hover
-				background-color darken(@background-color, 10%)
+		height 100%
+		box-shadow 0px 4px 12px 0 rgba(#000, 0.16)
 
 	.video-info
 		padding-left 20px
@@ -77,18 +69,44 @@
 		margin-top 5px
 
 	.video-player-tabs
-		flex 3
+		flex 1
 		display flex
 		flex-direction column
-		margin 20px 60px 50px 0
+		margin 20px 60px 5px 0
 		box-shadow 0px 4px 12px 0 rgba(#000, 0.16)
 		background-color white
 
-	.video-player-comment
+	.add-tag-section
 		flex 1
+		display flex
+		background-color white
+		margin 20px 100px 50px 0px
+		box-shadow 0px 4px 12px 0 rgba(#000, 0.16)
+
+	.info-section
+		flex 1
+		background-color white
+		margin 20px 100px 5px 0
+		box-shadow 0px 4px 12px 0 rgba(#000, 0.16)
+
+
 
 //height 23vh
 
+:local(.container)
+	.tagSectionHeader
+		display flex
+		flex-direction row
+		border-bottom 1px rgba(#000, 0.12) solid
+
+
+	.tagSectionFooter
+		flex 1
+		display flex
+		flex-direction column
+		background white
+		margin-bottom 42px
+		box-shadow 0px 4px 12px 0 rgba(#000, 0.16)
 
 :local(.container)
 	.swipeable-view
@@ -96,6 +114,17 @@
 		height 100%
 		display flex
 		flex-direction column
+
+	.tags-tab-container
+		flex 1
+
+	.tagCategoryChange
+		flex 1
+		display flex
+		flex-direction row
+		justify-content flex-end
+		align-items center
+
 
 	.react-swipeable-view-container
 		height 100%
@@ -113,6 +142,7 @@
 			flex 2
 			font-family museo700
 			font-weight 500
+
 
 
 :local(.container)
@@ -205,11 +235,12 @@
 
 
 :local(.container) .video-player-comment
-	margin 20px 10px 50px 0px
-	background-color #fff
-	box-shadow 0px 4px 12px 0 rgba(#000, 0.16)
 	display flex
 	flex-direction column
+	margin 20px 60px 50px 0px
+	background-color #fff
+	box-shadow 0px 4px 12px 0 rgba(#000, 0.16)
+
 
 	.textarea-comment
 		border none
