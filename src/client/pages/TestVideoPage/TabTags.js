@@ -215,7 +215,7 @@ class TabTags extends Component {
 							disabled={this.state.buttonDisabled}
 					/>
 					<GreyButton
-						disabled={this.state.new_marker_reducer.disable_add_tag}
+						//disabled={this.state.new_marker_reducer.disable_add_tag}
 						onClick={this.props.onAddClick}
 						label='ADD'/>
 				</div>

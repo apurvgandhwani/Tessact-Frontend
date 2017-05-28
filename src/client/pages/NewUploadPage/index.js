@@ -2,18 +2,13 @@ import Promise from 'bluebird'
 import {Component, PropTypes} from 'react'
 import {browserHistory} from 'react-router'
 import {connect} from 'react-redux'
-
+import $ from 'jquery'
+import 'bootstrap'
 import withStyles from 'isomorphic-style-loader/lib/withStyles'
-import c from './Reviews.styl'
-import AddIcon from 'material-ui/svg-icons/content/add'
-import ReviewSearch from './ReviewSearch'
-import ReviewTable from './ReviewTable'
-import JobsTable from './JobsTable'
+import c from './NewUploadPageStyle.css'
 import {actions} from 'store/Data'
 import AddFileButton from './AddFileButton'
-
 import FlatButton from 'material-ui/FlatButton'
-import $ from 'jquery'
 import {ORANGE} from 'utils/colors'
 
 import {GridList, GridTile} from 'material-ui/GridList';
@@ -38,23 +33,46 @@ const styles = {
     },
 };
 
-class Reviews extends Component {
+const x = "https://triggerbackendnormal.blob.core.windows.net/backend-media/b7712b36-4975-48dd-929f-4cced4afabb0.jpg"
+
+class NewUploadPage extends Component {
 
     state = {
         items: [],
         assignIsOpen: false,
         fileUploadIsOpen: false,
         loadingIsOpen: false,
-        imageURLS: ["https://www.backend.trigger.tessact.com/api/v1/frames/c6180ce1-2260-4bed-800f-c2325e6242e0/"]
-    };
+        imageURLS: [x,x,x,x,x,x,x]
+    }
 
     static contextTypes = {
         router: PropTypes.object.isRequired
     }
 
 
-    componentWillUpdate(){
+    componentDidMount(){
+        $(document).ready(function () {
+            var $myModal = $('#myModal');
 
+            $('.row img.img-responsive').on('click', function () { // <-- notice the selector change
+                var $this = $(this),
+                    src = $this.attr('src'),
+
+                    html = '<img src="' + src + '" class="img-responsive" />';
+                updateModalBody($myModal, html);
+
+                $myModal.modal();
+
+            });
+
+            $myModal.on('hidden.bs.modal', function () {
+                updateModalBody($myModal, '');
+            });
+
+            function updateModalBody($modal, html) {
+                $modal.find('.modal-body').html(html);
+            }
+        })
     }
     onRowSelection = (selected) => {
         console.log('Selected rows: ', selected)
@@ -134,57 +152,29 @@ class Reviews extends Component {
 
 
     render() {
-
-        var MediaFilesView;
-        if (this.props.search_option_changed_reducer.index == 1) {
-            MediaFilesView = <ReviewTable
-                //items={this.props.list}
-                selectedRows={this.props.selectedRows}
-                authToken={this.props.auth_token}
-                onRowSelection={this.onRowSelection}
-                setCurrentItem={this.setCurrentItem}/>
-        }
-
-        if (this.props.search_option_changed_reducer.index == 2) {
-            MediaFilesView = <JobsTable
-                //items={this.props.list}
-                selectedRows={this.props.selectedRows}
-                authToken={this.props.auth_token}
-                onRowSelection={this.onRowSelection}
-                setCurrentItem={this.setCurrentItem}/>
-        }
-
         return (
-            <div className={c.container}>
-                <AddFileButton
-                    openFileUpload={this.openFileUpload.bind(this)}
-                    fileUploadIsOpen={this.state.fileUploadIsOpen}
-                    openLoading={this.openLoading.bind(this)}
-                    loadingIsOpen={this.state.loadingIsOpen}
-                    updateImageURLS={this.updateImageURLS.bind(this)}
-                    imageURLS={this.state.imageURLS}
-                />
-                <div className="image-grid" style={styles.root}>
-                    <GridList style={styles.gridList} cols={3}>
-                        {this.state.imageURLS.map((x,i) => (
-                            <GridTile
-                                key={x}
-                                //title={tile.title}
-                                //actionIcon={<IconButton><StarBorder color="rgb(0, 188, 212)" /></IconButton>}
-                                //titleStyle={styles.titleStyle}
-                                //titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
-                            >
-                                <img src={x} />
-                            </GridTile>
-                        ))}
-                    </GridList>
-                </div>
+            <div className="container-fluid">
+                <div className="row">
+                    {this.state.imageURLS.map((x,i) => (
+                        <div className="col-lg-2 col-md-4 col-sm-4 col-xs-6 image-div">
+                            <img className="img-responsive" src={x} alt="" />
+                        </div>
+                    ))}
 
+                <div className="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
 
         )
     }
 }
+
 
 const mapStateToProps = (state) => ({
     //list: state.Data.list,
@@ -206,6 +196,4 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 
-export default withStyles(c)(
-    connect(mapStateToProps, mapDispatchToProps)(Reviews)
-)
+export default connect(mapStateToProps, mapDispatchToProps)(NewUploadPage)

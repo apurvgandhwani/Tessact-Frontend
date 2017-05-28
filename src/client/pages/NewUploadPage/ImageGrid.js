@@ -2,7 +2,7 @@ import {Component, PropTypes} from 'react'
 import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
-import c from './Reviews.styl'
+import c from './NewUploadPageStyle.css'
 
 const styles = {
     root: {

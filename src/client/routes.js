@@ -54,6 +54,7 @@ function getRoutes(store) {
                     <IndexRoute component={Home}/>
                     <Route path='/new-video-page' component={NewVideoPage}/>
                     <Route path='/tagging-video-page' component={TaggingVideoPage}/>
+                    <Route path='/test-video-page' component={TestVideoPage}/>
                     <Route path='/groups' component={GroupsPage}/>
                     <Route path='/image-upload-page' component={ImageUploadPage}/>
                     <Route path='/new-upload-page' component={NewUploadPage}/>

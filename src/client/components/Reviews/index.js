@@ -123,6 +123,7 @@ class Reviews extends Component {
         this.props.setCurrentItem(item);
         //this.context.router.push('/new-video-page')
         this.context.router.push('/tagging-video-page')
+       // this.context.router.push('/test-video-page')
         //this.context.router.push('/video-screen')
     }
 

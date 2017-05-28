@@ -26,6 +26,7 @@
     "blacklist": "^1.1.4",
     "bluebird": "^3.4.6",
     "body-parser": "~1.13.2",
+    "bootstrap": "^3.3.7",
     "bootstrap-styl": "^5.0.5",
     "browser-sync": "^2.13.0",
     "classnames": "^2.2.5",
