@@ -53,7 +53,7 @@ class TestVideoPage extends Component {
                     <DummyPlayer/>
                     <VideoInfo fileName= {this.props.video_file_selected_reducer.videoName}/>
                     {/*<div className="space-filler"></div>*/}
-                    <TestVideoButtons/>
+                    {/*<TestVideoButtons/>*/}
                 </div>
                 <div className='right-side'>
                     <VideoTabs/>
