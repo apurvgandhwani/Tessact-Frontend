@@ -97,7 +97,7 @@ class LogInComponent extends Component {
     render(){
         return (
             <div className="LoginPage">
-                <img className='img-logo-colored' src='/public/img/logo_colored.png'/>
+                {/*<img className='img-logo-colored' src='/public/img/logo_colored.png'/>*/}
                 <div className="login-page">
                     <div className="form">
                         <form className="login-form">

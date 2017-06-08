@@ -250,7 +250,7 @@ class DummyPlayer extends Component {
 
         return (
 
-            <div>
+            <div className="video-player-div">
                 <div className='video-player'>
                     <div className='video-player-inner'>
                         <video

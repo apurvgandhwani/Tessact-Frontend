@@ -5,7 +5,7 @@
  * Created by root on 3/17/17.
  */
 import {Component, PropTypes} from 'react'
-
+import noUiSlider from 'nouislider'
 import {Tabs, Tab} from 'material-ui/Tabs'
 import Table from 'react-bootstrap/lib/Table'
 import SwipeableViews from 'react-swipeable-views'
@@ -56,7 +56,11 @@ const styles = {
     selectStyle: {
         borderColor: "#D3D3D3",
         width: '50'
+    },
+    tabs:{
+        fontFamily: 'montserrat'
     }
+
 }
 
 const muiTheme = getMuiTheme({
@@ -80,6 +84,20 @@ class VideoTabs extends Component {
 
     static contextTypes = {
         router: PropTypes.object.isRequired
+    }
+
+    componentDidMount(){
+
+        var noUi_slider = document.getElementById('noUiSlider');
+
+        noUiSlider.create(noUi_slider, {
+            start: [20, 80],
+            connect: true,
+            range: {
+                'min': 0,
+                'max': 100
+            }
+        });
     }
 
     switchTabs = (tabIndex) => {
@@ -121,6 +139,7 @@ class VideoTabs extends Component {
                     <div className='tagSectionHeader'>
                         <div className="tags-tab-container">
                             <Tabs
+                                style={styles.tabs}
                                 value={this.state.tabIndex}
                                 onChange={this.switchTabs}>
                                 {/*<Tab value={0} label='Smoking'/>*/}
@@ -145,7 +164,9 @@ class VideoTabs extends Component {
                             </select>
                         </div>
                     </div>
-                    <div className="tagSectionFooter"></div>
+                    <div className="tagSectionFooter">
+                        <div id="noUiSlider" className="bg-success"></div>
+                    </div>
                 </div>
 
             </MuiThemeProvider>

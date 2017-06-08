@@ -11,7 +11,7 @@ import {tagFetchedAction} from '../../store/tagFetchedAction'
 import {markerReachedAction} from '../../store/markerReachedAction'
 import {tessactLogoClickedAction} from '../../store/tessactLogoClickedAction'
 import {playButtonClickedAction} from '../../store/playButtonClickedAction'
-
+import Nouislider from 'react-nouislider'
 var markerJson, player, currentTime, ind, file,duration;
 var values;
 var lastNotifiedIndex = -1;
@@ -261,6 +261,11 @@ class DummyPlayer extends Component {
                         </video>
                     </div>
                 </div>
+                <Nouislider
+                    range={{min: 0, max: 200}}
+                    start={[0, 100]}
+                    tooltips
+                />
             </div>
 
         )

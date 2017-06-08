@@ -6,6 +6,7 @@ var DIRS = require('./dirs.js');
 var stylus = require('stylus');
 var nib = require('nib');
 var axis = require('axis');
+
 var rupture = require('rupture');
 var bootstrap = require('bootstrap-styl');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -62,25 +63,22 @@ var config = {
                 test: /\.mp4$/,
                 loader: 'url?limit=10000&mimetype=video/mp4'
             },
-			{
-				test: /\.css$/,
-				loader: 'style-loader!css-loader'
-			},
-			{
-				test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				loader: 'url-loader?limit=100000&mimetype=application/font-woff'
-			},
-			{
-				test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				loader: 'file-loader'
-			},{
-				test: /\.(png|jpg|jpeg|gif)$/,
-				loader: 'url-loader',
-				query: {
-				  name: IS_PROD ? '[hash].[ext]' : '[path][name].[ext]?[hash]',
-				  limit: 10000,
-				}
-			}
+
+            {
+                test: /\.css$/,
+                loader: 'style!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+
+            },
+            { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff"},
+            {test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader"},
+            {
+                test: /\.(png|jpg|jpeg|gif)$/,
+                loader: 'url-loader',
+                query: {
+                    name: IS_PROD ? '[hash].[ext]' : '[path][name].[ext]?[hash]',
+                    limit: 10000,
+                }
+            }
 		]
 	},
 	plugins: [

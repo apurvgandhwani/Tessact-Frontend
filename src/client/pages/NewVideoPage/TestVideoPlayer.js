@@ -4,12 +4,10 @@
 import {Component, PropTypes} from 'react'
 import classnames from 'classnames'
 
-// import videojs from 'video.js/es5/video'
+
 window.videojs = window.videojs || videojs
 import 'video.js/dist/video-js.css'
 import {connect} from 'react-redux'
-// import 'videojs-markers/dist/videojs.markers.css'
-// import 'videojs-markers/dist/videojs-markers.js'
 
 const debug = require('debug')('tessact:pages:video-player')
 var player;

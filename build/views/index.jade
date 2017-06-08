@@ -3,7 +3,11 @@ extends layout
 
 block head_scripts
 
-        script(src="http://code.jquery.com/jquery-2.0.3.min.js")
+        script(src='/public/jquery-1.12.3.min.js')
+        script(src='/public/ion.rangeSlider.js')
+        link(href='/public/normalize.css' rel="stylesheet")
+        link(href='/public/ion.rangeSlider.css' rel="stylesheet")
+        link(href='/public/ion.rangeSlider.skinFlat.css' rel='stylesheet')
         script(src='http://vjs.zencdn.net/5.15.1/video.js')
         link(href="http://vjs.zencdn.net/5.15.1/video-js.css" rel="stylesheet")
         script(src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js")
@@ -11,6 +15,10 @@ block head_scripts
         link(href='/public/marker.css' rel="stylesheet")
         script(src='/public/rangeslider.js')
         link(href='/public/rangeslider.css' rel="stylesheet")
+
+
+
+
 block body_scripts
 
     unless isBot
@@ -39,6 +47,7 @@ block body_scripts
 
 
         script(defer type='text/javascript' src='/public/main-bundle.js')
+
 
 
 block content

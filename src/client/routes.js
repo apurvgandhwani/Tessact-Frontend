@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import VideoScreen from './pages/VideoScreen'
 import TestVideoPage from './pages/TestVideoPage'
 import TaggingVideoPage from './pages/TaggingVideoPage'
+
 import TagList from './pages/VideoScreen/tagList'
 import AddTags from './pages/VideoScreen/addTags'
 import EditTag from './pages/VideoScreen/editTag'

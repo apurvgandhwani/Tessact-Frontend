@@ -46,7 +46,7 @@ var config = {
 		loaders: [
 			{
 				test: /\.js$/, 
-				loader: 'babel', 
+				loader: 'babel',
 				exclude: /node_modules/,
 				query: {
 					retainLines: true
@@ -61,10 +61,11 @@ var config = {
 					'stylus'
 				].join('!')
 			},
-			{
-				test: /\.css$/,
-				loader: 'isomorphic-style-loader!css-loader'
-			},
+            {
+                test: /\.css$/,
+                loader: 'style!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+
+            },
             {
                 test: /\.html$/,
                 loader: 'html-loader?attrs[]=video:src'
@@ -72,14 +73,9 @@ var config = {
                 test: /\.mp4$/,
                 loader: 'url?limit=10000&mimetype=video/mp4'
             },
-			{
-				test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				loader: 'url-loader?limit=10000&mimetype=application/font-woff'
-			},
-			{
-				test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				loader: 'file-loader'
-			},{
+            { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
+            {test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader"},
+            {
 				test: /\.(png|jpg|jpeg|gif)$/,
 				loader: 'url-loader',
 				query: {
