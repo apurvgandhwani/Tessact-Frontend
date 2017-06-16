@@ -3,6 +3,8 @@ import classnames from 'classnames'
 
 import GreyButton from 'components/ui/GreyButton'
 
+import $ from 'jquery'
+import ionRange from 'ion-rangeslider/js/ion.rangeSlider'
 
 import 'bootstrap-tagsinput'
 
@@ -10,9 +12,13 @@ class AddTagSection extends Component {
 
 
     componentDidMount() {
+        $(this.slider_el).ionRangeSlider();
+        this.slider = $(this.slider_el).data("ionRangeSlider")
+    }
 
-        $('#ionSlider-newTag').ionRangeSlider();
-
+    componentWillUnmount = ()=> {
+        if (this.slider)
+            this.slider.destroy();
     }
 
 
@@ -27,13 +33,20 @@ class AddTagSection extends Component {
                     <div className="panel-body">
                         {/*<!-- REMOVE THIS WRAPPER IF .scrollable IS NOT USED -->*/}
                         <div className="irs-wrapper">
-                            <input type="text" id="ionSlider-newTag" name="ionSlider" value="0;2057"/>
+                            <input
+                                ref={node => this.slider_el = node}
+                                type="text"
+                                id="ionSlider-newTag"
+                                name="ionSlider"
+                                value="0;2057"/>
                         </div>
                         <br/>
                             <div className="form-group form-group-default">
                                 <label>Tags</label>
-                                <input id="tagsinput" type="text" value="Smoking,Drinking"
-                                       data-role="tagsinput"/>
+                                <input
+                                    id="tagsinput"
+                                    type="text" value="Smoking,Drinking"
+                                    data-role="tagsinput"/>
                             </div>
 
                             <div className="form-group form-group-default">
