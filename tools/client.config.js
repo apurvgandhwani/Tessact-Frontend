@@ -35,22 +35,22 @@ var config = {
 	module: {
 		loaders: [
 			{test: /\.json$/, loader: 'json', exclude: /node_modules/},
-			{test: /\.js$/, 
-				loader: 'babel', 
+			{test: /\.js$/,
+				loader: 'babel',
 				exclude: /node_modules/,
 				include: [ DIRS.SRC_CLIENT ],
 				query: {
 					cacheDirectory: true,
-					env: { 
+					env: {
 						development: {
 							presets: ['react-hmre']
 						}
-					} 
+					}
 				}
 			},
 			{
-				test: /\.styl$/, 
-				loader: [ 
+				test: /\.styl$/,
+				loader: [
 					'isomorphic-style-loader',
 					'css?sourceMap&localIdentName=[name]_[local]_[hash:base64:3]',
 					'stylus?sourceMap'
@@ -88,7 +88,10 @@ var config = {
 			"process.env.NODE_ENV": (IS_PROD ? JSON.stringify("production") : JSON.stringify("development"))
 		}),
 		new webpack.ProvidePlugin({
-			React: 'react'
+			React: 'react',
+			$: 'jquery',
+			jQuery: 'jquery',
+			_: 'lodash'
 		}),
 		new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/)
 	],
@@ -110,7 +113,7 @@ if (IS_PROD){
 		'history'
 	];
 
-	config.plugins = config.plugins.concat([  
+	config.plugins = config.plugins.concat([
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'vendors',
 			filename: 'vendors-bundle.js'
